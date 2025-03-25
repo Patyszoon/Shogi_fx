@@ -3,7 +3,7 @@ module com.example.shogi_fx {
     requires javafx.fxml;
     requires java.desktop;
 
-
-    opens com.example.shogi_fx to javafx.fxml;
-    exports com.example.shogi_fx;
+    exports Myapp to javafx.graphics;
+    opens Myapp to javafx.fxml;
+    //exports com.example.shogi_fx;
 }

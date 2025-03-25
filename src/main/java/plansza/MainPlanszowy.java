@@ -3,7 +3,7 @@ package plansza;
 import javax.swing.*;
 import java.awt.*;
 
-public class Main {
+public class MainPlanszowy {
     public static void main(String[] args) {
         JFrame okno = new JFrame();
         okno.setLayout(new GridBagLayout());
