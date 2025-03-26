@@ -5,6 +5,10 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.fxml.FXMLLoader;
+import plansza.Board;
+
+import javax.swing.*;
+import java.awt.*;
 import java.io.IOException;
 
 public class Main extends Application {
@@ -49,7 +53,7 @@ public class Main extends Application {
     }
 
     public void pokazScenaGry() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("ScenaGry.fxml"));
+        /*FXMLLoader loader = new FXMLLoader(getClass().getResource("ScenaGry.fxml"));
         AnchorPane root = loader.load();
 
         ScenaGryController controllerScenaGry = loader.getController();
@@ -57,7 +61,18 @@ public class Main extends Application {
 
         scenaGry = new Scene(root);
         primaryStage.setScene(scenaGry);
-        primaryStage.setTitle("SHOGI GRA");
+        primaryStage.setTitle("SHOGI GRA");*/
+        JFrame okno = new JFrame();
+        okno.setLayout(new GridBagLayout());
+        okno.setMinimumSize(new Dimension(1000, 1000));
+        okno.setTitle("Shogi");
+        okno.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        okno.setLocationRelativeTo(null);
+
+        Board plansza = new Board();
+        okno.add(plansza);
+
+        okno.setVisible(true);
     }
 
     public void pokazScenaOpcje() throws IOException {
