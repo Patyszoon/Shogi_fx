@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Board extends JPanel {
-    int rozmiarKomorki = 85;
+    int rozmiarKomorki = 75;
     int kolumny = 9;
     int wiersze = 9;
 
