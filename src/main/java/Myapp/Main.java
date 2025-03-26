@@ -64,7 +64,7 @@ public class Main extends Application {
         primaryStage.setTitle("SHOGI GRA");*/
         JFrame okno = new JFrame();
         okno.setLayout(new GridBagLayout());
-        okno.setMinimumSize(new Dimension(1000, 1000));
+        okno.setMinimumSize(new Dimension(800, 800));
         okno.setTitle("Shogi");
         okno.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         okno.setLocationRelativeTo(null);
