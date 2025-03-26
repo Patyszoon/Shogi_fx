@@ -67,7 +67,7 @@ public class Main extends Application {
         ScenaOpcjeController controllerScenaOpcje = loader.getController();
         controllerScenaOpcje.setMainApp(this);
 
-        scenaGry = new Scene(root);
+        scenaOpcje = new Scene(root);
         primaryStage.setScene(scenaOpcje);
         primaryStage.setTitle("SHOGI OPCJE");
     }
@@ -79,7 +79,7 @@ public class Main extends Application {
         ScenaStatystykiController controllerScenaStatystyki = loader.getController();
         controllerScenaStatystyki.setMainApp(this);
 
-        scenaGry = new Scene(root);
+        scenaStatystyki = new Scene(root);
         primaryStage.setScene(scenaStatystyki);
         primaryStage.setTitle("SHOGI STATYSTYKI");
     }
