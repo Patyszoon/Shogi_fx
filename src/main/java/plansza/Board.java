@@ -18,15 +18,16 @@ public class Board extends JPanel {
         dodajBierki();
     }
 
+
     public void dodajBierki(){
-        listaBierek.add(new Krol(this, 1, 0));
-        listaBierek.add(new Wieza(this, 1, 0));
-        listaBierek.add(new Goniec(this, 1, 0));
-        listaBierek.add(new ZlotyGeneral(this, 1, 0));
-        listaBierek.add(new SrebrnyGeneral(this, 1, 0));
-        listaBierek.add(new Skoczek(this, 1, 0));
-        listaBierek.add(new Lanca(this, 1, 0));
-        listaBierek.add(new Pion(this, 1, 0));
+        listaBierek.add(new Krol(this, Kolor.BIALY, Stan.NA_PLANSZY, 2,2));
+        listaBierek.add(new Wieza(this, Kolor.BIALY, Stan.NA_PLANSZY, 300,2));
+        listaBierek.add(new Goniec(this, Kolor.BIALY, Stan.NA_PLANSZY, 4,2));
+        listaBierek.add(new ZlotyGeneral(this, Kolor.BIALY, Stan.NA_PLANSZY, 5,2));
+        listaBierek.add(new SrebrnyGeneral(this, Kolor.BIALY, Stan.NA_PLANSZY, 6,2));
+        listaBierek.add(new Skoczek(this, Kolor.BIALY, Stan.NA_PLANSZY, 7,2));
+        listaBierek.add(new Lanca(this, Kolor.BIALY, Stan.NA_PLANSZY, 8,2));
+        listaBierek.add(new Pion(this, Kolor.BIALY, Stan.NA_PLANSZY, 9,2));
     }
 
     public void paintComponent(Graphics g) {

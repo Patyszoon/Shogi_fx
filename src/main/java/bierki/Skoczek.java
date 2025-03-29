@@ -4,24 +4,15 @@ import plansza.Board;
 
 import java.awt.*;
 
-public class Skoczek extends PromowalnaBierka{
-    protected Skoczek(Kolor kolor, Stan stan, int wiersz, int kolumna) {
-        super(kolor, stan, wiersz, kolumna);
+public class Skoczek extends PromowalnaBierka {
+
+    public Skoczek(Board board, Kolor kolor, Stan stanb, int wiersz, int kolumna) {
+        super(board, kolor, stanb, wiersz, kolumna);
+        this.sprite = bierki.getSubimage(1 * rozmiarSprite, 0, rozmiarSprite, rozmiarSprite).getScaledInstance(board.rozmiarKomorki, board.rozmiarKomorki, Image.SCALE_SMOOTH);
     }
 
     @Override
-    public boolean czyLegalny(int x, int y) {
+    protected boolean czyLegalnyPrzedPromocja(int x, int y) {
         return false;
-    }
-
-    //do sprite'a bierki
-    public Skoczek(Board board, int wiersz, int kolumna) {
-        super(board);
-        this.wiersz = wiersz;
-        this.kolumna = kolumna;
-        this.x = wiersz * board.rozmiarKomorki;
-        this.y = kolumna * board.rozmiarKomorki;
-
-        this.sprite = bierki.getSubimage(1 * rozmiarSprite, 0, rozmiarSprite, rozmiarSprite).getScaledInstance(board.rozmiarKomorki, board.rozmiarKomorki, Image.SCALE_SMOOTH);
     }
 }

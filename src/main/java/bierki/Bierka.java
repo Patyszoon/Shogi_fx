@@ -8,12 +8,41 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 public abstract class Bierka {
+    //************************POLA********************************
     protected Kolor kolor;
     protected Stan stan;
     protected int kolumna;
     protected int wiersz;
     public int x;
     public int y;
+    Image sprite;
+    Board board;
+
+    //sprite'y do bierek
+    BufferedImage bierki;
+    {
+        try{
+            bierki = ImageIO.read(ClassLoader.getSystemResourceAsStream("bierki.png"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    //szerokość pliku graficznego/liczbę bierek
+    protected int rozmiarSprite = bierki.getWidth()/9;
+
+    //*****************************METODY**********************************
+
+    //Konstruktor
+    protected Bierka(Board plansza, Kolor kolor, Stan stan, int wiersz, int kolumna) {
+        this.kolor = kolor;
+        this.stan = stan;
+        this.kolumna = kolumna;
+        this.wiersz = wiersz;
+        this.board = plansza;
+        this.x = wiersz * board.rozmiarKomorki;
+        this.y = kolumna * board.rozmiarKomorki;
+    }
+
 
     //po zadaniu koordynatow na planszy zwraca informacje, czy jest to ruch zgodny z zasadami ruchu dla danej bierki
     public abstract boolean czyLegalny(int x, int y);
@@ -46,14 +75,6 @@ public abstract class Bierka {
         return new int[]{kolumna, wiersz};
     }
 
-    protected Bierka(Kolor kolor, Stan stan, int wiersz, int kolumna)
-    {
-        this.kolor = kolor;
-        this.stan = stan;
-        this.kolumna = kolumna;
-        this.wiersz = wiersz;
-    }
-
     public int[] getPozycja()
     {
         return new int[]{kolumna, wiersz};
@@ -65,25 +86,6 @@ public abstract class Bierka {
 
     public int getWiersz() {
         return wiersz;
-    }
-
-//sprite'y do bierek
-    BufferedImage bierki;
-    {
-        try{
-            bierki = ImageIO.read(ClassLoader.getSystemResourceAsStream("bierki.png"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-    //szerokość pliku graficznego/liczbę bierek
-    protected int rozmiarSprite = bierki.getWidth()/9;
-
-    Image sprite;
-    Board board;
-
-    public Bierka(Board board){
-        this.board = board;
     }
 
     public void paint(Graphics2D g2d){

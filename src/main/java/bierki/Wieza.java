@@ -1,27 +1,24 @@
 package bierki;
 
+
 import plansza.Board;
 
 import java.awt.*;
 
 public class Wieza extends PromowalnaBierka{
-    protected Wieza(Kolor kolor, Stan stan, int wiersz, int kolumna) {
-        super(kolor, stan, wiersz, kolumna);
+
+    public Wieza(Board board, Kolor kolor, Stan stanb, int wiersz, int kolumna) {
+        super(board, kolor, stanb, wiersz, kolumna);
+        this.sprite = bierki.getSubimage(1 * rozmiarSprite, 0, rozmiarSprite, rozmiarSprite).getScaledInstance(board.rozmiarKomorki, board.rozmiarKomorki, Image.SCALE_SMOOTH);
     }
 
     @Override
-    public boolean czyLegalny(int x, int y) {
-        return false;
+    protected boolean czyLegalnyPoPromocji(int x, int y) {
+        return super.czyLegalnyPoPromocji(x, y);
     }
 
-    //do sprite'a bierki
-    public Wieza(Board board, int wiersz, int kolumna) {
-        super(board);
-        this.wiersz = wiersz;
-        this.kolumna = kolumna;
-        this.x = wiersz * board.rozmiarKomorki;
-        this.y = kolumna * board.rozmiarKomorki;
-
-        this.sprite = bierki.getSubimage(1 * rozmiarSprite, 0, rozmiarSprite, rozmiarSprite).getScaledInstance(board.rozmiarKomorki, board.rozmiarKomorki, Image.SCALE_SMOOTH);
+    @Override
+    protected boolean czyLegalnyPrzedPromocja(int x, int y) {
+        return false;
     }
 }
