@@ -2,14 +2,12 @@ package bierki;
 
 import plansza.Board;
 
-import java.util.LinkedList;
-
 public abstract class PromowalnaBierka extends Bierka{
     boolean promowana = false;
 
     //konstruktor
-    protected PromowalnaBierka(Board plansza, Kolor kolor, Stan stan, int wiersz, int kolumna) {
-        super(plansza, kolor, stan, wiersz, kolumna);
+    protected PromowalnaBierka(Board plansza, Kolor kolor, Stan stan, int wiersz, int kolumna, int obrazek) {
+        super(plansza, kolor, stan, wiersz, kolumna, obrazek);
     }
 
     //przy promocji zmienia status pionka
@@ -37,7 +35,7 @@ public abstract class PromowalnaBierka extends Bierka{
         int k = (kolor == Kolor.BIALY) ? 1 : -1;
 
         for (int[] ints : mozliwe) {
-            if (((wiersz + ints[0]) == x) && ((kolumna + ints[1]) == y)) {
+            if (((logX + ints[0]) == x) && ((logY + ints[1]) == y)) {
                 legalny = true;
                 break;
             }

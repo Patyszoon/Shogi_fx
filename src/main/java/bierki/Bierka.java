@@ -8,13 +8,12 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 public abstract class Bierka {
+
     //************************POLA********************************
     protected Kolor kolor;
     protected Stan stan;
-    protected int kolumna;
-    protected int wiersz;
-    public int x;
-    public int y;
+    protected int logY;
+    protected int logX;
     Image sprite;
     Board board;
 
@@ -33,16 +32,29 @@ public abstract class Bierka {
     //*****************************METODY**********************************
 
     //Konstruktor
-    protected Bierka(Board plansza, Kolor kolor, Stan stan, int wiersz, int kolumna) {
+    protected Bierka(Board plansza, Kolor kolor, Stan stan, int x, int y, int obrazek) {
         this.kolor = kolor;
         this.stan = stan;
-        this.kolumna = kolumna;
-        this.wiersz = wiersz;
+        this.logY = y;
+        this.logX = x;
         this.board = plansza;
-        this.x = wiersz * board.rozmiarKomorki;
-        this.y = kolumna * board.rozmiarKomorki;
+        wybierzImage(obrazek);
     }
 
+    protected void wybierzImage(int numer)
+    {
+        this.sprite = bierki.getSubimage(numer * rozmiarSprite, 0, rozmiarSprite, rozmiarSprite).getScaledInstance(board.rozmiarKomorki, board.rozmiarKomorki, Image.SCALE_SMOOTH);
+    }
+
+    public int grafX()
+    {
+        return logX*board.rozmiarKomorki;
+    }
+
+    public int grafY()
+    {
+        return logY*board.rozmiarKomorki;
+    }
 
     //po zadaniu koordynatow na planszy zwraca informacje, czy jest to ruch zgodny z zasadami ruchu dla danej bierki
     public abstract boolean czyLegalny(int x, int y);
@@ -52,8 +64,8 @@ public abstract class Bierka {
     {
         stan = Stan.ZBITY;
         if(kolor == Kolor.CZARNY) kolor = Kolor.BIALY; else kolor = Kolor.CZARNY; //zmiana koloru
-        kolumna = 0;
-        wiersz = 0;
+        logY = 0;
+        logX = 0;
     }
 
     public boolean czyWNiewoli()
@@ -64,32 +76,32 @@ public abstract class Bierka {
     //przemieszcza na zadane pole i zwraca tablice z podanymi argumentami
     public int[] ruch(int x, int y)
     {
-        kolumna = x;
-        wiersz = y;
-        return new int[]{kolumna, wiersz};
+        logY = x;
+        logX = y;
+        return new int[]{logY, logX};
     }
     public int[] ruch(int[] pozycja)
     {
-        kolumna = pozycja[0];
-        wiersz = pozycja[1];
-        return new int[]{kolumna, wiersz};
+        logY = pozycja[0];
+        logX = pozycja[1];
+        return new int[]{logY, logX};
     }
 
     public int[] getPozycja()
     {
-        return new int[]{kolumna, wiersz};
+        return new int[]{logY, logX};
     }
 
-    public int getKolumna() {
-        return kolumna;
+    public int getLogY() {
+        return logY;
     }
 
-    public int getWiersz() {
-        return wiersz;
+    public int getLogX() {
+        return logX;
     }
 
     public void paint(Graphics2D g2d){
-        g2d.drawImage(sprite, x, y, null);
+        g2d.drawImage(sprite, grafX(), grafY(), null);
     }
 
 }
