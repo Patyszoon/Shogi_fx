@@ -13,23 +13,31 @@ public class Board extends JPanel {
 
     ArrayList<Bierka> listaBierek = new ArrayList<>();
 
+    //rozmiar okna
     public Board(){
         this.setPreferredSize(new Dimension(kolumny * rozmiarKomorki, wiersze *rozmiarKomorki));
         dodajBierki();
     }
 
-
+    //bierki
     public void dodajBierki(){
-        listaBierek.add(new Krol(this, Kolor.BIALY, Stan.NA_PLANSZY, 2,2));
-        listaBierek.add(new Wieza(this, Kolor.BIALY, Stan.NA_PLANSZY, 300,2));
-        listaBierek.add(new Goniec(this, Kolor.BIALY, Stan.NA_PLANSZY, 4,2));
-        listaBierek.add(new ZlotyGeneral(this, Kolor.BIALY, Stan.NA_PLANSZY, 5,2));
-        listaBierek.add(new SrebrnyGeneral(this, Kolor.BIALY, Stan.NA_PLANSZY, 6,2));
-        listaBierek.add(new Skoczek(this, Kolor.BIALY, Stan.NA_PLANSZY, 7,2));
-        listaBierek.add(new Lanca(this, Kolor.BIALY, Stan.NA_PLANSZY, 8,2));
-        listaBierek.add(new Pion(this, Kolor.BIALY, Stan.NA_PLANSZY, 9,2));
+        listaBierek.add(new Krol(this, Kolor.BIALY, Stan.NA_PLANSZY, 4,8));
+        listaBierek.add(new Wieza(this, Kolor.BIALY, Stan.NA_PLANSZY, 7,7));
+        listaBierek.add(new Goniec(this, Kolor.BIALY, Stan.NA_PLANSZY, 1,7));
+        listaBierek.add(new ZlotyGeneral(this, Kolor.BIALY, Stan.NA_PLANSZY, 3,8));
+        listaBierek.add(new ZlotyGeneral(this, Kolor.BIALY, Stan.NA_PLANSZY, 5,8));
+        listaBierek.add(new SrebrnyGeneral(this, Kolor.BIALY, Stan.NA_PLANSZY, 2,8));
+        listaBierek.add(new SrebrnyGeneral(this, Kolor.BIALY, Stan.NA_PLANSZY, 6,8));
+        listaBierek.add(new Skoczek(this, Kolor.BIALY, Stan.NA_PLANSZY, 1,8));
+        listaBierek.add(new Skoczek(this, Kolor.BIALY, Stan.NA_PLANSZY, 7,8));
+        listaBierek.add(new Lanca(this, Kolor.BIALY, Stan.NA_PLANSZY, 0,8));
+        listaBierek.add(new Lanca(this, Kolor.BIALY, Stan.NA_PLANSZY, 8,8));
+        //to nie jest dobre rozwiązanie, ale na razie wystarczy tylko po to żeby ustawić bierki
+        // na planszy (ciężko będzie wyciągnąć jedną bierke z pętli)
+        for (wiersze = 0; wiersze < 9; wiersze++)
+            listaBierek.add(new Pion(this, Kolor.BIALY, Stan.NA_PLANSZY, wiersze ,6));
     }
-
+    //plansza
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;

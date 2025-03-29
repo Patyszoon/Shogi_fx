@@ -89,7 +89,7 @@ public abstract class Bierka {
     }
 
     public void paint(Graphics2D g2d){
-        g2d.drawImage(sprite, kolumna, wiersz, null);
+        g2d.drawImage(sprite, x, y, null);
     }
 
 }
