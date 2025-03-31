@@ -19,7 +19,8 @@ public class Goniec extends PromowalnaBierka{
         if(x == this.logX && y == this.logY-1)return true;
         if(x == this.logX && y == this.logY+1)return true;
         if(x == this.logX+1 && y == this.logY)return true;
-        return x == this.logX - 1 && y == this.logY;
+        if (x == this.logX - 1 && y == this.logY) return true;
+        return czyLegalnyPrzedPromocja(x, y);
     }
 
     public Goniec(Board board, Kolor kolor, Stan stanb, int wiersz, int kolumna) {

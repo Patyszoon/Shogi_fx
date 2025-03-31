@@ -17,7 +17,7 @@ public class Wieza extends PromowalnaBierka{
         if(x == this.logX-1 && y == this.logY+1)return true;
         if(x == this.logX+1 && y == this.logY+1)return true;
         if(x == this.logX+1 && y == this.logY-1)return true;
-        return false;
+        return czyLegalnyPrzedPromocja(x, y);
     }
 
     @Override

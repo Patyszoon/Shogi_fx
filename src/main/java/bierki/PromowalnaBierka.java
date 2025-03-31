@@ -27,28 +27,23 @@ public abstract class PromowalnaBierka extends Bierka{
 
     //pomocnicza funkcja dla klas, ktore zmieniaja ruch po promocji
     // domyslnie zaimplementowan ruch jak dla zlotego generala, czyli prawidlowo dla wszystkich poza wieza i goncem
-    protected boolean czyLegalnyPoPromocji(int x, int y) {
-        boolean legalny = false;
-        int[][] mozliwe = {{-1, 1}, {0, 1}, {1, 1},
-                {-1, 0},/*{0,  0},*/{1, 0},
-                /*{-1, -1},*/{0, -1},/*{1, -1}*/};
-        int k = (kolor == Kolor.BIALY) ? 1 : -1;
-
-        for (int[] ints : mozliwe) {
-            if (((logX + ints[0]) == x) && ((logY + ints[1]) == y)) {
-                legalny = true;
-                break;
-            }
-        }
-        return legalny;
+    protected boolean czyLegalnyPoPromocji(int x, int y){
+        if(x == this.logX && y == this.logY)return false;
+        if(x == this.logX-1 && y == this.logY-1)return false;
+        if(x == this.logX+1 && y == this.logY-1)return false;
+        for(int xl = x-1; xl <= (x + 1); xl++)
+            for(int yl = y-1; yl <= (y + 1); yl++)
+                if(xl == this.logX && yl == this.logY) return true;
+        return false;
     }
 
     @Override
     public boolean czyLegalny(int x, int y) {
         if (promowana) {
-            if (czyLegalnyPoPromocji(x, y)) return true;
+            return czyLegalnyPoPromocji(x, y);
+        } else {
+            return czyLegalnyPrzedPromocja(x, y);
         }
-        return czyLegalnyPrzedPromocja(x, y);
     }
 
 }
