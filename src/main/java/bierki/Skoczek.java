@@ -12,6 +12,7 @@ public class Skoczek extends PromowalnaBierka {
 
     @Override
     protected boolean czyLegalnyPrzedPromocja(int x, int y) {
-        return false;
+        if(x == this.logX-1 && y == this.logY+2)return true;
+        return x == this.logX + 1 && y == this.logY + 2;
     }
 }
