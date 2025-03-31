@@ -13,7 +13,11 @@ public class Wieza extends PromowalnaBierka{
 
     @Override
     protected boolean czyLegalnyPoPromocji(int x, int y) {
-        return super.czyLegalnyPoPromocji(x, y);
+        if(x == this.logX-1 && y == this.logY-1)return true;
+        if(x == this.logX-1 && y == this.logY+1)return true;
+        if(x == this.logX+1 && y == this.logY+1)return true;
+        if(x == this.logX+1 && y == this.logY-1)return true;
+        return false;
     }
 
     @Override
