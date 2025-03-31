@@ -2,6 +2,7 @@ package Myapp;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 
@@ -14,6 +15,8 @@ public class ScenaMenuController {
     private Button statystyki;
     @FXML
     private Button opcje;
+    @FXML
+    private Button wyjscie;
 
     @FXML
     private void initialize() {
@@ -39,6 +42,9 @@ public class ScenaMenuController {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+        });
+        wyjscie.setOnAction(event -> {
+            ((Stage)(((Button)event.getSource()).getScene().getWindow())).close();
         });
 
 

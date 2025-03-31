@@ -5,8 +5,9 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Myapp.ScenaMenuController">
    <children>
-      <Button fx:id="graj" layoutX="279.0" layoutY="187.0" mnemonicParsing="false" text="Graj" />
-      <Button fx:id="statystyki" layoutX="265.0" layoutY="136.0" mnemonicParsing="false" text="Statystyki" />
-      <Button fx:id="opcje" layoutX="275.0" layoutY="237.0" mnemonicParsing="false" text="Opcje" />
+      <Button fx:id="graj" layoutX="281.0" layoutY="137.0" mnemonicParsing="false" text="Graj" />
+      <Button fx:id="statystyki" layoutX="264.0" layoutY="237.0" mnemonicParsing="false" text="Statystyki" />
+      <Button fx:id="opcje" layoutX="274.0" layoutY="187.0" mnemonicParsing="false" text="Opcje" />
+      <Button fx:id="wyjscie" layoutX="269.0" layoutY="288.0" mnemonicParsing="false" text="Wyjście" />
    </children>
 </AnchorPane>
