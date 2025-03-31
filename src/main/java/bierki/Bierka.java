@@ -43,7 +43,8 @@ public abstract class Bierka {
 
     protected void wybierzImage(int numer)
     {
-        this.sprite = bierki.getSubimage(numer * rozmiarSprite, 0, rozmiarSprite, rozmiarSprite).getScaledInstance(board.rozmiarKomorki, board.rozmiarKomorki, Image.SCALE_SMOOTH);
+        int spriteY = (kolor == Kolor.BIALY) ? 0 : rozmiarSprite;
+        this.sprite = bierki.getSubimage(numer * rozmiarSprite, spriteY, rozmiarSprite, rozmiarSprite).getScaledInstance(board.rozmiarKomorki, board.rozmiarKomorki, Image.SCALE_SMOOTH);
     }
 
     public int grafX()

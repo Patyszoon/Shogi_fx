@@ -36,6 +36,21 @@ public class Board extends JPanel {
         // na planszy (ciężko będzie wyciągnąć jedną bierke z pętli)
         for (wiersze = 0; wiersze < 9; wiersze++)
             listaBierek.add(new Pion(this, Kolor.BIALY, Stan.NA_PLANSZY, wiersze ,6));
+
+        //to nie jest optymalne rozwiązanie, ale innego i lepszego rozwiązania nie ma (ja na takie jeszcze nie wpadłam)
+        listaBierek.add(new Krol(this, Kolor.CZARNY, Stan.NA_PLANSZY, 4,0));
+        listaBierek.add(new Wieza(this, Kolor.CZARNY, Stan.NA_PLANSZY, 7,1));
+        listaBierek.add(new Goniec(this, Kolor.CZARNY, Stan.NA_PLANSZY, 1,1));
+        listaBierek.add(new ZlotyGeneral(this, Kolor.CZARNY, Stan.NA_PLANSZY, 3,0));
+        listaBierek.add(new ZlotyGeneral(this, Kolor.CZARNY, Stan.NA_PLANSZY, 5,0));
+        listaBierek.add(new SrebrnyGeneral(this, Kolor.CZARNY, Stan.NA_PLANSZY, 2,0));
+        listaBierek.add(new SrebrnyGeneral(this, Kolor.CZARNY, Stan.NA_PLANSZY, 6,0));
+        listaBierek.add(new Skoczek(this, Kolor.CZARNY, Stan.NA_PLANSZY, 1,0));
+        listaBierek.add(new Skoczek(this, Kolor.CZARNY, Stan.NA_PLANSZY, 7,0));
+        listaBierek.add(new Lanca(this, Kolor.CZARNY, Stan.NA_PLANSZY, 0,0));
+        listaBierek.add(new Lanca(this, Kolor.CZARNY, Stan.NA_PLANSZY, 8,0));
+        for (wiersze = 0; wiersze < 9; wiersze++)
+            listaBierek.add(new Pion(this, Kolor.CZARNY, Stan.NA_PLANSZY, wiersze ,2));
     }
     //plansza
     public void paintComponent(Graphics g) {
