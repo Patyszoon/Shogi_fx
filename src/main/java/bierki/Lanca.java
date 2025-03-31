@@ -13,6 +13,6 @@ public class Lanca extends PromowalnaBierka{
 
     @Override
     protected boolean czyLegalnyPrzedPromocja(int x, int y) {
-        return false;
+        return (x == this.logX) && (y > this.logY);
     }
 }
