@@ -18,6 +18,8 @@ public class Wieza extends PromowalnaBierka{
 
     @Override
     protected boolean czyLegalnyPrzedPromocja(int x, int y) {
+        if(x == this.logX && y == this.logY) return false;
+        if((x == this.logX) || (y == this.logY)) return true;
         return false;
     }
 }
