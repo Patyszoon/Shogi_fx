@@ -3,9 +3,10 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Myapp.ScenaGryController">
+<AnchorPane prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Myapp.ScenaGryController">
    <children>
-      <Button fx:id="powrotDoMenu" layoutX="243.0" layoutY="187.0" mnemonicParsing="false" text="Powrót do menu" />
+      <Button fx:id="doMenuBezZapisu" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Wyjdż do menu bez zapisu" />
+      <Button fx:id="doMemuzZapisem" layoutX="14.0" layoutY="53.0" mnemonicParsing="false" text="Zapisz i wyjdź do menu" />
+      <Button fx:id="zapis" layoutX="14.0" layoutY="93.0" mnemonicParsing="false" text="Zapisz" />
    </children>
 </AnchorPane>

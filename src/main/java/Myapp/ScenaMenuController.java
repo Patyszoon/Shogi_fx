@@ -22,7 +22,7 @@ public class ScenaMenuController {
     private void initialize() {
         graj.setOnAction(event -> {
             try {
-                mainApp.pokazScenaGry();
+                mainApp.pokazScenaWyboru();
             } catch (IOException e) {
                 e.printStackTrace();
             }

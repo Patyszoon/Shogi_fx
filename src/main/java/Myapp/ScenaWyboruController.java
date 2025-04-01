@@ -5,17 +5,26 @@ import javafx.scene.control.Button;
 
 import java.io.IOException;
 
-public class ScenaGryController {
+public class ScenaWyboruController {
     private Main mainApp;
 
     @FXML
-    private Button doMenuBezZapisu;
+    private Button powrotDoMenu;
+    @FXML
+    private Button nowaGra;
 
     @FXML
     private void initialize() {
-        doMenuBezZapisu.setOnAction(event -> {
+        powrotDoMenu.setOnAction(event -> {
             try {
                 mainApp.pokazScenaMenu();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+        nowaGra.setOnAction(event -> {
+            try {
+                mainApp.pokazScenaGry();
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -26,3 +35,4 @@ public class ScenaGryController {
         this.mainApp = mainApp;
     }
 }
+
