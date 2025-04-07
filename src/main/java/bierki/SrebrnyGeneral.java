@@ -1,12 +1,10 @@
 package bierki;
 
-import plansza.Board;
-
-import java.awt.*;
+import Myapp.PlanszaController;
 
 public class SrebrnyGeneral extends PromowalnaBierka{
 
-    public SrebrnyGeneral(Board board, Kolor kolor, Stan stanb, int wiersz, int kolumna) {
+    public SrebrnyGeneral(PlanszaController board, Kolor kolor, Stan stanb, int wiersz, int kolumna) {
         super(board, kolor, stanb, wiersz, kolumna, 5);
     }
 

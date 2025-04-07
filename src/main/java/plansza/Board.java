@@ -1,4 +1,4 @@
-package plansza;
+/*package plansza;
 
 import bierki.*;
 
@@ -71,4 +71,4 @@ public class Board extends JPanel {
             bierka.paint(g2d);
         }
     }
-}
+}*/

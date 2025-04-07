@@ -1,13 +1,11 @@
 package bierki;
 
-import plansza.Board;
-
-import java.awt.*;
+import Myapp.PlanszaController;
 
 public class Pion extends PromowalnaBierka{
 
     //do sprite'a bierki
-    public Pion(Board board, Kolor kolor, Stan stanb, int wiersz, int kolumna) {
+    public Pion(PlanszaController board, Kolor kolor, Stan stanb, int wiersz, int kolumna) {
         super(board, kolor, stanb, wiersz, kolumna, 8);
     }
 

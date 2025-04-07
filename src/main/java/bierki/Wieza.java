@@ -1,13 +1,11 @@
 package bierki;
 
 
-import plansza.Board;
-
-import java.awt.*;
+import Myapp.PlanszaController;
 
 public class Wieza extends PromowalnaBierka{
 
-    public Wieza(Board board, Kolor kolor, Stan stanb, int wiersz, int kolumna) {
+    public Wieza(PlanszaController board, Kolor kolor, Stan stanb, int wiersz, int kolumna) {
         super(board, kolor, stanb, wiersz, kolumna, 2);
     }
 

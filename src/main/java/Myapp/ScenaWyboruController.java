@@ -12,6 +12,8 @@ public class ScenaWyboruController {
     private Button powrotDoMenu;
     @FXML
     private Button nowaGra;
+    @FXML
+    private Button wczytajZapis;
 
     @FXML
     private void initialize() {
@@ -23,6 +25,13 @@ public class ScenaWyboruController {
             }
         });
         nowaGra.setOnAction(event -> {
+            try {
+                mainApp.pokazScenaPlanszy();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+        wczytajZapis.setOnAction(event -> {
             try {
                 mainApp.pokazScenaGry();
             } catch (IOException e) {

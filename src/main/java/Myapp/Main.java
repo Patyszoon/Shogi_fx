@@ -1,19 +1,12 @@
 package Myapp;
 
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import javafx.fxml.FXMLLoader;
-import plansza.Board;
-import javafx.scene.control.Button;
 
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionListener;
 import java.io.IOException;
 
 public class Main extends Application {
@@ -25,11 +18,27 @@ public class Main extends Application {
     private Scene scenaOpcje;
     private Scene scenaStatystyki;
     private Scene scenaWyboru;
+    private Scene scenaPlanszy;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
         this.primaryStage = primaryStage;
         pokazScenaPowitalna();
+
+    }
+
+    void pokazScenaPlanszy() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("ScenaPlanszy.fxml"));
+        GridPane root = loader.load();
+
+
+        PlanszaController controllerPlanszy = loader.getController();
+        controllerPlanszy.setMainApp(this);
+
+        scenaPlanszy = new Scene(root);
+        primaryStage.setScene(scenaPlanszy);
+        primaryStage.setTitle("SHOGI");
+        primaryStage.show();
     }
 
     private void pokazScenaPowitalna() throws IOException {
@@ -100,13 +109,13 @@ public class Main extends Application {
         Board plansza = new Board();
         okno.add(plansza);
 
-        okno.setVisible(true);*/
+        okno.setVisible(true);
 
 
         //###################################################################################
 
 
-        /*JFrame okno = new JFrame();
+        JFrame okno = new JFrame();
         okno.setLayout(new GridBagLayout());
         Button przycisk = new Button("Wyjście");
         okno.setMinimumSize(new Dimension(1000, 800));

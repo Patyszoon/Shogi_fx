@@ -1,12 +1,12 @@
 package bierki;
 
-import plansza.Board;
+import Myapp.PlanszaController;
 
 public abstract class PromowalnaBierka extends Bierka{
     boolean promowana = false;
 
     //konstruktor
-    protected PromowalnaBierka(Board plansza, Kolor kolor, Stan stan, int wiersz, int kolumna, int obrazek) {
+    protected PromowalnaBierka(PlanszaController plansza, Kolor kolor, Stan stan, int wiersz, int kolumna, int obrazek) {
         super(plansza, kolor, stan, wiersz, kolumna, obrazek);
     }
 

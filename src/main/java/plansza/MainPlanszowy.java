@@ -1,4 +1,4 @@
-package plansza;
+/*package plansza;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,9 +12,9 @@ public class MainPlanszowy {
         okno.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         okno.setLocationRelativeTo(null);
 
-        Board plansza = new Board();
-        okno.add(plansza);
+        Board_fx plansza = new Board_fx();
+        //okno.add(plansza);
 
         okno.setVisible(true);
     }
-}
+}*/

@@ -1,6 +1,6 @@
 package bierki;
 
-import plansza.Board;
+import Myapp.PlanszaController;
 
 public class ZlotyGeneral extends Bierka{
 
@@ -15,7 +15,7 @@ public class ZlotyGeneral extends Bierka{
         return false;
     }
 
-    public ZlotyGeneral(Board board, Kolor kolor, Stan stanb, int wiersz, int kolumna) {
+    public ZlotyGeneral(PlanszaController board, Kolor kolor, Stan stanb, int wiersz, int kolumna) {
         super(board, kolor, stanb, wiersz, kolumna, 4);
     }
 }

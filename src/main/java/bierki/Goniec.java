@@ -1,8 +1,6 @@
 package bierki;
 
-import plansza.Board;
-
-import java.awt.*;
+import Myapp.PlanszaController;
 
 public class Goniec extends PromowalnaBierka{
 
@@ -23,7 +21,7 @@ public class Goniec extends PromowalnaBierka{
         return czyLegalnyPrzedPromocja(x, y);
     }
 
-    public Goniec(Board board, Kolor kolor, Stan stanb, int wiersz, int kolumna) {
+    public Goniec(PlanszaController board, Kolor kolor, Stan stanb, int wiersz, int kolumna) {
         super(board, kolor, stanb, wiersz, kolumna, 3);
     }
 }

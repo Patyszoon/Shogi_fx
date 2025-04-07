@@ -1,6 +1,7 @@
 package bierki;
 
-import plansza.Board;
+import Myapp.PlanszaController;
+
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -15,7 +16,7 @@ public abstract class Bierka {
     protected int logY;
     protected int logX;
     Image sprite;
-    Board board;
+    PlanszaController board;
 
     //sprite'y do bierek
     BufferedImage bierki;
@@ -32,7 +33,7 @@ public abstract class Bierka {
     //*****************************METODY**********************************
 
     //Konstruktor
-    protected Bierka(Board plansza, Kolor kolor, Stan stan, int x, int y, int obrazek) {
+    protected Bierka(PlanszaController plansza, Kolor kolor, Stan stan, int x, int y, int obrazek) {
         this.kolor = kolor;
         this.stan = stan;
         this.logY = y;
