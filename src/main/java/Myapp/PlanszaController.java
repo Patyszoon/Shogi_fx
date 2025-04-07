@@ -98,9 +98,10 @@ public class PlanszaController {
                 if ((x + y) % 2 == 0) {
                     pole.setFill(Color.WHITE);
                 } else {
-                    pole.setFill(Color.GRAY);
+                    pole.setFill(Color.WHITE);
                 }
-
+                pole.setStroke(Color.BLACK);
+                pole.setStrokeWidth(0.5);
                 pole.setLayoutX(x * rozmiarKomorki);
                 pole.setLayoutY(y * rozmiarKomorki);
 
@@ -109,6 +110,8 @@ public class PlanszaController {
         }
 
     }
+    
+
 
     public void setMainApp(Main mainApp) {
         this.mainApp = mainApp;
