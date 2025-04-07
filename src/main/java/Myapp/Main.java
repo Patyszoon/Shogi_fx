@@ -29,7 +29,7 @@ public class Main extends Application {
 
     void pokazScenaPlanszy() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("ScenaPlanszy.fxml"));
-        GridPane root = loader.load();
+        AnchorPane root = loader.load();
 
 
         PlanszaController controllerPlanszy = loader.getController();

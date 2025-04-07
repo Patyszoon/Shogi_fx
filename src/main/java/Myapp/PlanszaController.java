@@ -2,14 +2,21 @@ package Myapp;
 
 import bierki.*;
 import javafx.fxml.FXML;
-import javafx.scene.layout.GridPane;
+import javafx.scene.control.Button;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+
+import java.io.IOException;
 import java.util.ArrayList;
 
-
-
 public class PlanszaController {
+    @FXML
+    private Button zapiszMenu;
+    @FXML
+    private Button menu;
+    @FXML
+    private Button zapisz;
     private Main mainApp;
     public int rozmiarKomorki = 75;
     int kolumny = 9;
@@ -18,19 +25,36 @@ public class PlanszaController {
     ArrayList<Bierka> listaBierek = new ArrayList<>();
 
     @FXML
-    private GridPane plansza;
+    private AnchorPane plansza;
+
     public PlanszaController() {
     }
 
-    public PlanszaController(GridPane plansza) {
+    public PlanszaController(AnchorPane plansza) {
         this.plansza = plansza;
     }
 
-
     @FXML
     public void initialize() {
-        dodajBierki();
+
         rysujPlansze();
+        dodajBierki();
+        zapiszMenu.setOnAction(event -> {
+            try {
+                mainApp.pokazScenaMenu();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+        menu.setOnAction(event -> {
+            try {
+                mainApp.pokazScenaMenu();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+        zapisz.setOnAction(event -> {
+        });
     }
 
     public void dodajBierki() {
@@ -76,12 +100,17 @@ public class PlanszaController {
                 } else {
                     pole.setFill(Color.GRAY);
                 }
-                plansza.add(pole, x, y);
+
+                pole.setLayoutX(x * rozmiarKomorki);
+                pole.setLayoutY(y * rozmiarKomorki);
+
+                plansza.getChildren().add(pole);
             }
         }
+
     }
+
     public void setMainApp(Main mainApp) {
         this.mainApp = mainApp;
     }
 }
-

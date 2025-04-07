@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?import javafx.scene.layout.GridPane?>
 
-<GridPane fx:id="plansza" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Myapp.PlanszaController"
-          hgap="1" vgap="1" alignment="center">
-</GridPane>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="plansza" prefHeight="670.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Myapp.PlanszaController">
+   <children>
+      <Button fx:id="zapiszMenu" layoutX="715.0" layoutY="14.0" mnemonicParsing="false" text="Zapisz i wyjdź do menu" />
+      <Button fx:id="menu" layoutX="706.0" layoutY="55.0" mnemonicParsing="false" text="Wyjdź do menu bez zapisu" />
+      <Button fx:id="zapisz" layoutX="765.0" layoutY="93.0" mnemonicParsing="false" text="Zapisz" />
+   </children>
+</AnchorPane>

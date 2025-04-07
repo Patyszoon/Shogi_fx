@@ -1,6 +1,7 @@
 package bierki;
 
 import Myapp.PlanszaController;
+import javafx.scene.layout.AnchorPane;
 
 
 import javax.imageio.ImageIO;
@@ -105,5 +106,6 @@ public abstract class Bierka {
     public void paint(Graphics2D g2d){
         g2d.drawImage(sprite, grafX(), grafY(), null);
     }
+
 
 }
