@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane fx:id="plansza" prefHeight="670.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Myapp.PlanszaController">
+<AnchorPane fx:id="plansza" prefHeight="670.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Myapp.ScenaRozgrywkiController">
    <children>
       <Button fx:id="zapiszMenu" layoutX="715.0" layoutY="14.0" mnemonicParsing="false" text="Zapisz i wyjdź do menu" />
       <Button fx:id="menu" layoutX="706.0" layoutY="55.0" mnemonicParsing="false" text="Wyjdź do menu bez zapisu" />
@@ -47,7 +47,7 @@
                </graphic></Button>
             <Button fx:id="w2k0" mnemonicParsing="false" prefHeight="79.0" prefWidth="93.0" GridPane.rowIndex="2" >
                <graphic>
-                  <ImageView fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
+                  <ImageView fx:id="obrazw2k0" fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
                      <image>
                         <Image url="@bialy.PNG" />
                      </image>
@@ -71,7 +71,7 @@
                </graphic></Button>
             <Button fx:id="w2k2" mnemonicParsing="false" prefHeight="79.0" prefWidth="93.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
                <graphic>
-                  <ImageView fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
+                  <ImageView fx:id="obrazw2k2" fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
                      <image>
                         <Image url="@bialy.PNG" />
                      </image>
@@ -79,7 +79,7 @@
                </graphic></Button>
             <Button fx:id="w3k4" mnemonicParsing="false" prefHeight="79.0" prefWidth="93.0" GridPane.columnIndex="4" GridPane.rowIndex="3">
                <graphic>
-                  <ImageView fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
+                  <ImageView fx:id="obrazw3k4" fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
                      <image>
                         <Image url="@bialy.PNG" />
                      </image>
@@ -87,7 +87,7 @@
                </graphic></Button>
             <Button fx:id="w2k1" mnemonicParsing="false" prefHeight="79.0" prefWidth="93.0" GridPane.columnIndex="1" GridPane.rowIndex="2" >
                <graphic>
-                  <ImageView fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
+                  <ImageView fx:id="obrazw2k1" fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
                      <image>
                         <Image url="@bialy.PNG" />
                      </image>
@@ -95,7 +95,7 @@
                </graphic></Button>
             <Button fx:id="w3k3" mnemonicParsing="false" prefHeight="79.0" prefWidth="93.0" GridPane.columnIndex="3" GridPane.rowIndex="3" >
                <graphic>
-                  <ImageView fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
+                  <ImageView fx:id="obrazw3k3" fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
                      <image>
                         <Image url="@bialy.PNG" />
                      </image>
@@ -103,7 +103,7 @@
                </graphic></Button>
             <Button fx:id="w2k3" mnemonicParsing="false" prefHeight="79.0" prefWidth="93.0" GridPane.columnIndex="3" GridPane.rowIndex="2" >
                <graphic>
-                  <ImageView fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
+                  <ImageView fx:id="obrazw2k3" fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
                      <image>
                         <Image url="@bialy.PNG" />
                      </image>
@@ -125,10 +125,17 @@
                      </image>
                   </ImageView>
                </graphic></Button>
-            <Button fx:id="w2k4" mnemonicParsing="false" prefHeight="79.0" prefWidth="93.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+            <Button fx:id="w2k4" mnemonicParsing="false" prefHeight="79.0" prefWidth="93.0" GridPane.columnIndex="4" GridPane.rowIndex="2" >
+               <graphic>
+                  <ImageView fx:id="obrazw2k4" fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
+                     <image>
+                        <Image url="@bialy.PNG" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
             <Button fx:id="w1k8" mnemonicParsing="false" prefHeight="79.0" prefWidth="93.0" GridPane.columnIndex="8" GridPane.rowIndex="1">
                <graphic>
-                  <ImageView fitHeight="89.0" fitWidth="47.0" preserveRatio="true">
+                  <ImageView fx:id="obrazw1k8" fitHeight="89.0" fitWidth="47.0" preserveRatio="true">
                      <image>
                         <Image url="@test1.PNG" />
                      </image>
@@ -136,7 +143,7 @@
                </graphic></Button>
             <Button fx:id="w2k5" mnemonicParsing="false" prefHeight="79.0" prefWidth="93.0" GridPane.columnIndex="5" GridPane.rowIndex="2" >
                <graphic>
-                  <ImageView fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
+                  <ImageView fx:id="obrazw2k5" fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
                      <image>
                         <Image url="@bialy.PNG" />
                      </image>
@@ -144,7 +151,7 @@
                </graphic></Button>
             <Button fx:id="w2k6" mnemonicParsing="false" prefHeight="79.0" prefWidth="93.0" GridPane.columnIndex="6" GridPane.rowIndex="2" >
                <graphic>
-                  <ImageView fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
+                  <ImageView fx:id="obrazw2k6" fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
                      <image>
                         <Image url="@bialy.PNG" />
                      </image>
@@ -152,7 +159,7 @@
                </graphic></Button>
             <Button fx:id="w2k7" mnemonicParsing="false" prefHeight="79.0" prefWidth="93.0" GridPane.columnIndex="7" GridPane.rowIndex="2" >
                <graphic>
-                  <ImageView fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
+                  <ImageView fx:id="obrazw2k7" fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
                      <image>
                         <Image url="@bialy.PNG" />
                      </image>
@@ -160,7 +167,7 @@
                </graphic></Button>
             <Button fx:id="w2k8" mnemonicParsing="false" prefHeight="79.0" prefWidth="93.0" GridPane.columnIndex="8" GridPane.rowIndex="2" >
                <graphic>
-                  <ImageView fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
+                  <ImageView fx:id="obrazw2k8" fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
                      <image>
                         <Image url="@bialy.PNG" />
                      </image>
@@ -168,7 +175,7 @@
                </graphic></Button>
             <Button fx:id="w3k2" mnemonicParsing="false" prefHeight="79.0" prefWidth="93.0" GridPane.columnIndex="2" GridPane.rowIndex="3" >
                <graphic>
-                  <ImageView fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
+                  <ImageView fx:id="obrazw3k2" fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
                      <image>
                         <Image url="@bialy.PNG" />
                      </image>
@@ -176,7 +183,7 @@
                </graphic></Button>
             <Button fx:id="w3k1" mnemonicParsing="false" prefHeight="79.0" prefWidth="93.0" GridPane.columnIndex="1" GridPane.rowIndex="3" >
                <graphic>
-                  <ImageView fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
+                  <ImageView fx:id="obrazw3k1" fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
                      <image>
                         <Image url="@bialy.PNG" />
                      </image>
@@ -184,7 +191,7 @@
                </graphic></Button>
             <Button fx:id="w3k0" mnemonicParsing="false" prefHeight="79.0" prefWidth="93.0" GridPane.rowIndex="3" >
                <graphic>
-                  <ImageView fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
+                  <ImageView fx:id="obrazw3k0" fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
                      <image>
                         <Image url="@bialy.PNG" />
                      </image>
@@ -192,7 +199,7 @@
                </graphic></Button>
             <Button fx:id="w3k5" mnemonicParsing="false" prefHeight="79.0" prefWidth="93.0" GridPane.columnIndex="5" GridPane.rowIndex="3" >
                <graphic>
-                  <ImageView fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
+                  <ImageView fx:id="obrazw3k5" fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
                      <image>
                         <Image url="@bialy.PNG" />
                      </image>
@@ -200,7 +207,7 @@
                </graphic></Button>
             <Button fx:id="w3k6" mnemonicParsing="false" prefHeight="79.0" prefWidth="93.0" GridPane.columnIndex="6" GridPane.rowIndex="3" >
                <graphic>
-                  <ImageView fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
+                  <ImageView fx:id="obrazw3k6" fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
                      <image>
                         <Image url="@bialy.PNG" />
                      </image>
@@ -208,7 +215,7 @@
                </graphic></Button>
             <Button fx:id="w3k7" mnemonicParsing="false" prefHeight="79.0" prefWidth="93.0" GridPane.columnIndex="7" GridPane.rowIndex="3" >
                <graphic>
-                  <ImageView fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
+                  <ImageView fx:id="obrazw3k7" fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
                      <image>
                         <Image url="@bialy.PNG" />
                      </image>
@@ -216,7 +223,7 @@
                </graphic></Button>
             <Button fx:id="w3k8" mnemonicParsing="false" prefHeight="79.0" prefWidth="93.0" GridPane.columnIndex="8" GridPane.rowIndex="3" >
                <graphic>
-                  <ImageView fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
+                  <ImageView fx:id="obrazw3k8" fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
                      <image>
                         <Image url="@bialy.PNG" />
                      </image>
@@ -224,7 +231,7 @@
                </graphic></Button>
             <Button fx:id="w4k0" mnemonicParsing="false" prefHeight="79.0" prefWidth="93.0" GridPane.rowIndex="4" >
                <graphic>
-                  <ImageView fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
+                  <ImageView fx:id="obrazw4k0" fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
                      <image>
                         <Image url="@bialy.PNG" />
                      </image>
@@ -232,7 +239,7 @@
                </graphic></Button>
             <Button fx:id="w4k1" mnemonicParsing="false" prefHeight="79.0" prefWidth="93.0" GridPane.columnIndex="1" GridPane.rowIndex="4" >
                <graphic>
-                  <ImageView fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
+                  <ImageView fx:id="obrazw4k1" fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
                      <image>
                         <Image url="@bialy.PNG" />
                      </image>
@@ -240,7 +247,7 @@
                </graphic></Button>
             <Button fx:id="w4k2" mnemonicParsing="false" prefHeight="79.0" prefWidth="93.0" GridPane.columnIndex="2" GridPane.rowIndex="4" >
                <graphic>
-                  <ImageView fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
+                  <ImageView fx:id="obrazw4k2" fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
                      <image>
                         <Image url="@bialy.PNG" />
                      </image>
@@ -248,7 +255,7 @@
                </graphic></Button>
             <Button fx:id="w4k3" mnemonicParsing="false" prefHeight="79.0" prefWidth="93.0" GridPane.columnIndex="3" GridPane.rowIndex="4" >
                <graphic>
-                  <ImageView fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
+                  <ImageView fx:id="obrazw4k3" fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
                      <image>
                         <Image url="@bialy.PNG" />
                      </image>
@@ -256,7 +263,7 @@
                </graphic></Button>
             <Button fx:id="w4k4" mnemonicParsing="false" prefHeight="79.0" prefWidth="93.0" GridPane.columnIndex="4" GridPane.rowIndex="4" >
                <graphic>
-                  <ImageView fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
+                  <ImageView fx:id="obrazw4k4" fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
                      <image>
                         <Image url="@bialy.PNG" />
                      </image>
@@ -264,7 +271,7 @@
                </graphic></Button>
             <Button fx:id="w4k5" mnemonicParsing="false" prefHeight="79.0" prefWidth="93.0" GridPane.columnIndex="5" GridPane.rowIndex="4" >
                <graphic>
-                  <ImageView fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
+                  <ImageView fx:id="obrazw4k5" fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
                      <image>
                         <Image url="@bialy.PNG" />
                      </image>
@@ -272,7 +279,7 @@
                </graphic></Button>
             <Button fx:id="w4k6" mnemonicParsing="false" prefHeight="79.0" prefWidth="93.0" GridPane.columnIndex="6" GridPane.rowIndex="4" >
                <graphic>
-                  <ImageView fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
+                  <ImageView fx:id="obrazw4k6" fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
                      <image>
                         <Image url="@bialy.PNG" />
                      </image>
@@ -280,7 +287,7 @@
                </graphic></Button>
             <Button fx:id="w4k7" mnemonicParsing="false" prefHeight="79.0" prefWidth="93.0" GridPane.columnIndex="7" GridPane.rowIndex="4" >
                <graphic>
-                  <ImageView fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
+                  <ImageView fx:id="obrazw4k7" fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
                      <image>
                         <Image url="@bialy.PNG" />
                      </image>
@@ -288,7 +295,7 @@
                </graphic></Button>
             <Button fx:id="w4k8" mnemonicParsing="false" prefHeight="79.0" prefWidth="93.0" GridPane.columnIndex="8" GridPane.rowIndex="4" >
                <graphic>
-                  <ImageView fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
+                  <ImageView fx:id="obrazw4k8" fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
                      <image>
                         <Image url="@bialy.PNG" />
                      </image>
@@ -296,7 +303,7 @@
                </graphic></Button>
             <Button fx:id="w5k0" mnemonicParsing="false" prefHeight="79.0" prefWidth="93.0" GridPane.rowIndex="5" >
                <graphic>
-                  <ImageView fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
+                  <ImageView fx:id="obrazw5k0" fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
                      <image>
                         <Image url="@bialy.PNG" />
                      </image>
@@ -304,7 +311,7 @@
                </graphic></Button>
             <Button fx:id="w5k1" mnemonicParsing="false" prefHeight="79.0" prefWidth="93.0" GridPane.columnIndex="1" GridPane.rowIndex="5" >
                <graphic>
-                  <ImageView fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
+                  <ImageView fx:id="obrazw5k1" fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
                      <image>
                         <Image url="@bialy.PNG" />
                      </image>
@@ -312,7 +319,7 @@
                </graphic></Button>
             <Button fx:id="w5k2" mnemonicParsing="false" prefHeight="79.0" prefWidth="93.0" GridPane.columnIndex="2" GridPane.rowIndex="5" >
                <graphic>
-                  <ImageView fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
+                  <ImageView fx:id="obrazw5k2" fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
                      <image>
                         <Image url="@bialy.PNG" />
                      </image>
@@ -320,7 +327,7 @@
                </graphic></Button>
             <Button fx:id="w5k3" mnemonicParsing="false" prefHeight="79.0" prefWidth="93.0" GridPane.columnIndex="3" GridPane.rowIndex="5" >
                <graphic>
-                  <ImageView fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
+                  <ImageView fx:id="obrazw5k3" fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
                      <image>
                         <Image url="@bialy.PNG" />
                      </image>
@@ -328,7 +335,7 @@
                </graphic></Button>
             <Button fx:id="w5k4" mnemonicParsing="false" prefHeight="79.0" prefWidth="93.0" GridPane.columnIndex="4" GridPane.rowIndex="5" >
                <graphic>
-                  <ImageView fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
+                  <ImageView fx:id="obrazw5k4" fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
                      <image>
                         <Image url="@bialy.PNG" />
                      </image>
@@ -336,7 +343,7 @@
                </graphic></Button>
             <Button fx:id="w5k5" mnemonicParsing="false" prefHeight="79.0" prefWidth="93.0" GridPane.columnIndex="5" GridPane.rowIndex="5" >
                <graphic>
-                  <ImageView fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
+                  <ImageView fx:id="obrazw5k5" fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
                      <image>
                         <Image url="@bialy.PNG" />
                      </image>
@@ -344,7 +351,7 @@
                </graphic></Button>
             <Button fx:id="w5k6" mnemonicParsing="false" prefHeight="79.0" prefWidth="93.0" GridPane.columnIndex="6" GridPane.rowIndex="5" >
                <graphic>
-                  <ImageView fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
+                  <ImageView fx:id="obrazw5k6" fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
                      <image>
                         <Image url="@bialy.PNG" />
                      </image>
@@ -352,7 +359,7 @@
                </graphic></Button>
             <Button fx:id="w5k7" mnemonicParsing="false" prefHeight="79.0" prefWidth="93.0" GridPane.columnIndex="7" GridPane.rowIndex="5" >
                <graphic>
-                  <ImageView fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
+                  <ImageView fx:id="obrazw5k7" fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
                      <image>
                         <Image url="@bialy.PNG" />
                      </image>
@@ -360,7 +367,7 @@
                </graphic></Button>
             <Button fx:id="w5k8" mnemonicParsing="false" prefHeight="79.0" prefWidth="93.0" GridPane.columnIndex="8" GridPane.rowIndex="5" >
                <graphic>
-                  <ImageView fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
+                  <ImageView fx:id="obrazw5k8" fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
                      <image>
                         <Image url="@bialy.PNG" />
                      </image>
@@ -368,7 +375,7 @@
                </graphic></Button>
             <Button fx:id="w6k0" mnemonicParsing="false" prefHeight="79.0" prefWidth="93.0" GridPane.rowIndex="6" >
                <graphic>
-                  <ImageView fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
+                  <ImageView fx:id="obrazw6k0" fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
                      <image>
                         <Image url="@bialy.PNG" />
                      </image>
@@ -376,7 +383,7 @@
                </graphic></Button>
             <Button fx:id="w6k1" mnemonicParsing="false" prefHeight="79.0" prefWidth="93.0" GridPane.columnIndex="1" GridPane.rowIndex="6" >
                <graphic>
-                  <ImageView fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
+                  <ImageView fx:id="obrazw6k1" fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
                      <image>
                         <Image url="@bialy.PNG" />
                      </image>
@@ -384,7 +391,7 @@
                </graphic></Button>
             <Button fx:id="w6k2" mnemonicParsing="false" prefHeight="79.0" prefWidth="93.0" GridPane.columnIndex="2" GridPane.rowIndex="6" >
                <graphic>
-                  <ImageView fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
+                  <ImageView fx:id="obrazw6k2" fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
                      <image>
                         <Image url="@bialy.PNG" />
                      </image>
@@ -392,7 +399,7 @@
                </graphic></Button>
             <Button fx:id="w6k3" mnemonicParsing="false" prefHeight="79.0" prefWidth="93.0" GridPane.columnIndex="3" GridPane.rowIndex="6" >
                <graphic>
-                  <ImageView fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
+                  <ImageView fx:id="obrazw6k3" fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
                      <image>
                         <Image url="@bialy.PNG" />
                      </image>
@@ -400,7 +407,7 @@
                </graphic></Button>
             <Button fx:id="w6k4" mnemonicParsing="false" prefHeight="79.0" prefWidth="93.0" GridPane.columnIndex="4" GridPane.rowIndex="6" >
                <graphic>
-                  <ImageView fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
+                  <ImageView fx:id="obrazw6k4" fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
                      <image>
                         <Image url="@bialy.PNG" />
                      </image>
@@ -408,7 +415,7 @@
                </graphic></Button>
             <Button fx:id="w6k5" mnemonicParsing="false" prefHeight="79.0" prefWidth="93.0" GridPane.columnIndex="5" GridPane.rowIndex="6" >
                <graphic>
-                  <ImageView fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
+                  <ImageView fx:id="obrazw6k5" fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
                      <image>
                         <Image url="@bialy.PNG" />
                      </image>
@@ -416,7 +423,7 @@
                </graphic></Button>
             <Button fx:id="w6k6" mnemonicParsing="false" prefHeight="79.0" prefWidth="93.0" GridPane.columnIndex="6" GridPane.rowIndex="6" >
                <graphic>
-                  <ImageView fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
+                  <ImageView fx:id="obrazw6k6" fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
                      <image>
                         <Image url="@bialy.PNG" />
                      </image>
@@ -424,7 +431,7 @@
                </graphic></Button>
             <Button fx:id="w6k7" mnemonicParsing="false" prefHeight="79.0" prefWidth="93.0" GridPane.columnIndex="7" GridPane.rowIndex="6" >
                <graphic>
-                  <ImageView fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
+                  <ImageView fx:id="obrazw6k7" fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
                      <image>
                         <Image url="@bialy.PNG" />
                      </image>
@@ -432,7 +439,7 @@
                </graphic></Button>
             <Button fx:id="w6k8" mnemonicParsing="false" prefHeight="79.0" prefWidth="93.0" GridPane.columnIndex="8" GridPane.rowIndex="6" >
                <graphic>
-                  <ImageView fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
+                  <ImageView fx:id="obrazw6k8" fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
                      <image>
                         <Image url="@bialy.PNG" />
                      </image>
@@ -440,7 +447,7 @@
                </graphic></Button>
             <Button fx:id="w7k0" mnemonicParsing="false" prefHeight="79.0" prefWidth="93.0" GridPane.rowIndex="7" >
                <graphic>
-                  <ImageView fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
+                  <ImageView fx:id="obrazw7k0" fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
                      <image>
                         <Image url="@bialy.PNG" />
                      </image>
@@ -448,7 +455,7 @@
                </graphic></Button>
             <Button fx:id="w7k1" mnemonicParsing="false" prefHeight="79.0" prefWidth="93.0" GridPane.columnIndex="1" GridPane.rowIndex="7" >
                <graphic>
-                  <ImageView fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
+                  <ImageView fx:id="obrazw7k1" fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
                      <image>
                         <Image url="@bialy.PNG" />
                      </image>
@@ -456,7 +463,7 @@
                </graphic></Button>
             <Button fx:id="w8k0" mnemonicParsing="false" prefHeight="79.0" prefWidth="93.0" GridPane.rowIndex="8" >
                <graphic>
-                  <ImageView fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
+                  <ImageView fx:id="obrazw8k0" fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
                      <image>
                         <Image url="@bialy.PNG" />
                      </image>
@@ -464,7 +471,7 @@
                </graphic></Button>
             <Button fx:id="w8k1" mnemonicParsing="false" prefHeight="79.0" prefWidth="93.0" GridPane.columnIndex="1" GridPane.rowIndex="8" >
                <graphic>
-                  <ImageView fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
+                  <ImageView fx:id="obrazw8k1" fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
                      <image>
                         <Image url="@bialy.PNG" />
                      </image>
@@ -472,7 +479,7 @@
                </graphic></Button>
             <Button fx:id="w7k3" mnemonicParsing="false" prefHeight="79.0" prefWidth="93.0" GridPane.columnIndex="3" GridPane.rowIndex="7" >
                <graphic>
-                  <ImageView fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
+                  <ImageView fx:id="obrazw7k3" fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
                      <image>
                         <Image url="@bialy.PNG" />
                      </image>
@@ -480,7 +487,7 @@
                </graphic></Button>
             <Button fx:id="w7k2" mnemonicParsing="false" prefHeight="79.0" prefWidth="93.0" GridPane.columnIndex="2" GridPane.rowIndex="7" >
                <graphic>
-                  <ImageView fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
+                  <ImageView fx:id="obrazw7k2" fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
                      <image>
                         <Image url="@bialy.PNG" />
                      </image>
@@ -488,7 +495,7 @@
                </graphic></Button>
             <Button fx:id="w8k2" mnemonicParsing="false" prefHeight="79.0" prefWidth="93.0" GridPane.columnIndex="2" GridPane.rowIndex="8" >
                <graphic>
-                  <ImageView fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
+                  <ImageView fx:id="obrazw8k2" fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
                      <image>
                         <Image url="@bialy.PNG" />
                      </image>
@@ -496,7 +503,7 @@
                </graphic></Button>
             <Button fx:id="w8k3" mnemonicParsing="false" prefHeight="79.0" prefWidth="93.0" GridPane.columnIndex="3" GridPane.rowIndex="8" >
                <graphic>
-                  <ImageView fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
+                  <ImageView fx:id="obrazw8k3" fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
                      <image>
                         <Image url="@bialy.PNG" />
                      </image>
@@ -504,7 +511,7 @@
                </graphic></Button>
             <Button fx:id="w7k4" mnemonicParsing="false" prefHeight="79.0" prefWidth="93.0" GridPane.columnIndex="4" GridPane.rowIndex="7" >
                <graphic>
-                  <ImageView fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
+                  <ImageView fx:id="obrazw7k4" fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
                      <image>
                         <Image url="@bialy.PNG" />
                      </image>
@@ -512,7 +519,7 @@
                </graphic></Button>
             <Button fx:id="w8k4" mnemonicParsing="false" prefHeight="79.0" prefWidth="93.0" GridPane.columnIndex="4" GridPane.rowIndex="8" >
                <graphic>
-                  <ImageView fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
+                  <ImageView fx:id="obrazw8k4" fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
                      <image>
                         <Image url="@bialy.PNG" />
                      </image>
@@ -520,7 +527,7 @@
                </graphic></Button>
             <Button fx:id="w7k5" mnemonicParsing="false" prefHeight="79.0" prefWidth="93.0" GridPane.columnIndex="5" GridPane.rowIndex="7" >
                <graphic>
-                  <ImageView fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
+                  <ImageView fx:id="obrazw7k5" fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
                      <image>
                         <Image url="@bialy.PNG" />
                      </image>
@@ -528,7 +535,7 @@
                </graphic></Button>
             <Button fx:id="w8k5" mnemonicParsing="false" prefHeight="79.0" prefWidth="93.0" GridPane.columnIndex="5" GridPane.rowIndex="8" >
                <graphic>
-                  <ImageView fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
+                  <ImageView fx:id="obrazw8k5" fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
                      <image>
                         <Image url="@bialy.PNG" />
                      </image>
@@ -536,7 +543,7 @@
                </graphic></Button>
             <Button fx:id="w8k6" mnemonicParsing="false" prefHeight="79.0" prefWidth="93.0" GridPane.columnIndex="6" GridPane.rowIndex="8" >
                <graphic>
-                  <ImageView fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
+                  <ImageView fx:id="obrazw8k6" fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
                      <image>
                         <Image url="@bialy.PNG" />
                      </image>
@@ -544,7 +551,7 @@
                </graphic></Button>
             <Button fx:id="w7k6" mnemonicParsing="false" prefHeight="79.0" prefWidth="93.0" GridPane.columnIndex="6" GridPane.rowIndex="7" >
                <graphic>
-                  <ImageView fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
+                  <ImageView fx:id="obrazw7k6" fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
                      <image>
                         <Image url="@bialy.PNG" />
                      </image>
@@ -552,7 +559,7 @@
                </graphic></Button>
             <Button fx:id="w7k7" mnemonicParsing="false" prefHeight="79.0" prefWidth="93.0" GridPane.columnIndex="7" GridPane.rowIndex="7" >
                <graphic>
-                  <ImageView fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
+                  <ImageView fx:id="obrazw7k7" fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
                      <image>
                         <Image url="@bialy.PNG" />
                      </image>
@@ -560,7 +567,7 @@
                </graphic></Button>
             <Button fx:id="w8k7" mnemonicParsing="false" prefHeight="79.0" prefWidth="93.0" GridPane.columnIndex="7" GridPane.rowIndex="8" >
                <graphic>
-                  <ImageView fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
+                  <ImageView fx:id="obrazw8k7" fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
                      <image>
                         <Image url="@bialy.PNG" />
                      </image>
@@ -568,7 +575,7 @@
                </graphic></Button>
             <Button fx:id="w7k8" mnemonicParsing="false" prefHeight="79.0" prefWidth="93.0" GridPane.columnIndex="8" GridPane.rowIndex="7" >
                <graphic>
-                  <ImageView fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
+                  <ImageView fx:id="obrazw7k8" fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
                      <image>
                         <Image url="@bialy.PNG" />
                      </image>
@@ -576,7 +583,7 @@
                </graphic></Button>
             <Button fx:id="w8k8" mnemonicParsing="false" prefHeight="79.0" prefWidth="93.0" GridPane.columnIndex="8" GridPane.rowIndex="8" >
                <graphic>
-                  <ImageView fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
+                  <ImageView fx:id="obrazw8k8" fitHeight="91.0" fitWidth="60.0" preserveRatio="true">
                      <image>
                         <Image url="@bialy.PNG" />
                      </image>
@@ -620,7 +627,7 @@
             </Button>
             <Button fx:id="w1k0" mnemonicParsing="false" prefHeight="79.0" prefWidth="93.0" GridPane.rowIndex="1">
                <graphic>
-                  <ImageView fitHeight="89.0" fitWidth="47.0" preserveRatio="true">
+                  <ImageView fx:id="obrazw1k0" fitHeight="89.0" fitWidth="47.0" preserveRatio="true">
                      <image>
                         <Image url="@test1.PNG" />
                      </image>
@@ -629,7 +636,7 @@
             </Button>
             <Button fx:id="w1k1" mnemonicParsing="false" prefHeight="79.0" prefWidth="93.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <graphic>
-                  <ImageView fitHeight="89.0" fitWidth="47.0" preserveRatio="true">
+                  <ImageView fx:id="obrazw1k1" fitHeight="89.0" fitWidth="47.0" preserveRatio="true">
                      <image>
                         <Image url="@test1.PNG" />
                      </image>
@@ -638,7 +645,7 @@
             </Button>
             <Button fx:id="w1k2" mnemonicParsing="false" prefHeight="79.0" prefWidth="93.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <graphic>
-                  <ImageView fitHeight="89.0" fitWidth="47.0" preserveRatio="true">
+                  <ImageView fx:id="obrazw1k2" fitHeight="89.0" fitWidth="47.0" preserveRatio="true">
                      <image>
                         <Image url="@test1.PNG" />
                      </image>
@@ -647,7 +654,7 @@
             </Button>
             <Button fx:id="w1k3" mnemonicParsing="false" prefHeight="79.0" prefWidth="93.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
                <graphic>
-                  <ImageView fitHeight="89.0" fitWidth="47.0" preserveRatio="true">
+                  <ImageView fx:id="obrazw1k3" fitHeight="89.0" fitWidth="47.0" preserveRatio="true">
                      <image>
                         <Image url="@test1.PNG" />
                      </image>
@@ -656,7 +663,7 @@
             </Button>
             <Button fx:id="w1k4" mnemonicParsing="false" prefHeight="79.0" prefWidth="93.0" GridPane.columnIndex="4" GridPane.rowIndex="1">
                <graphic>
-                  <ImageView fitHeight="89.0" fitWidth="47.0" preserveRatio="true">
+                  <ImageView fx:id="obrazw1k4" fitHeight="89.0" fitWidth="47.0" preserveRatio="true">
                      <image>
                         <Image url="@test1.PNG" />
                      </image>
@@ -665,7 +672,7 @@
             </Button>
             <Button fx:id="w1k5" mnemonicParsing="false" prefHeight="79.0" prefWidth="93.0" GridPane.columnIndex="5" GridPane.rowIndex="1">
                <graphic>
-                  <ImageView fitHeight="89.0" fitWidth="47.0" preserveRatio="true">
+                  <ImageView fx:id="obrazw1k5" fitHeight="89.0" fitWidth="47.0" preserveRatio="true">
                      <image>
                         <Image url="@test1.PNG" />
                      </image>
@@ -674,7 +681,7 @@
             </Button>
             <Button fx:id="w1k6" mnemonicParsing="false" prefHeight="79.0" prefWidth="93.0" GridPane.columnIndex="6" GridPane.rowIndex="1">
                <graphic>
-                  <ImageView fitHeight="89.0" fitWidth="47.0" preserveRatio="true">
+                  <ImageView fx:id="obrazw1k6" fitHeight="89.0" fitWidth="47.0" preserveRatio="true">
                      <image>
                         <Image url="@test1.PNG" />
                      </image>
@@ -683,7 +690,7 @@
             </Button>
             <Button fx:id="w1k7" mnemonicParsing="false" prefHeight="79.0" prefWidth="93.0" GridPane.columnIndex="7" GridPane.rowIndex="1">
                <graphic>
-                  <ImageView fitHeight="89.0" fitWidth="47.0" preserveRatio="true">
+                  <ImageView fx:id="obrazw1k7" fitHeight="89.0" fitWidth="47.0" preserveRatio="true">
                      <image>
                         <Image url="@test1.PNG" />
                      </image>
