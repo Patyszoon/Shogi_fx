@@ -1,11 +1,11 @@
 package bierki;
 
-import Myapp.ScenaRozgrywkiController;
+import Myapp.PlanszaController;
 
 public class Pion extends PromowalnaBierka{
 
     //do sprite'a bierki
-    public Pion(ScenaRozgrywkiController board, Kolor kolor, Stan stanb, int wiersz, int kolumna) {
+    public Pion(PlanszaController board, Kolor kolor, Stan stanb, int wiersz, int kolumna) {
         super(board, kolor, stanb, wiersz, kolumna, 8);
     }
 

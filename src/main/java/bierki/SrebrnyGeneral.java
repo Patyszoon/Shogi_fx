@@ -1,10 +1,10 @@
 package bierki;
 
-import Myapp.ScenaRozgrywkiController;
+import Myapp.PlanszaController;
 
 public class SrebrnyGeneral extends PromowalnaBierka{
 
-    public SrebrnyGeneral(ScenaRozgrywkiController board, Kolor kolor, Stan stanb, int wiersz, int kolumna) {
+    public SrebrnyGeneral(PlanszaController board, Kolor kolor, Stan stanb, int wiersz, int kolumna) {
         super(board, kolor, stanb, wiersz, kolumna, 5);
     }
 
