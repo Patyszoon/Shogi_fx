@@ -29,7 +29,7 @@ public abstract class Bierka {
         }
     }
     //szerokość pliku graficznego/liczbę bierek
-    protected int rozmiarSprite = bierki.getWidth()/9;
+    protected int rozmiarSprite = bierki.getWidth()/15;
 
     //*****************************METODY**********************************
 
