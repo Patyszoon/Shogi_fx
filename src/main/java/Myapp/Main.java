@@ -27,13 +27,13 @@ public class Main extends Application {
 
     }
 
-    void pokazScenaPlanszy() throws IOException {
+    void pokazScenaRozgrywki() throws IOException {
         //FXMLLoader loader = new FXMLLoader(getClass().getResource("ScenaPlanszy.fxml"));
         FXMLLoader loader = new FXMLLoader(getClass().getResource("ScenaRozgrywki.fxml"));
         AnchorPane root = loader.load();
 
 
-        PlanszaController controllerPlanszy = loader.getController();
+        ScenaRozgrywkiController controllerPlanszy = loader.getController();
         controllerPlanszy.setMainApp(this);
 
         scenaPlanszy = new Scene(root);

@@ -26,7 +26,7 @@ public class ScenaWyboruController {
         });
         nowaGra.setOnAction(event -> {
             try {
-                mainApp.pokazScenaPlanszy();
+                mainApp.pokazScenaRozgrywki();
             } catch (IOException e) {
                 e.printStackTrace();
             }

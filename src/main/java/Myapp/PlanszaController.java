@@ -1,4 +1,4 @@
-package Myapp;
+/*package Myapp;
 
 import bierki.*;
 import javafx.fxml.FXML;
@@ -116,4 +116,4 @@ public class PlanszaController {
     public void setMainApp(Main mainApp) {
         this.mainApp = mainApp;
     }
-}
+}*/
