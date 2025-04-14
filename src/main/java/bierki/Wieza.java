@@ -1,11 +1,11 @@
 package bierki;
 
 
-import Myapp.PlanszaController;
+import Myapp.ScenaRozgrywkiController;
 
 public class Wieza extends PromowalnaBierka{
 
-    public Wieza(PlanszaController board, Kolor kolor, Stan stanb, int wiersz, int kolumna) {
+    public Wieza(ScenaRozgrywkiController board, Kolor kolor, Stan stanb, int wiersz, int kolumna) {
         super(board, kolor, stanb, wiersz, kolumna, 2);
     }
 

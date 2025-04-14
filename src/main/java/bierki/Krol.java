@@ -1,6 +1,6 @@
 package bierki;
 
-import Myapp.PlanszaController;
+import Myapp.ScenaRozgrywkiController;
 
 public class Krol extends Bierka{
 
@@ -14,7 +14,7 @@ public class Krol extends Bierka{
         return false;
     }
 
-    public Krol(PlanszaController board, Kolor kolor, Stan stanb, int wiersz, int kolumna) {
+    public Krol(ScenaRozgrywkiController board, Kolor kolor, Stan stanb, int wiersz, int kolumna) {
         super(board, kolor, stanb, wiersz, kolumna, 1);
     }
 }
