@@ -28,8 +28,8 @@ public class ScenaRozgrywkiController {
     public int rozmiarKomorki = 75;
     int kolumny = 9;
     int wiersze = 9;
-    @FXML
-    ImageView krol;
+
+
 
 
     ArrayList<Bierka> listaBierek = new ArrayList<>();
