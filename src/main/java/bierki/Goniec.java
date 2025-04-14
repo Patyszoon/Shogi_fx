@@ -1,6 +1,6 @@
 package bierki;
 
-import Myapp.PlanszaController;
+import Myapp.ScenaRozgrywkiController;
 
 public class Goniec extends PromowalnaBierka{
 
@@ -21,7 +21,7 @@ public class Goniec extends PromowalnaBierka{
         return czyLegalnyPrzedPromocja(x, y);
     }
 
-    public Goniec(PlanszaController board, Kolor kolor, Stan stanb, int wiersz, int kolumna) {
+    public Goniec(ScenaRozgrywkiController board, Kolor kolor, Stan stanb, int wiersz, int kolumna) {
         super(board, kolor, stanb, wiersz, kolumna, 3);
     }
 }

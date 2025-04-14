@@ -1,10 +1,10 @@
 package bierki;
 
-import Myapp.PlanszaController;
+import Myapp.ScenaRozgrywkiController;
 
 public class Skoczek extends PromowalnaBierka {
 
-    public Skoczek(PlanszaController board, Kolor kolor, Stan stanb, int wiersz, int kolumna) {
+    public Skoczek(ScenaRozgrywkiController board, Kolor kolor, Stan stanb, int wiersz, int kolumna) {
         super(board, kolor, stanb, wiersz, kolumna, 6);
     }
 
