@@ -28,7 +28,8 @@ public class Main extends Application {
     }
 
     void pokazScenaPlanszy() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("ScenaPlanszy.fxml"));
+        //FXMLLoader loader = new FXMLLoader(getClass().getResource("ScenaPlanszy.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("ScenaRozgrywki.fxml"));
         AnchorPane root = loader.load();
 
 

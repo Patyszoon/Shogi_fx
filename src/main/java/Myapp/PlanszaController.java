@@ -37,7 +37,7 @@ public class PlanszaController {
     @FXML
     public void initialize() {
 
-        rysujPlansze();
+        //rysujPlansze();
         dodajBierki();
         zapiszMenu.setOnAction(event -> {
             try {
