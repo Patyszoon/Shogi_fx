@@ -37,6 +37,150 @@ public class ScenaRozgrywkiController {
     private Button w0k7;
     @FXML
     private Button w0k8;
+    @FXML
+    private Button w1k0;
+    @FXML
+    private Button w1k1;
+    @FXML
+    private Button w1k2;
+    @FXML
+    private Button w1k3;
+    @FXML
+    private Button w1k4;
+    @FXML
+    private Button w1k5;
+    @FXML
+    private Button w1k6;
+    @FXML
+    private Button w1k7;
+    @FXML
+    private Button w1k8;
+    @FXML
+    private Button w2k0;
+    @FXML
+    private Button w2k1;
+    @FXML
+    private Button w2k2;
+    @FXML
+    private Button w2k3;
+    @FXML
+    private Button w2k4;
+    @FXML
+    private Button w2k5;
+    @FXML
+    private Button w2k6;
+    @FXML
+    private Button w2k7;
+    @FXML
+    private Button w2k8;
+    @FXML
+    private Button w3k0;
+    @FXML
+    private Button w3k1;
+    @FXML
+    private Button w3k2;
+    @FXML
+    private Button w3k3;
+    @FXML
+    private Button w3k4;
+    @FXML
+    private Button w3k5;
+    @FXML
+    private Button w3k6;
+    @FXML
+    private Button w3k7;
+    @FXML
+    private Button w3k8;
+    @FXML
+    private Button w4k0;
+    @FXML
+    private Button w4k1;
+    @FXML
+    private Button w4k2;
+    @FXML
+    private Button w4k3;
+    @FXML
+    private Button w4k4;
+    @FXML
+    private Button w4k5;
+    @FXML
+    private Button w4k6;
+    @FXML
+    private Button w4k7;
+    @FXML
+    private Button w4k8;
+    @FXML
+    private Button w5k0;
+    @FXML
+    private Button w5k1;
+    @FXML
+    private Button w5k2;
+    @FXML
+    private Button w5k3;
+    @FXML
+    private Button w5k4;
+    @FXML
+    private Button w5k5;
+    @FXML
+    private Button w5k6;
+    @FXML
+    private Button w5k7;
+    @FXML
+    private Button w5k8;
+    @FXML
+    private Button w6k0;
+    @FXML
+    private Button w6k1;
+    @FXML
+    private Button w6k2;
+    @FXML
+    private Button w6k3;
+    @FXML
+    private Button w6k4;
+    @FXML
+    private Button w6k5;
+    @FXML
+    private Button w6k6;
+    @FXML
+    private Button w6k7;
+    @FXML
+    private Button w6k8;
+    @FXML
+    private Button w7k0;
+    @FXML
+    private Button w7k1;
+    @FXML
+    private Button w7k2;
+    @FXML
+    private Button w7k3;
+    @FXML
+    private Button w7k4;
+    @FXML
+    private Button w7k5;
+    @FXML
+    private Button w7k6;
+    @FXML
+    private Button w7k7;
+    @FXML
+    private Button w7k8;
+    @FXML
+    private Button w8k0;
+    @FXML
+    private Button w8k1;
+    @FXML
+    private Button w8k2;
+    @FXML
+    private Button w8k3;
+    @FXML
+    private Button w8k4;
+    @FXML
+    private Button w8k5;
+    @FXML
+    private Button w8k6;
+    @FXML
+    private Button w8k7;
+    @FXML
+    private Button w8k8;
     private Main mainApp;
     public int rozmiarKomorki = 75;
     int kolumny = 9;
@@ -191,8 +335,48 @@ public class ScenaRozgrywkiController {
 
         w0k0.setGraphic(lancadown);
         w0k8.setGraphic(lancadown);
-        //w8k0.setGraphic(lancaup);
-        //w8k8.setGraphic(lancaup);
+        w8k0.setGraphic(lancaup);
+        w8k8.setGraphic(lancaup);
+        w0k1.setGraphic(skoczekdown);
+        w0k7.setGraphic(skoczekdown);
+        w8k1.setGraphic(skoczekup);
+        w8k7.setGraphic(skoczekup);
+        w0k2.setGraphic(srebrnyGeneraldown);
+        w0k6.setGraphic(srebrnyGeneraldown);
+        w8k2.setGraphic(srebrnyGeneralup);
+        w8k6.setGraphic(srebrnyGeneralup);
+        w0k3.setGraphic(zlotyGeneraldown);
+        w0k5.setGraphic(zlotyGeneraldown);
+        w8k3.setGraphic(zlotyGeneralup);
+        w8k5.setGraphic(zlotyGeneralup);
+        w0k4.setGraphic(kroldown);
+        w8k4.setGraphic(krol2up);
+        w1k1.setGraphic(wiezadown);
+        w7k7.setGraphic(wiezaup);
+        w1k7.setGraphic(goniecdown);
+        w7k1.setGraphic(goniecup);
+        w3k0.setGraphic(pionekdown);
+        w3k1.setGraphic(pionekdown);
+        w3k2.setGraphic(pionekdown);
+        w3k3.setGraphic(pionekdown);
+        w3k4.setGraphic(pionekdown);
+        w3k5.setGraphic(pionekdown);
+        w3k6.setGraphic(pionekdown);
+        w3k7.setGraphic(pionekdown);
+        w3k8.setGraphic(pionekdown);
+        w6k0.setGraphic(pionekup);
+        w6k1.setGraphic(pionekup);
+        w6k2.setGraphic(pionekup);
+        w6k3.setGraphic(pionekup);
+        w6k4.setGraphic(pionekup);
+        w6k5.setGraphic(pionekup);
+        w6k6.setGraphic(pionekup);
+        w6k7.setGraphic(pionekup);
+        w6k8.setGraphic(pionekup);
+
+
+
+
 
 
 
