@@ -11,11 +11,11 @@ public abstract class Bierka {
     //*****************************METODY**********************************
 
     //Konstruktor
-    protected Bierka(Kolor kolor, Stan stan, int x, int y) {
+    protected Bierka(Kolor kolor, Stan stan, int kolumna, int wiersz) {
         this.kolor = kolor;
         this.stan = stan;
-        this.nrWiersza = y;
-        this.nrKolumny = x;
+        this.nrWiersza = wiersz;
+        this.nrKolumny = kolumna;
     }
 
     public boolean czyNieSkoczek()
@@ -30,7 +30,7 @@ public abstract class Bierka {
     }
 
     //po zadaniu koordynatow na planszy zwraca informacje, czy jest to ruch zgodny z zasadami ruchu dla danej bierki
-    public abstract boolean czyLegalny(int x, int y);
+    public abstract boolean czyLegalny(int kolumna, int wiersz);
 
     //wywolywane gdy zbijany - zmienia jego stan an zbity i zmienia kolor
     public void zbity()
@@ -47,22 +47,22 @@ public abstract class Bierka {
     }
 
     //przemieszcza na zadane pole i zwraca tablice z podanymi argumentami
-    public int[] ruch(int x, int y)
+    public int[] ruch(int kolumna, int wiersz)
     {
-        nrWiersza = x;
-        nrKolumny = y;
-        return new int[]{nrWiersza, nrKolumny};
+        nrWiersza = wiersz;
+        nrKolumny = kolumna;
+        return new int[]{nrKolumny, nrWiersza};
     }
     public int[] ruch(int[] pozycja)
     {
-        nrWiersza = pozycja[0];
-        nrKolumny = pozycja[1];
-        return new int[]{nrWiersza, nrKolumny};
+        nrKolumny = pozycja[0];
+        nrWiersza = pozycja[1];
+        return new int[]{nrKolumny, nrWiersza};
     }
 
     public int[] getPozycja()
     {
-        return new int[]{nrWiersza, nrKolumny};
+        return new int[]{nrKolumny, nrWiersza};
     }
 
     public int getNrWiersza() {

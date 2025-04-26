@@ -4,8 +4,8 @@ public abstract class PromowalnaBierka extends Bierka{
     protected boolean promowana = false;
 
     //konstruktor
-    protected PromowalnaBierka(Kolor kolor, Stan stan, int wiersz, int kolumna) {
-        super(kolor, stan, wiersz, kolumna);
+    protected PromowalnaBierka(Kolor kolor, Stan stan, int kolumna, int wiersz) {
+        super(kolor, stan, kolumna, wiersz);
     }
 
     public boolean czyPromowana()
@@ -30,12 +30,12 @@ public abstract class PromowalnaBierka extends Bierka{
 
     //pomocnicza funkcja dla klas, ktore zmieniaja ruch po promocji
     // domyslnie zaimplementowan ruch jak dla zlotego generala, czyli prawidlowo dla wszystkich poza wieza i goncem
-    protected boolean czyLegalnyPoPromocji(int x, int y){
-        if(x == this.nrKolumny && y == this.nrWiersza)return false;
-        if(x == this.nrKolumny -1 && y == this.nrWiersza -1)return false;
-        if(x == this.nrKolumny +1 && y == this.nrWiersza -1)return false;
-        for(int xl = x-1; xl <= (x + 1); xl++)
-            for(int yl = y-1; yl <= (y + 1); yl++)
+    protected boolean czyLegalnyPoPromocji(int kolumna, int wiersz){
+        if(kolumna == this.nrKolumny && wiersz == this.nrWiersza)return false;
+        if(kolumna == this.nrKolumny -1 && wiersz == this.nrWiersza -1)return false;
+        if(kolumna == this.nrKolumny +1 && wiersz == this.nrWiersza -1)return false;
+        for(int xl = kolumna-1; xl <= (kolumna + 1); xl++)
+            for(int yl = wiersz-1; yl <= (wiersz + 1); yl++)
                 if(xl == this.nrKolumny && yl == this.nrWiersza) return true;
         return false;
     }
