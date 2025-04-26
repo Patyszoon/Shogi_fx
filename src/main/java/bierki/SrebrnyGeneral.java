@@ -8,10 +8,10 @@ public class SrebrnyGeneral extends PromowalnaBierka{
 
     @Override
     protected boolean czyLegalnyPrzedPromocja(int x, int y) {
-        if(x == this.logX-1 && y == this.logY+1)return true;
-        if(x == this.logX && y == this.logY+1)return true;
-        if(x == this.logX+1 && y == this.logY+1)return true;
-        if(x == this.logX-1 && y == this.logY-1)return true;
-        return (x == (this.logX + 1)) && (y == (this.logY - 1));
+        if(x == this.nrKolumny -1 && y == this.nrWiersza +1)return true;
+        if(x == this.nrKolumny && y == this.nrWiersza +1)return true;
+        if(x == this.nrKolumny +1 && y == this.nrWiersza +1)return true;
+        if(x == this.nrKolumny -1 && y == this.nrWiersza -1)return true;
+        return (x == (this.nrKolumny + 1)) && (y == (this.nrWiersza - 1));
     }
 }

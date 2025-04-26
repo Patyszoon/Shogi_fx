@@ -6,8 +6,10 @@ import java.util.ArrayList;
 
 public class Rozgrywka {
 
+
+    //docelowo wszytkie poniższe sa prywatne
     private ArrayList<Bierka> bierki = new ArrayList<>();
-    private Bierka[][] plansza = new Bierka[9][9];
+    public Bierka[][] plansza = new Bierka[9][9];
     private Bierka aktywna = null;
     private boolean czyAktywne = false;
     private Kolor strona = Kolor.CZARNY;
@@ -59,7 +61,7 @@ public class Rozgrywka {
     private void dodajBierke(Bierka bierka)
     {
         bierki.add(bierka);
-        plansza[bierka.getLogX()][bierka.getLogY()] = bierka;
+        plansza[bierka.getNrKolumny()][bierka.getNrWiersza()] = bierka;
 
     }
 
@@ -80,6 +82,7 @@ public class Rozgrywka {
             }
             System.out.println();
         }
+        System.out.println();
     }
 
     //metoda do debugowania
@@ -153,12 +156,14 @@ public class Rozgrywka {
     //metoda zwraca true, jeżeli klikniecie sprawia zmianę sytuacji wyświetlanej na planszy
     public boolean ruch(Klikniecie klikniecie)
     {
+        System.out.println("kliknieto na pole: " + klikniecie.getX() + " " + klikniecie.getY());
         if (!klikniecie.czyPrawy())
         {
+            System.out.println("Kliknieto lewym klawiszem myszy");
             if(aktywna != null)
             {
                 //jest juz zaznaczona bierka
-
+                System.out.println("Jest juz aktywna bierka");
                 if((plansza[klikniecie.getX()][klikniecie.getY()] == null) || (plansza[klikniecie.getX()][klikniecie.getY()].getKolor() != aktywna.getKolor()))
                 //klikniecie na puste lub bierke przeciwnika - proba ruchu
                 {
@@ -166,19 +171,19 @@ public class Rozgrywka {
                     {
                         if (aktywna.czyNieSkoczek())
                         {
-                            if (czyDrogaWolna(aktywna.getLogX(), aktywna.getLogY(), klikniecie.getX(), klikniecie.getY()))
+                            if (czyDrogaWolna(aktywna.getNrKolumny(), aktywna.getNrWiersza(), klikniecie.getX(), klikniecie.getY()))
                             {
                                 aktywna = null;
                                 return true;
                             }
                         }
-                        plansza[aktywna.getLogX()][aktywna.getLogY()] = null;
+                        plansza[aktywna.getNrKolumny()][aktywna.getNrWiersza()] = null;
                         aktywna.ruch(klikniecie.getX(), klikniecie.getY());
                         if (plansza[klikniecie.getX()][klikniecie.getY()] != null)
                         {
-                            plansza[aktywna.getLogX()][aktywna.getLogY()].zbity();
+                            plansza[aktywna.getNrKolumny()][aktywna.getNrWiersza()].zbity();
                         }
-                        plansza[aktywna.getLogX()][aktywna.getLogY()] = aktywna;
+                        plansza[aktywna.getNrKolumny()][aktywna.getNrWiersza()] = aktywna;
                         zmianaGracza();
                     }
                     aktywna = null;
@@ -195,18 +200,24 @@ public class Rozgrywka {
                 //nie ma jeszcze zaznaczonej bierki
 
                 //klikniecie lewym na bierke - wybranie bierki
+                System.out.println("nie ma jeszcze aktywnej bierki");
                 if(plansza[klikniecie.getX()][klikniecie.getY()] != null)
                 {
+                    System.out.println("kliknieta na niepuste pole");
+                    System.out.println(plansza[klikniecie.getX()][klikniecie.getY()].getKolor());
+                    System.out.println(strona);
                     if (plansza[klikniecie.getX()][klikniecie.getY()].getKolor() == strona)
                     {
+                        System.out.println("kolor sie zgadza");
                         aktywna = plansza[klikniecie.getX()][klikniecie.getY()];
                         //do debugowania
-                        System.out.println("Aktywna bierka: " + aktywna.getClass().getName()+ " x = "+aktywna.getLogX()+" y = "+aktywna.getLogY());
+                        System.out.println("Aktywna bierka: " + aktywna.getClass().getName()+ " x = "+aktywna.getNrKolumny()+" y = "+aktywna.getNrWiersza());
                         return true;
                     }
                 } else
                 //klikniecie lewym na puste - brak interakcji
                 {
+                    System.out.println("Kliknieto na puste pole");
                     return false;
                 }
             }
@@ -224,8 +235,8 @@ public class Rozgrywka {
                 if(plansza[klikniecie.getX()][klikniecie.getY()] instanceof PromowalnaBierka)
                 {
                     PromowalnaBierka awansowana = (PromowalnaBierka) plansza[klikniecie.getX()][klikniecie.getY()];
-                    if(((awansowana.getKolor() == Kolor.BIALY) && (awansowana.getLogY() >= 6)) ||
-                            ((awansowana.getKolor() == Kolor.CZARNY) && (awansowana.getLogY() <= 2)))
+                    if(((awansowana.getKolor() == Kolor.BIALY) && (awansowana.getNrWiersza() >= 6)) ||
+                            ((awansowana.getKolor() == Kolor.CZARNY) && (awansowana.getNrWiersza() <= 2)))
                     {
                         if(!awansowana.czyPromowana())
                         {

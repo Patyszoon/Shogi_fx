@@ -5,8 +5,8 @@ public abstract class Bierka {
     //************************POLA********************************
     protected Kolor kolor;
     protected Stan stan;
-    protected int logY;
-    protected int logX;
+    protected int nrWiersza;
+    protected int nrKolumny;
     protected boolean nieSkoczek = true;
     //*****************************METODY**********************************
 
@@ -14,8 +14,8 @@ public abstract class Bierka {
     protected Bierka(Kolor kolor, Stan stan, int x, int y) {
         this.kolor = kolor;
         this.stan = stan;
-        this.logY = y;
-        this.logX = x;
+        this.nrWiersza = y;
+        this.nrKolumny = x;
     }
 
     public boolean czyNieSkoczek()
@@ -37,8 +37,8 @@ public abstract class Bierka {
     {
         stan = Stan.ZBITY;
         if(kolor == Kolor.CZARNY) kolor = Kolor.BIALY; else kolor = Kolor.CZARNY; //zmiana koloru
-        logY = -1;
-        logX = -1;
+        nrWiersza = -1;
+        nrKolumny = -1;
     }
 
     public boolean czyWNiewoli()
@@ -49,28 +49,28 @@ public abstract class Bierka {
     //przemieszcza na zadane pole i zwraca tablice z podanymi argumentami
     public int[] ruch(int x, int y)
     {
-        logY = x;
-        logX = y;
-        return new int[]{logY, logX};
+        nrWiersza = x;
+        nrKolumny = y;
+        return new int[]{nrWiersza, nrKolumny};
     }
     public int[] ruch(int[] pozycja)
     {
-        logY = pozycja[0];
-        logX = pozycja[1];
-        return new int[]{logY, logX};
+        nrWiersza = pozycja[0];
+        nrKolumny = pozycja[1];
+        return new int[]{nrWiersza, nrKolumny};
     }
 
     public int[] getPozycja()
     {
-        return new int[]{logY, logX};
+        return new int[]{nrWiersza, nrKolumny};
     }
 
-    public int getLogY() {
-        return logY;
+    public int getNrWiersza() {
+        return nrWiersza;
     }
 
-    public int getLogX() {
-        return logX;
+    public int getNrKolumny() {
+        return nrKolumny;
     }
 
 }

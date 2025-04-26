@@ -10,6 +10,6 @@ public class Pion extends PromowalnaBierka{
 
     @Override
     protected boolean czyLegalnyPrzedPromocja(int x, int y) {
-        return (x == this.logX) && (y == this.logY+1);
+        return (x == this.nrKolumny) && (y == this.nrWiersza +1);
     }
 }
