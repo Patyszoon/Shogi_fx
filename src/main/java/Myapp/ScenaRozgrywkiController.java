@@ -12,7 +12,7 @@ import javafx.scene.shape.Rectangle;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class ScenaRozgrywkiController {
+public class  ScenaRozgrywkiController {
     @FXML
     private Button zapiszMenu;
     @FXML
@@ -498,36 +498,36 @@ public class ScenaRozgrywkiController {
     }
 
     public void dodajBierki() {
-        listaBierek.add(new Krol(this, Kolor.BIALY, Stan.NA_PLANSZY, 4, 8));
-        listaBierek.add(new Wieza(this, Kolor.BIALY, Stan.NA_PLANSZY, 7, 7));
-        listaBierek.add(new Goniec(this, Kolor.BIALY, Stan.NA_PLANSZY, 1, 7));
-        listaBierek.add(new ZlotyGeneral(this, Kolor.BIALY, Stan.NA_PLANSZY, 3, 8));
-        listaBierek.add(new ZlotyGeneral(this, Kolor.BIALY, Stan.NA_PLANSZY, 5, 8));
-        listaBierek.add(new SrebrnyGeneral(this, Kolor.BIALY, Stan.NA_PLANSZY, 2, 8));
-        listaBierek.add(new SrebrnyGeneral(this, Kolor.BIALY, Stan.NA_PLANSZY, 6, 8));
-        listaBierek.add(new Skoczek(this, Kolor.BIALY, Stan.NA_PLANSZY, 1, 8));
-        listaBierek.add(new Skoczek(this, Kolor.BIALY, Stan.NA_PLANSZY, 7, 8));
-        listaBierek.add(new Lanca(this, Kolor.BIALY, Stan.NA_PLANSZY, 0, 8));
-        listaBierek.add(new Lanca(this, Kolor.BIALY, Stan.NA_PLANSZY, 8, 8));
+        listaBierek.add(new Krol(Kolor.BIALY, Stan.NA_PLANSZY, 4, 8));
+        listaBierek.add(new Wieza(Kolor.BIALY, Stan.NA_PLANSZY, 7, 7));
+        listaBierek.add(new Goniec(Kolor.BIALY, Stan.NA_PLANSZY, 1, 7));
+        listaBierek.add(new ZlotyGeneral(Kolor.BIALY, Stan.NA_PLANSZY, 3, 8));
+        listaBierek.add(new ZlotyGeneral(Kolor.BIALY, Stan.NA_PLANSZY, 5, 8));
+        listaBierek.add(new SrebrnyGeneral(Kolor.BIALY, Stan.NA_PLANSZY, 2, 8));
+        listaBierek.add(new SrebrnyGeneral(Kolor.BIALY, Stan.NA_PLANSZY, 6, 8));
+        listaBierek.add(new Skoczek(Kolor.BIALY, Stan.NA_PLANSZY, 1, 8));
+        listaBierek.add(new Skoczek(Kolor.BIALY, Stan.NA_PLANSZY, 7, 8));
+        listaBierek.add(new Lanca(Kolor.BIALY, Stan.NA_PLANSZY, 0, 8));
+        listaBierek.add(new Lanca(Kolor.BIALY, Stan.NA_PLANSZY, 8, 8));
 
         for (int i = 0; i < 9; i++) {
-            listaBierek.add(new Pion(this, Kolor.BIALY, Stan.NA_PLANSZY, i, 6));
+            listaBierek.add(new Pion(Kolor.BIALY, Stan.NA_PLANSZY, i, 6));
         }
 
-        listaBierek.add(new Krol(this, Kolor.CZARNY, Stan.NA_PLANSZY, 4, 0));
-        listaBierek.add(new Wieza(this, Kolor.CZARNY, Stan.NA_PLANSZY, 7, 1));
-        listaBierek.add(new Goniec(this, Kolor.CZARNY, Stan.NA_PLANSZY, 1, 1));
-        listaBierek.add(new ZlotyGeneral(this, Kolor.CZARNY, Stan.NA_PLANSZY, 3, 0));
-        listaBierek.add(new ZlotyGeneral(this, Kolor.CZARNY, Stan.NA_PLANSZY, 5, 0));
-        listaBierek.add(new SrebrnyGeneral(this, Kolor.CZARNY, Stan.NA_PLANSZY, 2, 0));
-        listaBierek.add(new SrebrnyGeneral(this, Kolor.CZARNY, Stan.NA_PLANSZY, 6, 0));
-        listaBierek.add(new Skoczek(this, Kolor.CZARNY, Stan.NA_PLANSZY, 1, 0));
-        listaBierek.add(new Skoczek(this, Kolor.CZARNY, Stan.NA_PLANSZY, 7, 0));
-        listaBierek.add(new Lanca(this, Kolor.CZARNY, Stan.NA_PLANSZY, 0, 0));
-        listaBierek.add(new Lanca(this, Kolor.CZARNY, Stan.NA_PLANSZY, 8, 0));
+        listaBierek.add(new Krol(Kolor.CZARNY, Stan.NA_PLANSZY, 4, 0));
+        listaBierek.add(new Wieza(Kolor.CZARNY, Stan.NA_PLANSZY, 7, 1));
+        listaBierek.add(new Goniec(Kolor.CZARNY, Stan.NA_PLANSZY, 1, 1));
+        listaBierek.add(new ZlotyGeneral(Kolor.CZARNY, Stan.NA_PLANSZY, 3, 0));
+        listaBierek.add(new ZlotyGeneral(Kolor.CZARNY, Stan.NA_PLANSZY, 5, 0));
+        listaBierek.add(new SrebrnyGeneral(Kolor.CZARNY, Stan.NA_PLANSZY, 2, 0));
+        listaBierek.add(new SrebrnyGeneral(Kolor.CZARNY, Stan.NA_PLANSZY, 6, 0));
+        listaBierek.add(new Skoczek(Kolor.CZARNY, Stan.NA_PLANSZY, 1, 0));
+        listaBierek.add(new Skoczek(Kolor.CZARNY, Stan.NA_PLANSZY, 7, 0));
+        listaBierek.add(new Lanca(Kolor.CZARNY, Stan.NA_PLANSZY, 0, 0));
+        listaBierek.add(new Lanca(Kolor.CZARNY, Stan.NA_PLANSZY, 8, 0));
 
         for (int i = 0; i < 9; i++) {
-            listaBierek.add(new Pion(this, Kolor.CZARNY, Stan.NA_PLANSZY, i, 2));
+            listaBierek.add(new Pion(Kolor.CZARNY, Stan.NA_PLANSZY, i, 2));
         }
     }
 

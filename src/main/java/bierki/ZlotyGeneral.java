@@ -1,7 +1,5 @@
 package bierki;
 
-import Myapp.ScenaRozgrywkiController;
-
 public class ZlotyGeneral extends Bierka{
 
     @Override
@@ -15,7 +13,7 @@ public class ZlotyGeneral extends Bierka{
         return false;
     }
 
-    public ZlotyGeneral(ScenaRozgrywkiController board, Kolor kolor, Stan stanb, int wiersz, int kolumna) {
-        super(board, kolor, stanb, wiersz, kolumna, 4);
+    public ZlotyGeneral(Kolor kolor, Stan stanb, int wiersz, int kolumna) {
+        super(kolor, stanb, wiersz, kolumna, 4);
     }
 }

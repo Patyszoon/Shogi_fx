@@ -1,11 +1,10 @@
 package bierki;
 
-import Myapp.ScenaRozgrywkiController;
 
 public class Skoczek extends PromowalnaBierka {
 
-    public Skoczek(ScenaRozgrywkiController board, Kolor kolor, Stan stanb, int wiersz, int kolumna) {
-        super(board, kolor, stanb, wiersz, kolumna, 6);
+    public Skoczek(Kolor kolor, Stan stanb, int wiersz, int kolumna) {
+        super(kolor, stanb, wiersz, kolumna, 6);
     }
 
     @Override

@@ -1,15 +1,5 @@
 package bierki;
 
-import Myapp.ScenaRozgrywkiController;
-import Myapp.ScenaRozgrywkiController;
-import javafx.scene.layout.AnchorPane;
-
-
-import javax.imageio.ImageIO;
-import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-
 public abstract class Bierka {
 
     //************************POLA********************************
@@ -17,47 +7,14 @@ public abstract class Bierka {
     protected Stan stan;
     protected int logY;
     protected int logX;
-    Image sprite;
-     ScenaRozgrywkiController board;
-
-    //sprite'y do bierek
-    BufferedImage bierki;
-    {
-        try{
-            bierki = ImageIO.read(ClassLoader.getSystemResourceAsStream("bierki.png"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-    //szerokość pliku graficznego/liczbę bierek
-    protected int rozmiarSprite = bierki.getWidth()/15;
-
     //*****************************METODY**********************************
 
     //Konstruktor
-    protected Bierka(ScenaRozgrywkiController plansza, Kolor kolor, Stan stan, int x, int y, int obrazek) {
+    protected Bierka(Kolor kolor, Stan stan, int x, int y, int obrazek) {
         this.kolor = kolor;
         this.stan = stan;
         this.logY = y;
         this.logX = x;
-        this.board = plansza;
-        wybierzImage(obrazek);
-    }
-
-    protected void wybierzImage(int numer)
-    {
-        int spriteY = (kolor == Kolor.BIALY) ? 0 : rozmiarSprite;
-        this.sprite = bierki.getSubimage(numer * rozmiarSprite, spriteY, rozmiarSprite, rozmiarSprite).getScaledInstance(board.rozmiarKomorki, board.rozmiarKomorki, Image.SCALE_SMOOTH);
-    }
-
-    public int grafX()
-    {
-        return logX*board.rozmiarKomorki;
-    }
-
-    public int grafY()
-    {
-        return logY*board.rozmiarKomorki;
     }
 
     //po zadaniu koordynatow na planszy zwraca informacje, czy jest to ruch zgodny z zasadami ruchu dla danej bierki
@@ -103,10 +60,5 @@ public abstract class Bierka {
     public int getLogX() {
         return logX;
     }
-
-    public void paint(Graphics2D g2d){
-        g2d.drawImage(sprite, grafX(), grafY(), null);
-    }
-
 
 }

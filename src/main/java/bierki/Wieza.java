@@ -1,12 +1,9 @@
 package bierki;
 
-
-import Myapp.ScenaRozgrywkiController;
-
 public class Wieza extends PromowalnaBierka{
 
-    public Wieza(ScenaRozgrywkiController board, Kolor kolor, Stan stanb, int wiersz, int kolumna) {
-        super(board, kolor, stanb, wiersz, kolumna, 2);
+    public Wieza(Kolor kolor, Stan stanb, int wiersz, int kolumna) {
+        super(kolor, stanb, wiersz, kolumna, 2);
     }
 
     @Override

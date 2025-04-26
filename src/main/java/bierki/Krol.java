@@ -1,7 +1,5 @@
 package bierki;
 
-import Myapp.ScenaRozgrywkiController;
-
 public class Krol extends Bierka{
 
     @Override
@@ -14,7 +12,7 @@ public class Krol extends Bierka{
         return false;
     }
 
-    public Krol(ScenaRozgrywkiController board, Kolor kolor, Stan stanb, int wiersz, int kolumna) {
-        super(board, kolor, stanb, wiersz, kolumna, 1);
+    public Krol(Kolor kolor, Stan stanb, int wiersz, int kolumna) {
+        super(kolor, stanb, wiersz, kolumna, 1);
     }
 }

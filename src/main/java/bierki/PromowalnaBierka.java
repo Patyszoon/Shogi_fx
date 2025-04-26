@@ -1,14 +1,11 @@
 package bierki;
 
-import Myapp.ScenaRozgrywkiController;
-import Myapp.ScenaRozgrywkiController;
-
 public abstract class PromowalnaBierka extends Bierka{
     boolean promowana = false;
 
     //konstruktor
-    protected PromowalnaBierka(ScenaRozgrywkiController plansza, Kolor kolor, Stan stan, int wiersz, int kolumna, int obrazek) {
-        super(plansza, kolor, stan, wiersz, kolumna, obrazek);
+    protected PromowalnaBierka(Kolor kolor, Stan stan, int wiersz, int kolumna, int obrazek) {
+        super(kolor, stan, wiersz, kolumna, obrazek);
     }
 
     //przy promocji zmienia status pionka
