@@ -20,6 +20,6 @@ public class Goniec extends PromowalnaBierka{
     }
 
     public Goniec(Kolor kolor, Stan stanb, int wiersz, int kolumna) {
-        super(kolor, stanb, wiersz, kolumna, 3);
+        super(kolor, stanb, wiersz, kolumna);
     }
 }

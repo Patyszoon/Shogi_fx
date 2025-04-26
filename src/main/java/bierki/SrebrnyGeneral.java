@@ -3,7 +3,7 @@ package bierki;
 public class SrebrnyGeneral extends PromowalnaBierka{
 
     public SrebrnyGeneral(Kolor kolor, Stan stanb, int wiersz, int kolumna) {
-        super(kolor, stanb, wiersz, kolumna, 5);
+        super(kolor, stanb, wiersz, kolumna);
     }
 
     @Override

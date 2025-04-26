@@ -14,6 +14,6 @@ public class ZlotyGeneral extends Bierka{
     }
 
     public ZlotyGeneral(Kolor kolor, Stan stanb, int wiersz, int kolumna) {
-        super(kolor, stanb, wiersz, kolumna, 4);
+        super(kolor, stanb, wiersz, kolumna);
     }
 }

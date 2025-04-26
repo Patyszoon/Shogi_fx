@@ -4,8 +4,8 @@ public abstract class PromowalnaBierka extends Bierka{
     boolean promowana = false;
 
     //konstruktor
-    protected PromowalnaBierka(Kolor kolor, Stan stan, int wiersz, int kolumna, int obrazek) {
-        super(kolor, stan, wiersz, kolumna, obrazek);
+    protected PromowalnaBierka(Kolor kolor, Stan stan, int wiersz, int kolumna) {
+        super(kolor, stan, wiersz, kolumna);
     }
 
     //przy promocji zmienia status pionka

@@ -8,6 +8,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import rozgrywka.Rozgrywka;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -266,7 +267,7 @@ public class  ScenaRozgrywkiController {
 
 
     ArrayList<Bierka> listaBierek = new ArrayList<>();
-
+    Rozgrywka logika = new Rozgrywka();
     @FXML
     private AnchorPane plansza;
 

@@ -7,14 +7,21 @@ public abstract class Bierka {
     protected Stan stan;
     protected int logY;
     protected int logX;
+    protected boolean nieSkoczek = true;
     //*****************************METODY**********************************
 
     //Konstruktor
-    protected Bierka(Kolor kolor, Stan stan, int x, int y, int obrazek) {
+    protected Bierka(Kolor kolor, Stan stan, int x, int y) {
         this.kolor = kolor;
         this.stan = stan;
         this.logY = y;
         this.logX = x;
+    }
+
+    //metoda do debugowania
+    public Kolor getKolor()
+    {
+        return kolor;
     }
 
     //po zadaniu koordynatow na planszy zwraca informacje, czy jest to ruch zgodny z zasadami ruchu dla danej bierki
@@ -25,8 +32,8 @@ public abstract class Bierka {
     {
         stan = Stan.ZBITY;
         if(kolor == Kolor.CZARNY) kolor = Kolor.BIALY; else kolor = Kolor.CZARNY; //zmiana koloru
-        logY = 0;
-        logX = 0;
+        logY = -1;
+        logX = -1;
     }
 
     public boolean czyWNiewoli()

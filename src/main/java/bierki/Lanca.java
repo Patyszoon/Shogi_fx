@@ -4,7 +4,7 @@ public class Lanca extends PromowalnaBierka{
 
     //do sprite'a bierki
     public Lanca(Kolor kolor, Stan stanb, int wiersz, int kolumna) {
-        super(kolor, stanb, wiersz, kolumna, 7);
+        super(kolor, stanb, wiersz, kolumna);
     }
 
     @Override

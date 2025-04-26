@@ -13,6 +13,6 @@ public class Krol extends Bierka{
     }
 
     public Krol(Kolor kolor, Stan stanb, int wiersz, int kolumna) {
-        super(kolor, stanb, wiersz, kolumna, 1);
+        super(kolor, stanb, wiersz, kolumna);
     }
 }

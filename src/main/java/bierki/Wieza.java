@@ -3,7 +3,7 @@ package bierki;
 public class Wieza extends PromowalnaBierka{
 
     public Wieza(Kolor kolor, Stan stanb, int wiersz, int kolumna) {
-        super(kolor, stanb, wiersz, kolumna, 2);
+        super(kolor, stanb, wiersz, kolumna);
     }
 
     @Override

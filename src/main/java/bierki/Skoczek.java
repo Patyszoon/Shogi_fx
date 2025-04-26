@@ -4,7 +4,8 @@ package bierki;
 public class Skoczek extends PromowalnaBierka {
 
     public Skoczek(Kolor kolor, Stan stanb, int wiersz, int kolumna) {
-        super(kolor, stanb, wiersz, kolumna, 6);
+        super(kolor, stanb, wiersz, kolumna);
+        nieSkoczek = false;
     }
 
     @Override
