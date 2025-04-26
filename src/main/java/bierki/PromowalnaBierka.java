@@ -1,11 +1,16 @@
 package bierki;
 
 public abstract class PromowalnaBierka extends Bierka{
-    boolean promowana = false;
+    protected boolean promowana = false;
 
     //konstruktor
     protected PromowalnaBierka(Kolor kolor, Stan stan, int wiersz, int kolumna) {
         super(kolor, stan, wiersz, kolumna);
+    }
+
+    public boolean czyPromowana()
+    {
+        return promowana;
     }
 
     //przy promocji zmienia status pionka

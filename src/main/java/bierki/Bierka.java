@@ -18,6 +18,11 @@ public abstract class Bierka {
         this.logX = x;
     }
 
+    public boolean czyNieSkoczek()
+    {
+        return nieSkoczek;
+    }
+
     //metoda do debugowania
     public Kolor getKolor()
     {
