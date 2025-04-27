@@ -466,7 +466,7 @@ public class  ScenaRozgrywkiController {
 
 
 
-        //rysujPlansze();
+
         dodajBierki();
         zapiszMenu.setOnAction(event -> {
             try {
@@ -497,6 +497,9 @@ public class  ScenaRozgrywkiController {
 
 
     }
+
+
+
 
     public void dodajBierki() {
         listaBierek.add(new Krol(Kolor.BIALY, Stan.NA_PLANSZY, 4, 8));
@@ -532,26 +535,6 @@ public class  ScenaRozgrywkiController {
         }
     }
 
-    public void rysujPlansze() {
-        for (int x = 0; x < kolumny; x++) {
-            for (int y = 0; y < wiersze; y++) {
-                Rectangle pole = new Rectangle(rozmiarKomorki, rozmiarKomorki);
-                if ((x + y) % 2 == 0) {
-                    pole.setFill(Color.WHITE);
-                } else {
-                    pole.setFill(Color.WHITE);
-                }
-                pole.setStroke(Color.BLACK);
-                pole.setStrokeWidth(0.5);
-                pole.setLayoutX(x * rozmiarKomorki);
-                pole.setLayoutY(y * rozmiarKomorki);
-
-                plansza.getChildren().add(pole);
-            }
-        }
-
-    }
-    
 
 
     public void setMainApp(Main mainApp) {

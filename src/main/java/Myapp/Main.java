@@ -3,7 +3,6 @@ package Myapp;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import javafx.fxml.FXMLLoader;
 
@@ -14,7 +13,6 @@ public class Main extends Application {
     private Stage primaryStage;
     private Scene scenaPowitalna;
     private Scene scenaMenu;
-    private Scene scenaGry;
     private Scene scenaOpcje;
     private Scene scenaStatystyki;
     private Scene scenaWyboru;
@@ -28,7 +26,6 @@ public class Main extends Application {
     }
 
     void pokazScenaRozgrywki() throws IOException {
-        //FXMLLoader loader = new FXMLLoader(getClass().getResource("ScenaPlanszy.fxml"));
         FXMLLoader loader = new FXMLLoader(getClass().getResource("ScenaRozgrywki.fxml"));
         AnchorPane root = loader.load();
 
@@ -80,60 +77,9 @@ public class Main extends Application {
         primaryStage.setTitle("SHOGI MENU");
     }
 
-    public void pokazScenaGry() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("ScenaGry.fxml"));
-        AnchorPane root = loader.load();
-
-        ScenaGryController controllerScenaGry = loader.getController();
-        controllerScenaGry.setMainApp(this);
-
-        scenaGry = new Scene(root);
-        primaryStage.setScene(scenaGry);
-        primaryStage.setTitle("SHOGI GRA");
-        //Board plansza = new Board();
-        //primaryStage.add(plansza);
 
 
 
-
-
-        //#####################################################################################
-
-
-        /*JFrame okno = new JFrame();
-        okno.setLayout(new GridBagLayout());
-        okno.setMinimumSize(new Dimension(800, 800));
-        okno.setTitle("Shogi");
-        okno.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        okno.setLocationRelativeTo(null);
-
-        Board plansza = new Board();
-        okno.add(plansza);
-
-        okno.setVisible(true);
-
-
-        //###################################################################################
-
-
-        JFrame okno = new JFrame();
-        okno.setLayout(new GridBagLayout());
-        Button przycisk = new Button("Wyjście");
-        okno.setMinimumSize(new Dimension(1000, 800));
-        okno.setTitle("Shogi");
-        okno.add(przycisk);
-        przycisk.setOnAction(e -> primaryStage.close());
-        okno.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        okno.setLocationRelativeTo(null);
-
-        Board plansza = new Board();
-        okno.add(plansza);
-
-        okno.setVisible(true);*/
-
-
-
-    }
 
     public void pokazScenaOpcje() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("ScenaOpcje.fxml"));

@@ -33,7 +33,7 @@ public class ScenaWyboruController {
         });
         wczytajZapis.setOnAction(event -> {
             try {
-                mainApp.pokazScenaGry();
+                mainApp.pokazScenaRozgrywki();
             } catch (IOException e) {
                 e.printStackTrace();
             }
