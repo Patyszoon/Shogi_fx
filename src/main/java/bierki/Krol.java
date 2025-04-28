@@ -1,5 +1,6 @@
 package bierki;
 
+import Myapp.ScenaRozgrywkiController;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
@@ -14,7 +15,7 @@ public class Krol extends Bierka{
                 if(xl == this.nrKolumny && yl == this.nrWiersza) return true;
         return false;
     }
-
+    //ScenaRozgrywkiController scena = new ScenaRozgrywkiController();
     public Krol(Kolor kolor, Stan stanb, int kolumna, int wiersz) {
         super(kolor, stanb, kolumna, wiersz);
 
@@ -24,12 +25,14 @@ public class Krol extends Bierka{
             imageView.setFitWidth(50);
             imageView.setFitHeight(60);
             imageView.setRotate(180);
+            //scena.przyciski[kolumna][wiersz].setGraphic(imageView);
         }
         else{
             Image image = new Image(getClass().getResourceAsStream("/Myapp/bierki/Krol2.png"));
             ImageView imageView = new ImageView(image);
             imageView.setFitWidth(50);
             imageView.setFitHeight(60);
+            //scena.przyciski[kolumna][wiersz].setGraphic(imageView);
         }
     }
 }

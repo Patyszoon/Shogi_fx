@@ -1,6 +1,9 @@
 package rozgrywka;
 
+import Myapp.ScenaRozgrywkiController;
 import bierki.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 import java.util.ArrayList;
 
@@ -58,6 +61,7 @@ public class Rozgrywka {
         wypisNaKonsole();
     }
 
+    //ScenaRozgrywkiController scena = new ScenaRozgrywkiController();
     //metoda zwraca true, jeżeli klikniecie sprawia zmianę sytuacji wyświetlanej na planszy
     public boolean ruch(Klikniecie klikniecie)
     {
@@ -88,6 +92,12 @@ public class Rozgrywka {
                             }// else System.out.println("droga wolna na polu: "+klikniecie.getX() + " " + klikniecie.getY());
                         }
                         plansza[aktywna.getNrKolumny()][aktywna.getNrWiersza()] = null;
+
+
+                        Image image = new Image(getClass().getResourceAsStream("/Myapp/bierki/Empty.png"));
+                        ImageView imageView = new ImageView(image);
+                        //scena.przyciski[aktywna.getNrKolumny()][aktywna.getNrWiersza()].setGraphic(imageView);
+
                         aktywna.ruch(klikniecie.getX(), klikniecie.getY());
                         if (plansza[klikniecie.getX()][klikniecie.getY()] != null)
                         {

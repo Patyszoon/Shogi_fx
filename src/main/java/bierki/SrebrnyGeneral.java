@@ -1,10 +1,11 @@
 package bierki;
 
+import Myapp.ScenaRozgrywkiController;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 public class SrebrnyGeneral extends PromowalnaBierka{
-
+    //ScenaRozgrywkiController scena = new ScenaRozgrywkiController();
     public SrebrnyGeneral(Kolor kolor, Stan stanb, int kolumna, int wiersz) {
         super(kolor, stanb, kolumna, wiersz);
         if(promowana == false){
@@ -15,6 +16,7 @@ public class SrebrnyGeneral extends PromowalnaBierka{
             if(kolor==Kolor.BIALY){
                 imageView.setRotate(180);
             }
+            //scena.przyciski[kolumna][wiersz].setGraphic(imageView);
         }
         else{
             Image image = new Image(getClass().getResourceAsStream("/Myapp/bierki/PromowanySrebrny.png"));
@@ -24,6 +26,7 @@ public class SrebrnyGeneral extends PromowalnaBierka{
             if(kolor==Kolor.BIALY){
                 imageView.setRotate(180);
             }
+            //scena.przyciski[kolumna][wiersz].setGraphic(imageView);
         }
     }
 

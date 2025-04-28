@@ -1,5 +1,6 @@
 package bierki;
 
+import Myapp.ScenaRozgrywkiController;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
@@ -16,7 +17,7 @@ public class ZlotyGeneral extends Bierka{
                 if(xl == this.nrKolumny && yl == this.nrWiersza) return true;
         return false;
     }
-
+    //ScenaRozgrywkiController scena = new ScenaRozgrywkiController();
     public ZlotyGeneral(Kolor kolor, Stan stanb, int kolumna, int wiersz) {
         super(kolor, stanb, kolumna, wiersz);
         Image image = new Image(getClass().getResourceAsStream("/Myapp/bierki/ZlotyGeneral.png"));
@@ -26,5 +27,6 @@ public class ZlotyGeneral extends Bierka{
         if(kolor==Kolor.BIALY){
             imageView.setRotate(180);
         }
+        //scena.przyciski[kolumna][wiersz].setGraphic(imageView);
     }
 }

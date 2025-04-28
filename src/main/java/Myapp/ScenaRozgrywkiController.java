@@ -256,8 +256,8 @@ public class  ScenaRozgrywkiController {
     ImageView zlotyGeneral1down = new ImageView(zlotyGeneral);
     ImageView zlotyGeneral2up = new ImageView(zlotyGeneral);
     ImageView zlotyGeneral2down = new ImageView(zlotyGeneral);*/
-    Image puste = new Image(getClass().getResourceAsStream("/Myapp/bierki/Empty.png"));
-    ImageView empty = new ImageView(puste);
+    //Image image = new Image(getClass().getResourceAsStream("/Myapp/bierki/Empty.png"));
+    //ImageView imageView = new ImageView(image);
 
 
 

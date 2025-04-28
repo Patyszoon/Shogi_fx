@@ -1,5 +1,6 @@
 package bierki;
 
+import Myapp.ScenaRozgrywkiController;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
@@ -21,7 +22,7 @@ public class Goniec extends PromowalnaBierka{
         if (kolumna == this.nrKolumny - 1 && wiersz == this.nrWiersza) return true;
         return czyLegalnyPrzedPromocja(kolumna, wiersz);
     }
-
+    //ScenaRozgrywkiController scena = new ScenaRozgrywkiController();
     public Goniec(Kolor kolor, Stan stanb, int kolumna, int wiersz) {
         super(kolor, stanb, kolumna, wiersz);
         if(promowana == false){
@@ -32,6 +33,7 @@ public class Goniec extends PromowalnaBierka{
             if(kolor==Kolor.BIALY){
                 imageView.setRotate(180);
             }
+            //scena.przyciski[kolumna][wiersz].setGraphic(imageView);
         }
         else{
             Image image = new Image(getClass().getResourceAsStream("/Myapp/bierki/PromowanyGoniec.png"));
@@ -41,6 +43,7 @@ public class Goniec extends PromowalnaBierka{
             if(kolor==Kolor.BIALY){
                 imageView.setRotate(180);
             }
+            //scena.przyciski[kolumna][wiersz].setGraphic(imageView);
         }
 
     }

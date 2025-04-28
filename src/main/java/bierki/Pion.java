@@ -1,12 +1,13 @@
 package bierki;
 
 
+import Myapp.ScenaRozgrywkiController;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 public class Pion extends PromowalnaBierka{
 
-
+    //ScenaRozgrywkiController scena = new ScenaRozgrywkiController();
     public Pion(Kolor kolor, Stan stanb, int kolumna, int wiersz) {
         super(kolor, stanb, kolumna, wiersz);
         if(promowana == false){
@@ -17,6 +18,7 @@ public class Pion extends PromowalnaBierka{
             if(kolor==Kolor.BIALY){
                 imageView.setRotate(180);
             }
+            //scena.przyciski[kolumna][wiersz].setGraphic(imageView);
         }
         else{
             Image image = new Image(getClass().getResourceAsStream("/Myapp/bierki/PromowanyPion.png"));
@@ -26,6 +28,7 @@ public class Pion extends PromowalnaBierka{
             if(kolor==Kolor.BIALY){
                 imageView.setRotate(180);
             }
+            //scena.przyciski[kolumna][wiersz].setGraphic(imageView);
         }
     }
 

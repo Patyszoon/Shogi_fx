@@ -1,9 +1,11 @@
 package bierki;
 
+import Myapp.ScenaRozgrywkiController;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 public class Lanca extends PromowalnaBierka{
+    //ScenaRozgrywkiController scena = new ScenaRozgrywkiController();
 
     //do sprite'a bierki
     public Lanca(Kolor kolor, Stan stanb, int kolumna, int wiersz) {
@@ -16,6 +18,7 @@ public class Lanca extends PromowalnaBierka{
             if(kolor==Kolor.BIALY){
                 imageView.setRotate(180);
             }
+            //scena.przyciski[kolumna][wiersz].setGraphic(imageView);
         }
         else{
             Image image = new Image(getClass().getResourceAsStream("/Myapp/bierki/PromowanaLanca.png"));
@@ -25,7 +28,9 @@ public class Lanca extends PromowalnaBierka{
             if(kolor==Kolor.BIALY){
                 imageView.setRotate(180);
             }
+            //scena.przyciski[kolumna][wiersz].setGraphic(imageView);
         }
+
     }
 
     @Override
