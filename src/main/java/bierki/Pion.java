@@ -4,12 +4,12 @@ package bierki;
 public class Pion extends PromowalnaBierka{
 
 
-    public Pion(Kolor kolor, Stan stanb, int wiersz, int kolumna) {
-        super(kolor, stanb, wiersz, kolumna);
+    public Pion(Kolor kolor, Stan stanb, int kolumna, int wiersz) {
+        super(kolor, stanb, kolumna, wiersz);
     }
 
     @Override
-    protected boolean czyLegalnyPrzedPromocja(int x, int y) {
-        return (x == this.nrKolumny) && (y == this.nrWiersza +1);
+    protected boolean czyLegalnyPrzedPromocja(int kolumna, int wiersz) {
+        return (kolumna == this.nrKolumny) && (wiersz == this.nrWiersza +1);
     }
 }

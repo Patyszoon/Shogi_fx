@@ -3,12 +3,12 @@ package bierki;
 public class Lanca extends PromowalnaBierka{
 
     //do sprite'a bierki
-    public Lanca(Kolor kolor, Stan stanb, int wiersz, int kolumna) {
-        super(kolor, stanb, wiersz, kolumna);
+    public Lanca(Kolor kolor, Stan stanb, int kolumna, int wiersz) {
+        super(kolor, stanb, kolumna, wiersz);
     }
 
     @Override
-    protected boolean czyLegalnyPrzedPromocja(int x, int y) {
-        return (x == this.nrKolumny) && (y > this.nrWiersza);
+    protected boolean czyLegalnyPrzedPromocja(int kolumna, int wiersz) {
+        return (kolumna == this.nrKolumny) && (wiersz > this.nrWiersza);
     }
 }

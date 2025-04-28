@@ -2,23 +2,23 @@ package bierki;
 
 public class Wieza extends PromowalnaBierka{
 
-    public Wieza(Kolor kolor, Stan stanb, int wiersz, int kolumna) {
-        super(kolor, stanb, wiersz, kolumna);
+    public Wieza(Kolor kolor, Stan stanb, int kolumna, int wiersz) {
+        super(kolor, stanb, kolumna, wiersz);
     }
 
     @Override
-    protected boolean czyLegalnyPoPromocji(int x, int y) {
-        if(x == this.nrKolumny -1 && y == this.nrWiersza -1)return true;
-        if(x == this.nrKolumny -1 && y == this.nrWiersza +1)return true;
-        if(x == this.nrKolumny +1 && y == this.nrWiersza +1)return true;
-        if(x == this.nrKolumny +1 && y == this.nrWiersza -1)return true;
-        return czyLegalnyPrzedPromocja(x, y);
+    protected boolean czyLegalnyPoPromocji(int kolumna, int wiersz) {
+        if(kolumna == this.nrKolumny -1 && wiersz == this.nrWiersza -1)return true;
+        if(kolumna == this.nrKolumny -1 && wiersz == this.nrWiersza +1)return true;
+        if(kolumna == this.nrKolumny +1 && wiersz == this.nrWiersza +1)return true;
+        if(kolumna == this.nrKolumny +1 && wiersz == this.nrWiersza -1)return true;
+        return czyLegalnyPrzedPromocja(kolumna, wiersz);
     }
 
     @Override
-    protected boolean czyLegalnyPrzedPromocja(int x, int y) {
-        if(x == this.nrKolumny && y == this.nrWiersza) return false;
-        if((x == this.nrKolumny) || (y == this.nrWiersza)) return true;
+    protected boolean czyLegalnyPrzedPromocja(int kolumna, int wiersz) {
+        if(kolumna == this.nrKolumny && wiersz == this.nrWiersza) return false;
+        if((kolumna == this.nrKolumny) || (wiersz == this.nrWiersza)) return true;
         return false;
     }
 }

@@ -26,7 +26,7 @@ public abstract class PromowalnaBierka extends Bierka{
         super.zbity();
     }
 
-    protected abstract boolean czyLegalnyPrzedPromocja(int x, int y);
+    protected abstract boolean czyLegalnyPrzedPromocja(int kolumna, int wiersz);
 
     //pomocnicza funkcja dla klas, ktore zmieniaja ruch po promocji
     // domyslnie zaimplementowan ruch jak dla zlotego generala, czyli prawidlowo dla wszystkich poza wieza i goncem
@@ -41,11 +41,11 @@ public abstract class PromowalnaBierka extends Bierka{
     }
 
     @Override
-    public boolean czyLegalny(int x, int y) {
+    public boolean czyLegalny(int kolumna, int wiersz) {
         if (promowana) {
-            return czyLegalnyPoPromocji(x, y);
+            return czyLegalnyPoPromocji(kolumna, wiersz);
         } else {
-            return czyLegalnyPrzedPromocja(x, y);
+            return czyLegalnyPrzedPromocja(kolumna, wiersz);
         }
     }
 
