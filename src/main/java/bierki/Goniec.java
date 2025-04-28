@@ -1,5 +1,8 @@
 package bierki;
 
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+
 public class Goniec extends PromowalnaBierka{
 
     @Override
@@ -21,5 +24,24 @@ public class Goniec extends PromowalnaBierka{
 
     public Goniec(Kolor kolor, Stan stanb, int kolumna, int wiersz) {
         super(kolor, stanb, kolumna, wiersz);
+        if(promowana == false){
+            Image image = new Image(getClass().getResourceAsStream("/Myapp/bierki/Goniec.png"));
+            ImageView imageView = new ImageView(image);
+            imageView.setFitWidth(50);
+            imageView.setFitHeight(60);
+            if(kolor==Kolor.BIALY){
+                imageView.setRotate(180);
+            }
+        }
+        else{
+            Image image = new Image(getClass().getResourceAsStream("/Myapp/bierki/PromowanyGoniec.png"));
+            ImageView imageView = new ImageView(image);
+            imageView.setFitWidth(50);
+            imageView.setFitHeight(60);
+            if(kolor==Kolor.BIALY){
+                imageView.setRotate(180);
+            }
+        }
+
     }
 }

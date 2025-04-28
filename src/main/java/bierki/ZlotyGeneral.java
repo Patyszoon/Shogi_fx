@@ -1,5 +1,8 @@
 package bierki;
 
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+
 public class ZlotyGeneral extends Bierka{
 
     @Override
@@ -16,5 +19,12 @@ public class ZlotyGeneral extends Bierka{
 
     public ZlotyGeneral(Kolor kolor, Stan stanb, int kolumna, int wiersz) {
         super(kolor, stanb, kolumna, wiersz);
+        Image image = new Image(getClass().getResourceAsStream("/Myapp/bierki/ZlotyGeneral.png"));
+        ImageView imageView = new ImageView(image);
+        imageView.setFitWidth(50);
+        imageView.setFitHeight(60);
+        if(kolor==Kolor.BIALY){
+            imageView.setRotate(180);
+        }
     }
 }

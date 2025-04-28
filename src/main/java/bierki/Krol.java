@@ -1,5 +1,8 @@
 package bierki;
 
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+
 public class Krol extends Bierka{
 
     @Override
@@ -14,5 +17,19 @@ public class Krol extends Bierka{
 
     public Krol(Kolor kolor, Stan stanb, int kolumna, int wiersz) {
         super(kolor, stanb, kolumna, wiersz);
+
+        if(kolor==Kolor.BIALY){
+            Image image = new Image(getClass().getResourceAsStream("/Myapp/bierki/Krol.png"));
+            ImageView imageView = new ImageView(image);
+            imageView.setFitWidth(50);
+            imageView.setFitHeight(60);
+            imageView.setRotate(180);
+        }
+        else{
+            Image image = new Image(getClass().getResourceAsStream("/Myapp/bierki/Krol2.png"));
+            ImageView imageView = new ImageView(image);
+            imageView.setFitWidth(50);
+            imageView.setFitHeight(60);
+        }
     }
 }

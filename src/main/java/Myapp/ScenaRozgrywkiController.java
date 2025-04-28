@@ -184,11 +184,10 @@ public class  ScenaRozgrywkiController {
     @FXML
     private Button w8k8;
     private Main mainApp;
-    public int rozmiarKomorki = 75;
-    int kolumny = 9;
-    int wiersze = 9;
 
-    Image krol2 = new Image(getClass().getResourceAsStream("/Myapp/bierki/Krol2.png"));
+    public Button[][] przyciski = new Button[9][9];
+
+    /*Image krol2 = new Image(getClass().getResourceAsStream("/Myapp/bierki/Krol2.png"));
     ImageView krol2up = new ImageView(krol2);
     ImageView krol2down = new ImageView(krol2);
     Image goniec = new Image(getClass().getResourceAsStream("/Myapp/bierki/Goniec.png"));
@@ -256,7 +255,7 @@ public class  ScenaRozgrywkiController {
     ImageView zlotyGeneral1up = new ImageView(zlotyGeneral);
     ImageView zlotyGeneral1down = new ImageView(zlotyGeneral);
     ImageView zlotyGeneral2up = new ImageView(zlotyGeneral);
-    ImageView zlotyGeneral2down = new ImageView(zlotyGeneral);
+    ImageView zlotyGeneral2down = new ImageView(zlotyGeneral);*/
     Image puste = new Image(getClass().getResourceAsStream("/Myapp/bierki/Empty.png"));
     ImageView empty = new ImageView(puste);
 
@@ -275,6 +274,88 @@ public class  ScenaRozgrywkiController {
     private AnchorPane plansza;
 
     public ScenaRozgrywkiController() {
+        przyciski[0][0]=w0k0;
+        przyciski[1][0]=w0k1;
+        przyciski[2][0]=w0k2;
+        przyciski[3][0]=w0k3;
+        przyciski[4][0]=w0k4;
+        przyciski[5][0]=w0k5;
+        przyciski[6][0]=w0k6;
+        przyciski[7][0]=w0k7;
+        przyciski[8][0]=w0k8;
+        przyciski[0][1]=w1k0;
+        przyciski[1][1]=w1k1;
+        przyciski[2][1]=w1k2;
+        przyciski[3][1]=w1k3;
+        przyciski[4][1]=w1k4;
+        przyciski[5][1]=w1k5;
+        przyciski[6][1]=w1k6;
+        przyciski[7][1]=w1k7;
+        przyciski[8][1]=w1k8;
+        przyciski[0][2]=w2k0;
+        przyciski[1][2]=w2k1;
+        przyciski[2][2]=w2k2;
+        przyciski[3][2]=w2k3;
+        przyciski[4][2]=w2k4;
+        przyciski[5][2]=w2k5;
+        przyciski[6][2]=w2k6;
+        przyciski[7][2]=w2k7;
+        przyciski[8][2]=w2k8;
+        przyciski[0][3]=w3k0;
+        przyciski[1][3]=w3k1;
+        przyciski[2][3]=w3k2;
+        przyciski[3][3]=w3k3;
+        przyciski[4][3]=w3k4;
+        przyciski[5][3]=w3k5;
+        przyciski[6][3]=w3k6;
+        przyciski[7][3]=w3k7;
+        przyciski[8][3]=w3k8;
+        przyciski[0][4]=w4k0;
+        przyciski[1][4]=w4k1;
+        przyciski[2][4]=w4k2;
+        przyciski[3][4]=w4k3;
+        przyciski[4][4]=w4k4;
+        przyciski[5][4]=w4k5;
+        przyciski[6][4]=w4k6;
+        przyciski[7][4]=w4k7;
+        przyciski[8][4]=w4k8;
+        przyciski[0][5]=w5k0;
+        przyciski[1][5]=w5k1;
+        przyciski[2][5]=w5k2;
+        przyciski[3][5]=w5k3;
+        przyciski[4][5]=w5k4;
+        przyciski[5][5]=w5k5;
+        przyciski[6][5]=w5k6;
+        przyciski[7][5]=w5k7;
+        przyciski[8][5]=w5k8;
+        przyciski[0][6]=w6k0;
+        przyciski[1][6]=w6k1;
+        przyciski[2][6]=w6k2;
+        przyciski[3][6]=w6k3;
+        przyciski[4][6]=w6k4;
+        przyciski[5][6]=w6k5;
+        przyciski[6][6]=w6k6;
+        przyciski[7][6]=w6k7;
+        przyciski[8][6]=w6k8;
+        przyciski[0][7]=w7k0;
+        przyciski[1][7]=w7k1;
+        przyciski[2][7]=w7k2;
+        przyciski[3][7]=w7k3;
+        przyciski[4][7]=w7k4;
+        przyciski[5][7]=w7k5;
+        przyciski[6][7]=w7k6;
+        przyciski[7][7]=w7k7;
+        przyciski[8][7]=w7k8;
+        przyciski[0][8]=w8k0;
+        przyciski[1][8]=w8k1;
+        przyciski[2][8]=w8k2;
+        przyciski[3][8]=w8k3;
+        przyciski[4][8]=w8k4;
+        przyciski[5][8]=w8k5;
+        przyciski[6][8]=w8k6;
+        przyciski[7][8]=w8k7;
+        przyciski[8][8]=w8k8;
+
     }
 
     public ScenaRozgrywkiController(AnchorPane plansza) {
@@ -283,16 +364,12 @@ public class  ScenaRozgrywkiController {
 
     @FXML
     public void initialize() {
-        krol2up.setFitWidth(50);
+       /* krol2up.setFitWidth(50);
         krol2up.setFitHeight(60);
         krol2down.setFitWidth(50);
         krol2down.setFitHeight(60);
         krol2down.setRotate(180);
-        goniecup.setFitWidth(50);
-        goniecup.setFitHeight(60);
-        goniecdown.setFitWidth(50);
-        goniecdown.setFitHeight(60);
-        goniecdown.setRotate(180);
+
         krolup.setFitWidth(50);
         krolup.setFitHeight(60);
         kroldown.setFitWidth(50);
@@ -460,7 +537,7 @@ public class  ScenaRozgrywkiController {
         w6k5.setGraphic(pionek6up);
         w6k6.setGraphic(pionek7up);
         w6k7.setGraphic(pionek8up);
-        w6k8.setGraphic(pionek9up);
+        w6k8.setGraphic(pionek9up);*/
 
 
 
