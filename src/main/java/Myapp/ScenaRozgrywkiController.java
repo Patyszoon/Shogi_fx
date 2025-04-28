@@ -8,6 +8,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import rozgrywka.Klikniecie;
 import rozgrywka.Rozgrywka;
 
 import java.io.IOException;
@@ -488,13 +489,254 @@ public class  ScenaRozgrywkiController {
         });
 
         w0k0.setOnAction(event -> {
-            Image image = new Image(getClass().getResourceAsStream("/Myapp/bierki/Empty.png"));
+            /*Image image = new Image(getClass().getResourceAsStream("/Myapp/bierki/Empty.png"));
             ImageView imageView = new ImageView(image);
             imageView.setFitWidth(50);
             imageView.setFitHeight(60);
             imageView.setRotate(180);
-            w0k0.setGraphic(imageView);
-            //toto do zmiany bo się nie mogą imageviev nakładać
+            w0k0.setGraphic(imageView);*/
+
+            r.ruch(new Klikniecie(0,0));
+        });
+        w0k1.setOnAction(event -> {
+            r.ruch(new Klikniecie(1,0));
+        });
+        w0k2.setOnAction(event -> {
+            r.ruch(new Klikniecie(2,0));
+        });
+        w0k3.setOnAction(event -> {
+            r.ruch(new Klikniecie(3,0));
+        });
+        w0k4.setOnAction(event -> {
+            r.ruch(new Klikniecie(4,0));
+        });
+        w0k5.setOnAction(event -> {
+            r.ruch(new Klikniecie(5,0));
+        });
+        w0k6.setOnAction(event -> {
+            r.ruch(new Klikniecie(6,0));
+        });
+        w0k7.setOnAction(event -> {
+            r.ruch(new Klikniecie(7,0));
+        });
+        w0k8.setOnAction(event -> {
+            r.ruch(new Klikniecie(8,0));
+        });
+        w1k0.setOnAction(event -> {
+            r.ruch(new Klikniecie(0,1));
+        });
+        w1k1.setOnAction(event -> {
+            r.ruch(new Klikniecie(1,1));
+        });
+        w1k2.setOnAction(event -> {
+            r.ruch(new Klikniecie(2,1));
+        });
+        w1k3.setOnAction(event -> {
+            r.ruch(new Klikniecie(3,1));
+        });
+        w1k4.setOnAction(event -> {
+            r.ruch(new Klikniecie(4,1));
+        });
+        w1k5.setOnAction(event -> {
+            r.ruch(new Klikniecie(5,1));
+        });
+        w1k6.setOnAction(event -> {
+            r.ruch(new Klikniecie(6,1));
+        });
+        w1k7.setOnAction(event -> {
+            r.ruch(new Klikniecie(7,1));
+        });
+        w1k8.setOnAction(event -> {
+            r.ruch(new Klikniecie(8,1));
+        });
+        w2k0.setOnAction(event -> {
+            r.ruch(new Klikniecie(0,2));
+        });
+        w2k1.setOnAction(event -> {
+            r.ruch(new Klikniecie(1,2));
+        });
+        w2k2.setOnAction(event -> {
+            r.ruch(new Klikniecie(2,2));
+        });
+        w2k3.setOnAction(event -> {
+            r.ruch(new Klikniecie(3,2));
+        });
+        w2k4.setOnAction(event -> {
+            r.ruch(new Klikniecie(4,2));
+        });
+        w2k5.setOnAction(event -> {
+            r.ruch(new Klikniecie(5,2));
+        });
+        w2k6.setOnAction(event -> {
+            r.ruch(new Klikniecie(6,2));
+        });
+        w2k7.setOnAction(event -> {
+            r.ruch(new Klikniecie(7,2));
+        });
+        w2k8.setOnAction(event -> {
+            r.ruch(new Klikniecie(8,2));
+        });
+        w3k0.setOnAction(event -> {
+            r.ruch(new Klikniecie(0,3));
+        });
+        w3k1.setOnAction(event -> {
+            r.ruch(new Klikniecie(1,3));
+        });
+        w3k2.setOnAction(event -> {
+            r.ruch(new Klikniecie(2,3));
+        });
+        w3k3.setOnAction(event -> {
+            r.ruch(new Klikniecie(3,3));
+        });
+        w3k4.setOnAction(event -> {
+            r.ruch(new Klikniecie(4,3));
+        });
+        w3k5.setOnAction(event -> {
+            r.ruch(new Klikniecie(5,3));
+        });
+        w3k6.setOnAction(event -> {
+            r.ruch(new Klikniecie(6,3));
+        });
+        w3k7.setOnAction(event -> {
+            r.ruch(new Klikniecie(7,3));
+        });
+        w3k8.setOnAction(event -> {
+            r.ruch(new Klikniecie(8,3));
+        });
+        w4k0.setOnAction(event -> {
+            r.ruch(new Klikniecie(0,4));
+        });
+        w4k1.setOnAction(event -> {
+            r.ruch(new Klikniecie(1,4));
+        });
+        w4k2.setOnAction(event -> {
+            r.ruch(new Klikniecie(2,4));
+        });
+        w4k3.setOnAction(event -> {
+            r.ruch(new Klikniecie(3,4));
+        });
+        w4k4.setOnAction(event -> {
+            r.ruch(new Klikniecie(4,4));
+        });
+        w4k5.setOnAction(event -> {
+            r.ruch(new Klikniecie(5,4));
+        });
+        w4k6.setOnAction(event -> {
+            r.ruch(new Klikniecie(6,4));
+        });
+        w4k7.setOnAction(event -> {
+            r.ruch(new Klikniecie(7,4));
+        });
+        w4k8.setOnAction(event -> {
+            r.ruch(new Klikniecie(8,4));
+        });
+        w5k0.setOnAction(event -> {
+            r.ruch(new Klikniecie(0,5));
+        });
+        w5k1.setOnAction(event -> {
+            r.ruch(new Klikniecie(1,5));
+        });
+        w5k2.setOnAction(event -> {
+            r.ruch(new Klikniecie(2,5));
+        });
+        w5k3.setOnAction(event -> {
+            r.ruch(new Klikniecie(3,5));
+        });
+        w5k4.setOnAction(event -> {
+            r.ruch(new Klikniecie(4,5));
+        });
+        w5k5.setOnAction(event -> {
+            r.ruch(new Klikniecie(5,5));
+        });
+        w5k6.setOnAction(event -> {
+            r.ruch(new Klikniecie(6,5));
+        });
+        w5k7.setOnAction(event -> {
+            r.ruch(new Klikniecie(7,5));
+        });
+        w5k8.setOnAction(event -> {
+            r.ruch(new Klikniecie(8,5));
+        });
+        w6k0.setOnAction(event -> {
+            r.ruch(new Klikniecie(0,6));
+        });
+        w6k1.setOnAction(event -> {
+            r.ruch(new Klikniecie(1,6));
+        });
+        w6k2.setOnAction(event -> {
+            r.ruch(new Klikniecie(2,6));
+        });
+        w6k3.setOnAction(event -> {
+            r.ruch(new Klikniecie(3,6));
+        });
+        w6k4.setOnAction(event -> {
+            r.ruch(new Klikniecie(4,6));
+        });
+        w6k5.setOnAction(event -> {
+            r.ruch(new Klikniecie(5,6));
+        });
+        w6k6.setOnAction(event -> {
+            r.ruch(new Klikniecie(6,6));
+        });
+        w6k7.setOnAction(event -> {
+            r.ruch(new Klikniecie(7,6));
+        });
+        w6k8.setOnAction(event -> {
+            r.ruch(new Klikniecie(8,6));
+        });
+        w7k0.setOnAction(event -> {
+            r.ruch(new Klikniecie(0,7));
+        });
+        w7k1.setOnAction(event -> {
+            r.ruch(new Klikniecie(1,7));
+        });
+        w7k2.setOnAction(event -> {
+            r.ruch(new Klikniecie(2,7));
+        });
+        w7k3.setOnAction(event -> {
+            r.ruch(new Klikniecie(3,7));
+        });
+        w7k4.setOnAction(event -> {
+            r.ruch(new Klikniecie(4,7));
+        });
+        w7k5.setOnAction(event -> {
+            r.ruch(new Klikniecie(5,7));
+        });
+        w7k6.setOnAction(event -> {
+            r.ruch(new Klikniecie(6,7));
+        });
+        w7k7.setOnAction(event -> {
+            r.ruch(new Klikniecie(7,7));
+        });
+        w7k8.setOnAction(event -> {
+            r.ruch(new Klikniecie(8,7));
+        });
+        w8k0.setOnAction(event -> {
+            r.ruch(new Klikniecie(0,8));
+        });
+        w8k1.setOnAction(event -> {
+            r.ruch(new Klikniecie(1,8));
+        });
+        w8k2.setOnAction(event -> {
+            r.ruch(new Klikniecie(2,8));
+        });
+        w8k3.setOnAction(event -> {
+            r.ruch(new Klikniecie(3,8));
+        });
+        w8k4.setOnAction(event -> {
+            r.ruch(new Klikniecie(4,8));
+        });
+        w8k5.setOnAction(event -> {
+            r.ruch(new Klikniecie(5,8));
+        });
+        w8k6.setOnAction(event -> {
+            r.ruch(new Klikniecie(6,8));
+        });
+        w8k7.setOnAction(event -> {
+            r.ruch(new Klikniecie(7,8));
+        });
+        w8k8.setOnAction(event -> {
+            r.ruch(new Klikniecie(8,8));
         });
 
 
