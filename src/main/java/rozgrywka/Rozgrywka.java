@@ -6,15 +6,15 @@ import java.util.ArrayList;
 
 public class Rozgrywka {
 
-
-    //docelowo wszytkie poniższe sa prywatne
-    private ArrayList<Bierka> bierki = new ArrayList<>();
-    public Bierka[][] plansza = new Bierka[9][9];//[kolumna][wiersz]
+    private ArrayList<Bierka> bierki = new ArrayList<Bierka>();
+    private Bierka[][] plansza = new Bierka[9][9];//[kolumna][wiersz]
     private Bierka aktywna = null;
     private boolean czyAktywne = false;
     private Kolor strona = Kolor.CZARNY;
 
+    //**********************Metody publiczne*********************************************
 
+    //konstruktor
     public Rozgrywka()
     {
         for(int i=0; i<9; i++)
@@ -58,101 +58,6 @@ public class Rozgrywka {
         wypisNaKonsole();
     }
 
-    private void dodajBierke(Bierka bierka)
-    {
-        bierki.add(bierka);
-        plansza[bierka.getNrKolumny()][bierka.getNrWiersza()] = bierka;
-
-    }
-
-    //metoda do debugowania
-    void wypisNaKonsole()
-    {
-        for(int i = 0; i < 9; i++)
-        {
-            for (int j = 0; j < 9; j++)
-            {
-                if (plansza[j][i] != null)
-                {
-                    System.out.print(" "+ konsolaZnak(plansza[j][i]) + " ");
-                } else
-                {
-                    System.out.print(" * ");
-                }
-            }
-            System.out.println();
-        }
-        System.out.println();
-    }
-
-    //metoda do debugowania
-    private char konsolaZnak(Bierka bierka)
-    {
-        if(bierka.getKolor() == Kolor.BIALY)
-        {
-            switch (bierka.getClass().getName())
-            {
-                case "bierki.Lanca":
-                    return 'L';
-                case "bierki.Pion":
-                    return 'P';
-                case "bierki.Goniec":
-                    return 'G';
-                case "bierki.Skoczek":
-                    return 'S';
-                case "bierki.Wieza":
-                    return 'W';
-                case "bierki.ZlotyGeneral":
-                    return 'Z';
-                case "bierki.SrebrnyGeneral":
-                    return 'X';
-                case "bierki.Krol":
-                    return 'K';
-            }
-        }else
-        {
-            switch (bierka.getClass().getName())
-            {
-                case "bierki.Lanca":
-                    return 'l';
-                case "bierki.Pion":
-                    return 'p';
-                case "bierki.Goniec":
-                    return 'g';
-                case "bierki.Skoczek":
-                    return 's';
-                case "bierki.Wieza":
-                    return 'w';
-                case "bierki.ZlotyGeneral":
-                    return 'z';
-                case "bierki.SrebrnyGeneral":
-                    return 'x';
-                case "bierki.Krol":
-                    return 'k';
-            }
-        }
-        return ' ';
-    }
-
-    private void zmianaGracza()
-    {
-        strona = (strona == Kolor.BIALY)?Kolor.CZARNY:Kolor.BIALY;
-    }
-
-    private boolean czyDrogaWolna(int kolumna1, int wiersz1, int kolumna2, int wiersz2)
-    {
-        boolean czyZmianaKolumny = kolumna1 != kolumna2;
-        boolean czyZmianaWiersza = wiersz1 != wiersz2;
-        boolean czyKolumnaRosnie = kolumna1 < kolumna2;
-        boolean czyWierszRosnie = wiersz1 < wiersz2;
-        int roznica = (czyZmianaKolumny)?Math.abs(kolumna1-kolumna2):Math.abs(wiersz1-wiersz2);
-        for (int i = 1; i < roznica; i++)
-        {
-            if(plansza[czyZmianaKolumny?(czyKolumnaRosnie?kolumna1+i:kolumna1-i):kolumna1][czyZmianaWiersza?(czyWierszRosnie?wiersz1+i:wiersz1-i):wiersz1] != null) return false;
-        }
-        return true;
-    }
-
     //metoda zwraca true, jeżeli klikniecie sprawia zmianę sytuacji wyświetlanej na planszy
     public boolean ruch(Klikniecie klikniecie)
     {
@@ -173,11 +78,14 @@ public class Rozgrywka {
                         System.out.println("ruch jest legalny");
                         if (aktywna.czyNieSkoczek())
                         {
-                            if (czyDrogaWolna(aktywna.getNrKolumny(), aktywna.getNrWiersza(), klikniecie.getX(), klikniecie.getY()))
+                            System.out.println("nieskoczek");
+                            if (!czyDrogaWolna(aktywna.getNrKolumny(), aktywna.getNrWiersza(), klikniecie.getX(), klikniecie.getY()))
                             {
+                                //System.out.println("droga zajeta na polu: "+klikniecie.getX() + " " + klikniecie.getY());
+
                                 aktywna = null;
                                 return true;
-                            }
+                            }// else System.out.println("droga wolna na polu: "+klikniecie.getX() + " " + klikniecie.getY());
                         }
                         plansza[aktywna.getNrKolumny()][aktywna.getNrWiersza()] = null;
                         aktywna.ruch(klikniecie.getX(), klikniecie.getY());
@@ -255,5 +163,119 @@ public class Rozgrywka {
         return false;
     }
 
+    public ArrayList<Bierka> getBierki()
+    {
+        return bierki;
+    }
 
+    public Bierka[][] getPlansza()
+    {
+        return plansza;
+    }
+    //*****************************metody do debugowania***********************************
+
+    //wypisuje na konsole stan planszy
+    void wypisNaKonsole()
+    {
+        for(int i = 0; i < 9; i++)
+        {
+            for (int j = 0; j < 9; j++)
+            {
+                if (plansza[j][i] != null)
+                {
+                    System.out.print(" "+ konsolaZnak(plansza[j][i]) + " ");
+                } else
+                {
+                    System.out.print(" * ");
+                }
+            }
+            System.out.println();
+        }
+        System.out.println();
+    }
+
+    //decyduje o wypisywanym znaku w wypisNaKonsole()
+    private char konsolaZnak(Bierka bierka)
+    {
+        if(bierka.getKolor() == Kolor.BIALY)
+        {
+            switch (bierka.getClass().getName())
+            {
+                case "bierki.Lanca":
+                    return 'L';
+                case "bierki.Pion":
+                    return 'P';
+                case "bierki.Goniec":
+                    return 'G';
+                case "bierki.Skoczek":
+                    return 'S';
+                case "bierki.Wieza":
+                    return 'W';
+                case "bierki.ZlotyGeneral":
+                    return 'Z';
+                case "bierki.SrebrnyGeneral":
+                    return 'X';
+                case "bierki.Krol":
+                    return 'K';
+            }
+        }else
+        {
+            switch (bierka.getClass().getName())
+            {
+                case "bierki.Lanca":
+                    return 'l';
+                case "bierki.Pion":
+                    return 'p';
+                case "bierki.Goniec":
+                    return 'g';
+                case "bierki.Skoczek":
+                    return 's';
+                case "bierki.Wieza":
+                    return 'w';
+                case "bierki.ZlotyGeneral":
+                    return 'z';
+                case "bierki.SrebrnyGeneral":
+                    return 'x';
+                case "bierki.Krol":
+                    return 'k';
+            }
+        }
+        return ' ';
+    }
+
+    //********************metody prywatne, nie grzebać*************************************
+
+    private void dodajBierke(Bierka bierka)
+    {
+        bierki.add(bierka);
+        plansza[bierka.getNrKolumny()][bierka.getNrWiersza()] = bierka;
+
+    }
+
+    private void zmianaGracza()
+    {
+        strona = (strona == Kolor.BIALY)?Kolor.CZARNY:Kolor.BIALY;
+    }
+
+    private boolean czyDrogaWolna(int kolumna1, int wiersz1, int kolumna2, int wiersz2)
+    {
+        boolean czyZmianaKolumny = kolumna1 != kolumna2;
+        boolean czyZmianaWiersza = wiersz1 != wiersz2;
+        boolean czyKolumnaRosnie = kolumna1 < kolumna2;
+        boolean czyWierszRosnie = wiersz1 < wiersz2;
+        int roznica = (czyZmianaKolumny)?Math.abs(kolumna1-kolumna2):Math.abs(wiersz1-wiersz2);
+        System.out.println("czyZmianaKolumny = " + czyZmianaKolumny);
+        System.out.println("czyZmianaWiersza = " + czyZmianaWiersza);
+        System.out.println("czyKolumnaRosnie = " + czyKolumnaRosnie);
+        System.out.println("czyWierszRosnie = " + czyWierszRosnie);
+        System.out.println("roznica = " + roznica);
+        for (int i = 1; i < roznica; i++)
+        {
+            System.out.println("wykonalo sie");
+            if(plansza[kolumna1+(czyZmianaKolumny?(czyKolumnaRosnie?i:i*(-1)):0)][wiersz1+(czyZmianaWiersza?(czyWierszRosnie?i:i*(-1)):0)] != null)
+                return false;
+            //if(plansza[czyZmianaKolumny?(czyKolumnaRosnie?kolumna1+i:kolumna1-i):kolumna1][czyZmianaWiersza?(czyWierszRosnie?wiersz1+i:wiersz1-i):wiersz1] != null) return false;
+        }
+        return true;
+    }
 }

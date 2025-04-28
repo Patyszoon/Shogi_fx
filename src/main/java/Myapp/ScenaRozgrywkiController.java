@@ -265,9 +265,11 @@ public class  ScenaRozgrywkiController {
 
 
 
+    Rozgrywka r = new Rozgrywka();
+    //nie wiem czy będzie potrzebne w tej formie, raczej nie skoro mozna zawsze zrobić r.getBierki()
+    //ale jak coś to tak to trzeba zrobić
+    //ArrayList<Bierka> listaBierek = r.getBierki();
 
-    ArrayList<Bierka> listaBierek = new ArrayList<>();
-    Rozgrywka logika = new Rozgrywka();
     @FXML
     private AnchorPane plansza;
 
@@ -467,7 +469,7 @@ public class  ScenaRozgrywkiController {
 
 
 
-        dodajBierki();
+        //dodajBierki();
         zapiszMenu.setOnAction(event -> {
             try {
                 mainApp.pokazScenaMenu();
@@ -501,39 +503,39 @@ public class  ScenaRozgrywkiController {
 
 
 
-    public void dodajBierki() {
-        listaBierek.add(new Krol(Kolor.BIALY, Stan.NA_PLANSZY, 4, 8));
-        listaBierek.add(new Wieza(Kolor.BIALY, Stan.NA_PLANSZY, 7, 7));
-        listaBierek.add(new Goniec(Kolor.BIALY, Stan.NA_PLANSZY, 1, 7));
-        listaBierek.add(new ZlotyGeneral(Kolor.BIALY, Stan.NA_PLANSZY, 3, 8));
-        listaBierek.add(new ZlotyGeneral(Kolor.BIALY, Stan.NA_PLANSZY, 5, 8));
-        listaBierek.add(new SrebrnyGeneral(Kolor.BIALY, Stan.NA_PLANSZY, 2, 8));
-        listaBierek.add(new SrebrnyGeneral(Kolor.BIALY, Stan.NA_PLANSZY, 6, 8));
-        listaBierek.add(new Skoczek(Kolor.BIALY, Stan.NA_PLANSZY, 1, 8));
-        listaBierek.add(new Skoczek(Kolor.BIALY, Stan.NA_PLANSZY, 7, 8));
-        listaBierek.add(new Lanca(Kolor.BIALY, Stan.NA_PLANSZY, 0, 8));
-        listaBierek.add(new Lanca(Kolor.BIALY, Stan.NA_PLANSZY, 8, 8));
-
-        for (int i = 0; i < 9; i++) {
-            listaBierek.add(new Pion(Kolor.BIALY, Stan.NA_PLANSZY, i, 6));
-        }
-
-        listaBierek.add(new Krol(Kolor.CZARNY, Stan.NA_PLANSZY, 4, 0));
-        listaBierek.add(new Wieza(Kolor.CZARNY, Stan.NA_PLANSZY, 7, 1));
-        listaBierek.add(new Goniec(Kolor.CZARNY, Stan.NA_PLANSZY, 1, 1));
-        listaBierek.add(new ZlotyGeneral(Kolor.CZARNY, Stan.NA_PLANSZY, 3, 0));
-        listaBierek.add(new ZlotyGeneral(Kolor.CZARNY, Stan.NA_PLANSZY, 5, 0));
-        listaBierek.add(new SrebrnyGeneral(Kolor.CZARNY, Stan.NA_PLANSZY, 2, 0));
-        listaBierek.add(new SrebrnyGeneral(Kolor.CZARNY, Stan.NA_PLANSZY, 6, 0));
-        listaBierek.add(new Skoczek(Kolor.CZARNY, Stan.NA_PLANSZY, 1, 0));
-        listaBierek.add(new Skoczek(Kolor.CZARNY, Stan.NA_PLANSZY, 7, 0));
-        listaBierek.add(new Lanca(Kolor.CZARNY, Stan.NA_PLANSZY, 0, 0));
-        listaBierek.add(new Lanca(Kolor.CZARNY, Stan.NA_PLANSZY, 8, 0));
-
-        for (int i = 0; i < 9; i++) {
-            listaBierek.add(new Pion(Kolor.CZARNY, Stan.NA_PLANSZY, i, 2));
-        }
-    }
+//    public void dodajBierki() {
+//        listaBierek.add(new Krol(Kolor.BIALY, Stan.NA_PLANSZY, 4, 8));
+//        listaBierek.add(new Wieza(Kolor.BIALY, Stan.NA_PLANSZY, 7, 7));
+//        listaBierek.add(new Goniec(Kolor.BIALY, Stan.NA_PLANSZY, 1, 7));
+//        listaBierek.add(new ZlotyGeneral(Kolor.BIALY, Stan.NA_PLANSZY, 3, 8));
+//        listaBierek.add(new ZlotyGeneral(Kolor.BIALY, Stan.NA_PLANSZY, 5, 8));
+//        listaBierek.add(new SrebrnyGeneral(Kolor.BIALY, Stan.NA_PLANSZY, 2, 8));
+//        listaBierek.add(new SrebrnyGeneral(Kolor.BIALY, Stan.NA_PLANSZY, 6, 8));
+//        listaBierek.add(new Skoczek(Kolor.BIALY, Stan.NA_PLANSZY, 1, 8));
+//        listaBierek.add(new Skoczek(Kolor.BIALY, Stan.NA_PLANSZY, 7, 8));
+//        listaBierek.add(new Lanca(Kolor.BIALY, Stan.NA_PLANSZY, 0, 8));
+//        listaBierek.add(new Lanca(Kolor.BIALY, Stan.NA_PLANSZY, 8, 8));
+//
+//        for (int i = 0; i < 9; i++) {
+//            listaBierek.add(new Pion(Kolor.BIALY, Stan.NA_PLANSZY, i, 6));
+//        }
+//
+//        listaBierek.add(new Krol(Kolor.CZARNY, Stan.NA_PLANSZY, 4, 0));
+//        listaBierek.add(new Wieza(Kolor.CZARNY, Stan.NA_PLANSZY, 7, 1));
+//        listaBierek.add(new Goniec(Kolor.CZARNY, Stan.NA_PLANSZY, 1, 1));
+//        listaBierek.add(new ZlotyGeneral(Kolor.CZARNY, Stan.NA_PLANSZY, 3, 0));
+//        listaBierek.add(new ZlotyGeneral(Kolor.CZARNY, Stan.NA_PLANSZY, 5, 0));
+//        listaBierek.add(new SrebrnyGeneral(Kolor.CZARNY, Stan.NA_PLANSZY, 2, 0));
+//        listaBierek.add(new SrebrnyGeneral(Kolor.CZARNY, Stan.NA_PLANSZY, 6, 0));
+//        listaBierek.add(new Skoczek(Kolor.CZARNY, Stan.NA_PLANSZY, 1, 0));
+//        listaBierek.add(new Skoczek(Kolor.CZARNY, Stan.NA_PLANSZY, 7, 0));
+//        listaBierek.add(new Lanca(Kolor.CZARNY, Stan.NA_PLANSZY, 0, 0));
+//        listaBierek.add(new Lanca(Kolor.CZARNY, Stan.NA_PLANSZY, 8, 0));
+//
+//        for (int i = 0; i < 9; i++) {
+//            listaBierek.add(new Pion(Kolor.CZARNY, Stan.NA_PLANSZY, i, 2));
+//        }
+//    }
 
 
 
