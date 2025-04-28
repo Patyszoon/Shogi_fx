@@ -9,6 +9,6 @@ public class Lanca extends PromowalnaBierka{
 
     @Override
     protected boolean czyLegalnyPrzedPromocja(int kolumna, int wiersz) {
-        return (kolumna == this.nrKolumny) && (wiersz > this.nrWiersza);
+        return (kolumna == this.nrKolumny) && ((this.getKolor() == Kolor.BIALY)?wiersz > this.nrWiersza:wiersz < this.nrWiersza);
     }
 }

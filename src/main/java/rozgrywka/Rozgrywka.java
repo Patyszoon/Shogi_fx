@@ -9,7 +9,7 @@ public class Rozgrywka {
 
     //docelowo wszytkie poniższe sa prywatne
     private ArrayList<Bierka> bierki = new ArrayList<>();
-    public Bierka[][] plansza = new Bierka[9][9];
+    public Bierka[][] plansza = new Bierka[9][9];//[kolumna][wiersz]
     private Bierka aktywna = null;
     private boolean czyAktywne = false;
     private Kolor strona = Kolor.CZARNY;
@@ -23,37 +23,37 @@ public class Rozgrywka {
                 plansza[i][j] = null;
             }
         //DODANIE BIAŁYCH NA PLANSZE
-        dodajBierke(new Krol(Kolor.BIALY, Stan.NA_PLANSZY, 0, 4));
-        dodajBierke(new ZlotyGeneral(Kolor.BIALY, Stan.NA_PLANSZY, 0, 3));
-        dodajBierke(new ZlotyGeneral(Kolor.BIALY, Stan.NA_PLANSZY, 0, 5));
-        dodajBierke(new SrebrnyGeneral(Kolor.BIALY, Stan.NA_PLANSZY, 0, 2));
-        dodajBierke(new SrebrnyGeneral(Kolor.BIALY, Stan.NA_PLANSZY, 0, 6));
-        dodajBierke(new Skoczek(Kolor.BIALY, Stan.NA_PLANSZY, 0, 1));
-        dodajBierke(new Skoczek(Kolor.BIALY, Stan.NA_PLANSZY, 0, 7));
+        dodajBierke(new Krol(Kolor.BIALY, Stan.NA_PLANSZY, 4, 0));
+        dodajBierke(new ZlotyGeneral(Kolor.BIALY, Stan.NA_PLANSZY, 3, 0));
+        dodajBierke(new ZlotyGeneral(Kolor.BIALY, Stan.NA_PLANSZY, 5, 0));
+        dodajBierke(new SrebrnyGeneral(Kolor.BIALY, Stan.NA_PLANSZY, 2, 0));
+        dodajBierke(new SrebrnyGeneral(Kolor.BIALY, Stan.NA_PLANSZY, 6, 0));
+        dodajBierke(new Skoczek(Kolor.BIALY, Stan.NA_PLANSZY, 1, 0));
+        dodajBierke(new Skoczek(Kolor.BIALY, Stan.NA_PLANSZY, 7, 0));
         dodajBierke(new Lanca(Kolor.BIALY, Stan.NA_PLANSZY, 0, 0));
-        dodajBierke(new Lanca(Kolor.BIALY, Stan.NA_PLANSZY, 0, 8));
-        dodajBierke(new Goniec(Kolor.BIALY, Stan.NA_PLANSZY, 1, 7));
+        dodajBierke(new Lanca(Kolor.BIALY, Stan.NA_PLANSZY, 8, 0));
+        dodajBierke(new Goniec(Kolor.BIALY, Stan.NA_PLANSZY, 7, 1));
         dodajBierke(new Wieza(Kolor.BIALY, Stan.NA_PLANSZY, 1, 1));
         for(int i = 0; i < 9; i++)
         {
-            dodajBierke(new Pion(Kolor.BIALY, Stan.NA_PLANSZY, 2, i));
+            dodajBierke(new Pion(Kolor.BIALY, Stan.NA_PLANSZY, i, 2));
         }
 
         //DODANIE CZARNYCH NA PLANSZE
-        dodajBierke(new Krol(Kolor.CZARNY, Stan.NA_PLANSZY, 8, 4));
-        dodajBierke(new ZlotyGeneral(Kolor.CZARNY, Stan.NA_PLANSZY, 8, 3));
-        dodajBierke(new ZlotyGeneral(Kolor.CZARNY, Stan.NA_PLANSZY, 8, 5));
-        dodajBierke(new SrebrnyGeneral(Kolor.CZARNY, Stan.NA_PLANSZY, 8, 2));
-        dodajBierke(new SrebrnyGeneral(Kolor.CZARNY, Stan.NA_PLANSZY, 8, 6));
-        dodajBierke(new Skoczek(Kolor.CZARNY, Stan.NA_PLANSZY, 8, 1));
-        dodajBierke(new Skoczek(Kolor.CZARNY, Stan.NA_PLANSZY, 8, 7));
-        dodajBierke(new Lanca(Kolor.CZARNY, Stan.NA_PLANSZY, 8, 0));
+        dodajBierke(new Krol(Kolor.CZARNY, Stan.NA_PLANSZY, 4, 8));
+        dodajBierke(new ZlotyGeneral(Kolor.CZARNY, Stan.NA_PLANSZY, 3, 8));
+        dodajBierke(new ZlotyGeneral(Kolor.CZARNY, Stan.NA_PLANSZY, 5, 8));
+        dodajBierke(new SrebrnyGeneral(Kolor.CZARNY, Stan.NA_PLANSZY, 2, 8));
+        dodajBierke(new SrebrnyGeneral(Kolor.CZARNY, Stan.NA_PLANSZY, 6, 8));
+        dodajBierke(new Skoczek(Kolor.CZARNY, Stan.NA_PLANSZY, 1, 8));
+        dodajBierke(new Skoczek(Kolor.CZARNY, Stan.NA_PLANSZY, 7, 8));
+        dodajBierke(new Lanca(Kolor.CZARNY, Stan.NA_PLANSZY, 0, 8));
         dodajBierke(new Lanca(Kolor.CZARNY, Stan.NA_PLANSZY, 8, 8));
-        dodajBierke(new Goniec(Kolor.CZARNY, Stan.NA_PLANSZY, 7, 1));
+        dodajBierke(new Goniec(Kolor.CZARNY, Stan.NA_PLANSZY, 1, 7));
         dodajBierke(new Wieza(Kolor.CZARNY, Stan.NA_PLANSZY, 7, 7));
         for(int i = 0; i < 9; i++)
         {
-            dodajBierke(new Pion(Kolor.CZARNY, Stan.NA_PLANSZY, 6, i));
+            dodajBierke(new Pion(Kolor.CZARNY, Stan.NA_PLANSZY, i, 6));
         }
         wypisNaKonsole();
     }
@@ -72,9 +72,9 @@ public class Rozgrywka {
         {
             for (int j = 0; j < 9; j++)
             {
-                if (plansza[i][j] != null)
+                if (plansza[j][i] != null)
                 {
-                    System.out.print(" "+ konsolaZnak(plansza[i][j]) + " ");
+                    System.out.print(" "+ konsolaZnak(plansza[j][i]) + " ");
                 } else
                 {
                     System.out.print(" * ");
@@ -139,16 +139,16 @@ public class Rozgrywka {
         strona = (strona == Kolor.BIALY)?Kolor.CZARNY:Kolor.BIALY;
     }
 
-    private boolean czyDrogaWolna(int x1, int y1, int x2, int y2)
+    private boolean czyDrogaWolna(int kolumna1, int wiersz1, int kolumna2, int wiersz2)
     {
-        boolean zmianax = x1 != x2;
-        boolean zmianay = y1 != y2;
-        boolean xrosnie = x1 < x2;
-        boolean yrosnie = y1 < y2;
-        int roznica = (zmianax)?Math.abs(x1-x2):Math.abs(y1-y2);
+        boolean czyZmianaKolumny = kolumna1 != kolumna2;
+        boolean czyZmianaWiersza = wiersz1 != wiersz2;
+        boolean czyKolumnaRosnie = kolumna1 < kolumna2;
+        boolean czyWierszRosnie = wiersz1 < wiersz2;
+        int roznica = (czyZmianaKolumny)?Math.abs(kolumna1-kolumna2):Math.abs(wiersz1-wiersz2);
         for (int i = 1; i < roznica; i++)
         {
-            if(plansza[zmianax?(xrosnie?x1+i:x1-i):x1][zmianay?(yrosnie?y1+i:y1-i):y1] != null) return false;
+            if(plansza[czyZmianaKolumny?(czyKolumnaRosnie?kolumna1+i:kolumna1-i):kolumna1][czyZmianaWiersza?(czyWierszRosnie?wiersz1+i:wiersz1-i):wiersz1] != null) return false;
         }
         return true;
     }
@@ -167,8 +167,10 @@ public class Rozgrywka {
                 if((plansza[klikniecie.getX()][klikniecie.getY()] == null) || (plansza[klikniecie.getX()][klikniecie.getY()].getKolor() != aktywna.getKolor()))
                 //klikniecie na puste lub bierke przeciwnika - proba ruchu
                 {
+                    System.out.println("podjeta proba ruchu");
                     if (aktywna.czyLegalny(klikniecie.getX(), klikniecie.getY()))
                     {
+                        System.out.println("ruch jest legalny");
                         if (aktywna.czyNieSkoczek())
                         {
                             if (czyDrogaWolna(aktywna.getNrKolumny(), aktywna.getNrWiersza(), klikniecie.getX(), klikniecie.getY()))
@@ -203,7 +205,7 @@ public class Rozgrywka {
                 System.out.println("nie ma jeszcze aktywnej bierki");
                 if(plansza[klikniecie.getX()][klikniecie.getY()] != null)
                 {
-                    System.out.println("kliknieta na niepuste pole");
+                    System.out.println("kliknieta na zajete pole");
                     System.out.println(plansza[klikniecie.getX()][klikniecie.getY()].getKolor());
                     System.out.println(strona);
                     if (plansza[klikniecie.getX()][klikniecie.getY()].getKolor() == strona)

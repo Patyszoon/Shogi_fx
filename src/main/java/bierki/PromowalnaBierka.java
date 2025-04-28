@@ -31,9 +31,10 @@ public abstract class PromowalnaBierka extends Bierka{
     //pomocnicza funkcja dla klas, ktore zmieniaja ruch po promocji
     // domyslnie zaimplementowan ruch jak dla zlotego generala, czyli prawidlowo dla wszystkich poza wieza i goncem
     protected boolean czyLegalnyPoPromocji(int kolumna, int wiersz){
+        int odwrotka = (this.getKolor() == Kolor.BIALY)?1:-1;
         if(kolumna == this.nrKolumny && wiersz == this.nrWiersza)return false;
-        if(kolumna == this.nrKolumny -1 && wiersz == this.nrWiersza -1)return false;
-        if(kolumna == this.nrKolumny +1 && wiersz == this.nrWiersza -1)return false;
+        if(kolumna == this.nrKolumny -1 && wiersz == this.nrWiersza -odwrotka)return false;
+        if(kolumna == this.nrKolumny +1 && wiersz == this.nrWiersza -odwrotka)return false;
         for(int xl = kolumna-1; xl <= (kolumna + 1); xl++)
             for(int yl = wiersz-1; yl <= (wiersz + 1); yl++)
                 if(xl == this.nrKolumny && yl == this.nrWiersza) return true;

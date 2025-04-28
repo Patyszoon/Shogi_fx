@@ -10,6 +10,8 @@ public class Pion extends PromowalnaBierka{
 
     @Override
     protected boolean czyLegalnyPrzedPromocja(int kolumna, int wiersz) {
-        return (kolumna == this.nrKolumny) && (wiersz == this.nrWiersza +1);
+        int odwrotka = (this.getKolor() == Kolor.BIALY)?1:-1;
+        System.out.println((kolumna == this.nrKolumny) && (wiersz == this.nrWiersza + odwrotka));
+        return (kolumna == this.nrKolumny) && (wiersz == this.nrWiersza +odwrotka);
     }
 }
