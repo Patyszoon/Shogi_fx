@@ -186,6 +186,7 @@ public class  ScenaRozgrywkiController {
     private Main mainApp;
 
     public Button[][] przyciski = new Button[9][9];
+    //private Przycisk[][] przyciskiEksp = new Przycisk[9][9];
 
     /*Image krol2 = new Image(getClass().getResourceAsStream("/Myapp/bierki/Krol2.png"));
     ImageView krol2up = new ImageView(krol2);
@@ -258,106 +259,102 @@ public class  ScenaRozgrywkiController {
     ImageView zlotyGeneral2down = new ImageView(zlotyGeneral);*/
     //Image image = new Image(getClass().getResourceAsStream("/Myapp/bierki/Empty.png"));
     //ImageView imageView = new ImageView(image);
-    Image image = new Image(getClass().getResourceAsStream("/Myapp/bierki/Empty.png"));
-    ImageView imageViewww = new ImageView(image);
 
-
-
-
-
-
-
-    Rozgrywka r = new Rozgrywka();
-    //nie wiem czy będzie potrzebne w tej formie, raczej nie skoro mozna zawsze zrobić r.getBierki()
-    //ale jak coś to tak to trzeba zrobić
-    //ArrayList<Bierka> listaBierek = r.getBierki();
+    Rozgrywka r = null;
 
     @FXML
     private AnchorPane plansza;
 
     public ScenaRozgrywkiController() {
-        przyciski[0][0]=w0k0;
-        przyciski[1][0]=w0k1;
-        przyciski[2][0]=w0k2;
-        przyciski[3][0]=w0k3;
-        przyciski[4][0]=w0k4;
-        przyciski[5][0]=w0k5;
-        przyciski[6][0]=w0k6;
-        przyciski[7][0]=w0k7;
-        przyciski[8][0]=w0k8;
-        przyciski[0][1]=w1k0;
-        przyciski[1][1]=w1k1;
-        przyciski[2][1]=w1k2;
-        przyciski[3][1]=w1k3;
-        przyciski[4][1]=w1k4;
-        przyciski[5][1]=w1k5;
-        przyciski[6][1]=w1k6;
-        przyciski[7][1]=w1k7;
-        przyciski[8][1]=w1k8;
-        przyciski[0][2]=w2k0;
-        przyciski[1][2]=w2k1;
-        przyciski[2][2]=w2k2;
-        przyciski[3][2]=w2k3;
-        przyciski[4][2]=w2k4;
-        przyciski[5][2]=w2k5;
-        przyciski[6][2]=w2k6;
-        przyciski[7][2]=w2k7;
-        przyciski[8][2]=w2k8;
-        przyciski[0][3]=w3k0;
-        przyciski[1][3]=w3k1;
-        przyciski[2][3]=w3k2;
-        przyciski[3][3]=w3k3;
-        przyciski[4][3]=w3k4;
-        przyciski[5][3]=w3k5;
-        przyciski[6][3]=w3k6;
-        przyciski[7][3]=w3k7;
-        przyciski[8][3]=w3k8;
-        przyciski[0][4]=w4k0;
-        przyciski[1][4]=w4k1;
-        przyciski[2][4]=w4k2;
-        przyciski[3][4]=w4k3;
-        przyciski[4][4]=w4k4;
-        przyciski[5][4]=w4k5;
-        przyciski[6][4]=w4k6;
-        przyciski[7][4]=w4k7;
-        przyciski[8][4]=w4k8;
-        przyciski[0][5]=w5k0;
-        przyciski[1][5]=w5k1;
-        przyciski[2][5]=w5k2;
-        przyciski[3][5]=w5k3;
-        przyciski[4][5]=w5k4;
-        przyciski[5][5]=w5k5;
-        przyciski[6][5]=w5k6;
-        przyciski[7][5]=w5k7;
-        przyciski[8][5]=w5k8;
-        przyciski[0][6]=w6k0;
-        przyciski[1][6]=w6k1;
-        przyciski[2][6]=w6k2;
-        przyciski[3][6]=w6k3;
-        przyciski[4][6]=w6k4;
-        przyciski[5][6]=w6k5;
-        przyciski[6][6]=w6k6;
-        przyciski[7][6]=w6k7;
-        przyciski[8][6]=w6k8;
-        przyciski[0][7]=w7k0;
-        przyciski[1][7]=w7k1;
-        przyciski[2][7]=w7k2;
-        przyciski[3][7]=w7k3;
-        przyciski[4][7]=w7k4;
-        przyciski[5][7]=w7k5;
-        przyciski[6][7]=w7k6;
-        przyciski[7][7]=w7k7;
-        przyciski[8][7]=w7k8;
-        przyciski[0][8]=w8k0;
-        przyciski[1][8]=w8k1;
-        przyciski[2][8]=w8k2;
-        przyciski[3][8]=w8k3;
-        przyciski[4][8]=w8k4;
-        przyciski[5][8]=w8k5;
-        przyciski[6][8]=w8k6;
-        przyciski[7][8]=w8k7;
-        przyciski[8][8]=w8k8;
-
+//        przyciski[0][0]=w0k0;
+//        przyciski[1][0]=w0k1;
+//        przyciski[2][0]=w0k2;
+//        przyciski[3][0]=w0k3;
+//        przyciski[4][0]=w0k4;
+//        przyciski[5][0]=w0k5;
+//        przyciski[6][0]=w0k6;
+//        przyciski[7][0]=w0k7;
+//        przyciski[8][0]=w0k8;
+//        przyciski[0][1]=w1k0;
+//        przyciski[1][1]=w1k1;
+//        przyciski[2][1]=w1k2;
+//        przyciski[3][1]=w1k3;
+//        przyciski[4][1]=w1k4;
+//        przyciski[5][1]=w1k5;
+//        przyciski[6][1]=w1k6;
+//        przyciski[7][1]=w1k7;
+//        przyciski[8][1]=w1k8;
+//        przyciski[0][2]=w2k0;
+//        przyciski[1][2]=w2k1;
+//        przyciski[2][2]=w2k2;
+//        przyciski[3][2]=w2k3;
+//        przyciski[4][2]=w2k4;
+//        przyciski[5][2]=w2k5;
+//        przyciski[6][2]=w2k6;
+//        przyciski[7][2]=w2k7;
+//        przyciski[8][2]=w2k8;
+//        przyciski[0][3]=w3k0;
+//        przyciski[1][3]=w3k1;
+//        przyciski[2][3]=w3k2;
+//        przyciski[3][3]=w3k3;
+//        przyciski[4][3]=w3k4;
+//        przyciski[5][3]=w3k5;
+//        przyciski[6][3]=w3k6;
+//        przyciski[7][3]=w3k7;
+//        przyciski[8][3]=w3k8;
+//        przyciski[0][4]=w4k0;
+//        przyciski[1][4]=w4k1;
+//        przyciski[2][4]=w4k2;
+//        przyciski[3][4]=w4k3;
+//        przyciski[4][4]=w4k4;
+//        przyciski[5][4]=w4k5;
+//        przyciski[6][4]=w4k6;
+//        przyciski[7][4]=w4k7;
+//        przyciski[8][4]=w4k8;
+//        przyciski[0][5]=w5k0;
+//        przyciski[1][5]=w5k1;
+//        przyciski[2][5]=w5k2;
+//        przyciski[3][5]=w5k3;
+//        przyciski[4][5]=w5k4;
+//        przyciski[5][5]=w5k5;
+//        przyciski[6][5]=w5k6;
+//        przyciski[7][5]=w5k7;
+//        przyciski[8][5]=w5k8;
+//        przyciski[0][6]=w6k0;
+//        przyciski[1][6]=w6k1;
+//        przyciski[2][6]=w6k2;
+//        przyciski[3][6]=w6k3;
+//        przyciski[4][6]=w6k4;
+//        przyciski[5][6]=w6k5;
+//        przyciski[6][6]=w6k6;
+//        przyciski[7][6]=w6k7;
+//        przyciski[8][6]=w6k8;
+//        przyciski[0][7]=w7k0;
+//        przyciski[1][7]=w7k1;
+//        przyciski[2][7]=w7k2;
+//        przyciski[3][7]=w7k3;
+//        przyciski[4][7]=w7k4;
+//        przyciski[5][7]=w7k5;
+//        przyciski[6][7]=w7k6;
+//        przyciski[7][7]=w7k7;
+//        przyciski[8][7]=w7k8;
+//        przyciski[0][8]=w8k0;
+//        przyciski[1][8]=w8k1;
+//        przyciski[2][8]=w8k2;
+//        przyciski[3][8]=w8k3;
+//        przyciski[4][8]=w8k4;
+//        przyciski[5][8]=w8k5;
+//        przyciski[6][8]=w8k6;
+//        przyciski[7][8]=w8k7;
+//        przyciski[8][8]=w8k8;
+//        for(int i = 0; i < 9; i++) {
+//            for (int j = 0; j < 9; j++) {
+//                System.out.print(przyciski[i][j]);
+//            }
+//            System.out.println();
+//        }
+//        System.out.println(w8k8);
+//        r = new Rozgrywka(przyciski);
     }
 
     public ScenaRozgrywkiController(AnchorPane plansza) {
@@ -366,190 +363,7 @@ public class  ScenaRozgrywkiController {
 
     @FXML
     public void initialize() {
-       /* krol2up.setFitWidth(50);
-        krol2up.setFitHeight(60);
-        krol2down.setFitWidth(50);
-        krol2down.setFitHeight(60);
-        krol2down.setRotate(180);
 
-        krolup.setFitWidth(50);
-        krolup.setFitHeight(60);
-        kroldown.setFitWidth(50);
-        kroldown.setFitHeight(60);
-        kroldown.setRotate(180);
-        lanca1up.setFitWidth(50);
-        lanca1up.setFitHeight(60);
-        lanca1down.setFitWidth(50);
-        lanca1down.setFitHeight(60);
-        lanca1down.setRotate(180);
-        lanca2up.setFitWidth(50);
-        lanca2up.setFitHeight(60);
-        lanca2down.setFitWidth(50);
-        lanca2down.setFitHeight(60);
-        lanca2down.setRotate(180);
-        pionek1up.setFitWidth(50);
-        pionek1up.setFitHeight(60);
-        pionek1down.setFitWidth(50);
-        pionek1down.setFitHeight(60);
-        pionek1down.setRotate(180);
-        pionek2up.setFitWidth(50);
-        pionek2up.setFitHeight(60);
-        pionek2down.setFitWidth(50);
-        pionek2down.setFitHeight(60);
-        pionek2down.setRotate(180);
-        pionek3up.setFitWidth(50);
-        pionek3up.setFitHeight(60);
-        pionek3down.setFitWidth(50);
-        pionek3down.setFitHeight(60);
-        pionek3down.setRotate(180);
-        pionek4up.setFitWidth(50);
-        pionek4up.setFitHeight(60);
-        pionek4down.setFitWidth(50);
-        pionek4down.setFitHeight(60);
-        pionek4down.setRotate(180);
-        pionek5up.setFitWidth(50);
-        pionek5up.setFitHeight(60);
-        pionek5down.setFitWidth(50);
-        pionek5down.setFitHeight(60);
-        pionek5down.setRotate(180);
-        pionek6up.setFitWidth(50);
-        pionek6up.setFitHeight(60);
-        pionek6down.setFitWidth(50);
-        pionek6down.setFitHeight(60);
-        pionek6down.setRotate(180);
-        pionek7up.setFitWidth(50);
-        pionek7up.setFitHeight(60);
-        pionek7down.setFitWidth(50);
-        pionek7down.setFitHeight(60);
-        pionek7down.setRotate(180);
-        pionek8up.setFitWidth(50);
-        pionek8up.setFitHeight(60);
-        pionek8down.setFitWidth(50);
-        pionek8down.setFitHeight(60);
-        pionek8down.setRotate(180);
-        pionek9up.setFitWidth(50);
-        pionek9up.setFitHeight(60);
-        pionek9down.setFitWidth(50);
-        pionek9down.setFitHeight(60);
-        pionek9down.setRotate(180);
-        promowanaLancaup.setFitWidth(50);
-        promowanaLancaup.setFitHeight(60);
-        promowanaLancadown.setFitWidth(50);
-        promowanaLancadown.setFitHeight(60);
-        promowanaLancadown.setRotate(180);
-        promowanaWiezaup.setFitWidth(50);
-        promowanaWiezaup.setFitHeight(60);
-        promowanaWiezadown.setFitWidth(50);
-        promowanaWiezadown.setFitHeight(60);
-        promowanaWiezadown.setRotate(180);
-        promowanyGoniecup.setFitWidth(50);
-        promowanyGoniecup.setFitHeight(60);
-        promowanyGoniecdown.setFitWidth(50);
-        promowanyGoniecdown.setFitHeight(60);
-        promowanyGoniecdown.setRotate(180);
-        promowanyPionup.setFitWidth(50);
-        promowanyPionup.setFitHeight(60);
-        promowanyPiondown.setFitWidth(50);
-        promowanyPiondown.setFitHeight(60);
-        promowanyPiondown.setRotate(180);
-        promowanySkoczekup.setFitWidth(50);
-        promowanySkoczekup.setFitHeight(60);
-        promowanySkoczekdown.setFitWidth(50);
-        promowanySkoczekdown.setFitHeight(60);
-        promowanySkoczekdown.setRotate(180);
-        promowanySrebrnyup.setFitWidth(50);
-        promowanySrebrnyup.setFitHeight(60);
-        promowanySrebrnydown.setFitWidth(50);
-        promowanySrebrnydown.setFitHeight(60);
-        promowanySrebrnydown.setRotate(180);
-        skoczek1up.setFitWidth(50);
-        skoczek1up.setFitHeight(60);
-        skoczek1down.setFitWidth(50);
-        skoczek1down.setFitHeight(60);
-        skoczek1down.setRotate(180);
-        skoczek2up.setFitWidth(50);
-        skoczek2up.setFitHeight(60);
-        skoczek2down.setFitWidth(50);
-        skoczek2down.setFitHeight(60);
-        skoczek2down.setRotate(180);
-        srebrnyGeneral1up.setFitWidth(50);
-        srebrnyGeneral1up.setFitHeight(60);
-        srebrnyGeneral1down.setFitWidth(50);
-        srebrnyGeneral1down.setFitHeight(60);
-        srebrnyGeneral1down.setRotate(180);
-        srebrnyGeneral2up.setFitWidth(50);
-        srebrnyGeneral2up.setFitHeight(60);
-        srebrnyGeneral2down.setFitWidth(50);
-        srebrnyGeneral2down.setFitHeight(60);
-        srebrnyGeneral2down.setRotate(180);
-        wiezaup.setFitWidth(50);
-        wiezaup.setFitHeight(60);
-        wiezadown.setFitWidth(50);
-        wiezadown.setFitHeight(60);
-        wiezadown.setRotate(180);
-        zlotyGeneral1up.setFitWidth(50);
-        zlotyGeneral1up.setFitHeight(60);
-        zlotyGeneral1down.setFitWidth(50);
-        zlotyGeneral1down.setFitHeight(60);
-        zlotyGeneral1down.setRotate(180);
-        zlotyGeneral2up.setFitWidth(50);
-        zlotyGeneral2up.setFitHeight(60);
-        zlotyGeneral2down.setFitWidth(50);
-        zlotyGeneral2down.setFitHeight(60);
-        zlotyGeneral2down.setRotate(180);
-        empty.setFitWidth(50);
-        empty.setFitHeight(60);
-
-        w0k0.setGraphic(lanca1down);
-        w0k8.setGraphic(lanca2down);
-        w8k0.setGraphic(lanca1up);
-        w8k8.setGraphic(lanca2up);
-        w0k1.setGraphic(skoczek1down);
-        w0k7.setGraphic(skoczek2down);
-        w8k1.setGraphic(skoczek1up);
-        w8k7.setGraphic(skoczek2up);
-        w0k2.setGraphic(srebrnyGeneral1down);
-        w0k6.setGraphic(srebrnyGeneral2down);
-        w8k2.setGraphic(srebrnyGeneral1up);
-        w8k6.setGraphic(srebrnyGeneral2up);
-        w0k3.setGraphic(zlotyGeneral1down);
-        w0k5.setGraphic(zlotyGeneral2down);
-        w8k3.setGraphic(zlotyGeneral1up);
-        w8k5.setGraphic(zlotyGeneral2up);
-        w0k4.setGraphic(kroldown);
-        w8k4.setGraphic(krol2up);
-        w1k1.setGraphic(wiezadown);
-        w7k7.setGraphic(wiezaup);
-        w1k7.setGraphic(goniecdown);
-        w7k1.setGraphic(goniecup);
-        w2k0.setGraphic(pionek1down);
-        w2k1.setGraphic(pionek2down);
-        w2k2.setGraphic(pionek3down);
-        w2k3.setGraphic(pionek4down);
-        w2k4.setGraphic(pionek5down);
-        w2k5.setGraphic(pionek6down);
-        w2k6.setGraphic(pionek7down);
-        w2k7.setGraphic(pionek8down);
-        w2k8.setGraphic(pionek9down);
-        w6k0.setGraphic(pionek1up);
-        w6k1.setGraphic(pionek2up);
-        w6k2.setGraphic(pionek3up);
-        w6k3.setGraphic(pionek4up);
-        w6k4.setGraphic(pionek5up);
-        w6k5.setGraphic(pionek6up);
-        w6k6.setGraphic(pionek7up);
-        w6k7.setGraphic(pionek8up);
-        w6k8.setGraphic(pionek9up);*/
-
-
-
-
-
-
-
-
-
-        //dodajBierki();
         zapiszMenu.setOnAction(event -> {
             try {
                 mainApp.pokazScenaMenu();
@@ -575,8 +389,15 @@ public class  ScenaRozgrywkiController {
             imageView.setRotate(180);
             w0k0.setGraphic(imageView);*/
 
-            r.ruch(new Klikniecie(0,0));
-            przyciski[r.aktywna.getNrKolumny()][r.aktywna.getNrWiersza()].setGraphic(imageViewww);
+            if(r.ruch(new Klikniecie(0,0)))
+            {
+                for(int i=0; i < 9; i++)
+                    for(int j=0; j < 9; j++)
+                    {
+
+                    }
+            }
+            //przyciski[r.aktywna.getNrKolumny()][r.aktywna.getNrWiersza()].setGraphic(imageViewww);
             //przyciski[r.klikniecie.getX()][r.klikniecie.getY()].setGraphic(r.ruch(r.klikniecie).instancja.imageView);
         });
         w0k1.setOnAction(event -> {
@@ -821,46 +642,97 @@ public class  ScenaRozgrywkiController {
         });
 
 
+        przyciski[0][0]=w0k0;
+        przyciski[1][0]=w0k1;
+        przyciski[2][0]=w0k2;
+        przyciski[3][0]=w0k3;
+        przyciski[4][0]=w0k4;
+        przyciski[5][0]=w0k5;
+        przyciski[6][0]=w0k6;
+        przyciski[7][0]=w0k7;
+        przyciski[8][0]=w0k8;
+        przyciski[0][1]=w1k0;
+        przyciski[1][1]=w1k1;
+        przyciski[2][1]=w1k2;
+        przyciski[3][1]=w1k3;
+        przyciski[4][1]=w1k4;
+        przyciski[5][1]=w1k5;
+        przyciski[6][1]=w1k6;
+        przyciski[7][1]=w1k7;
+        przyciski[8][1]=w1k8;
+        przyciski[0][2]=w2k0;
+        przyciski[1][2]=w2k1;
+        przyciski[2][2]=w2k2;
+        przyciski[3][2]=w2k3;
+        przyciski[4][2]=w2k4;
+        przyciski[5][2]=w2k5;
+        przyciski[6][2]=w2k6;
+        przyciski[7][2]=w2k7;
+        przyciski[8][2]=w2k8;
+        przyciski[0][3]=w3k0;
+        przyciski[1][3]=w3k1;
+        przyciski[2][3]=w3k2;
+        przyciski[3][3]=w3k3;
+        przyciski[4][3]=w3k4;
+        przyciski[5][3]=w3k5;
+        przyciski[6][3]=w3k6;
+        przyciski[7][3]=w3k7;
+        przyciski[8][3]=w3k8;
+        przyciski[0][4]=w4k0;
+        przyciski[1][4]=w4k1;
+        przyciski[2][4]=w4k2;
+        przyciski[3][4]=w4k3;
+        przyciski[4][4]=w4k4;
+        przyciski[5][4]=w4k5;
+        przyciski[6][4]=w4k6;
+        przyciski[7][4]=w4k7;
+        przyciski[8][4]=w4k8;
+        przyciski[0][5]=w5k0;
+        przyciski[1][5]=w5k1;
+        przyciski[2][5]=w5k2;
+        przyciski[3][5]=w5k3;
+        przyciski[4][5]=w5k4;
+        przyciski[5][5]=w5k5;
+        przyciski[6][5]=w5k6;
+        przyciski[7][5]=w5k7;
+        przyciski[8][5]=w5k8;
+        przyciski[0][6]=w6k0;
+        przyciski[1][6]=w6k1;
+        przyciski[2][6]=w6k2;
+        przyciski[3][6]=w6k3;
+        przyciski[4][6]=w6k4;
+        przyciski[5][6]=w6k5;
+        przyciski[6][6]=w6k6;
+        przyciski[7][6]=w6k7;
+        przyciski[8][6]=w6k8;
+        przyciski[0][7]=w7k0;
+        przyciski[1][7]=w7k1;
+        przyciski[2][7]=w7k2;
+        przyciski[3][7]=w7k3;
+        przyciski[4][7]=w7k4;
+        przyciski[5][7]=w7k5;
+        przyciski[6][7]=w7k6;
+        przyciski[7][7]=w7k7;
+        przyciski[8][7]=w7k8;
+        przyciski[0][8]=w8k0;
+        przyciski[1][8]=w8k1;
+        przyciski[2][8]=w8k2;
+        przyciski[3][8]=w8k3;
+        przyciski[4][8]=w8k4;
+        przyciski[5][8]=w8k5;
+        przyciski[6][8]=w8k6;
+        przyciski[7][8]=w8k7;
+        przyciski[8][8]=w8k8;
+        for(int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                System.out.print(przyciski[i][j]);
+            }
+            System.out.println();
+        }
+        System.out.println(w8k8);
+        r = new Rozgrywka(przyciski);
+
     }
-
-
-
-
-//    public void dodajBierki() {
-//        listaBierek.add(new Krol(Kolor.BIALY, Stan.NA_PLANSZY, 4, 8));
-//        listaBierek.add(new Wieza(Kolor.BIALY, Stan.NA_PLANSZY, 7, 7));
-//        listaBierek.add(new Goniec(Kolor.BIALY, Stan.NA_PLANSZY, 1, 7));
-//        listaBierek.add(new ZlotyGeneral(Kolor.BIALY, Stan.NA_PLANSZY, 3, 8));
-//        listaBierek.add(new ZlotyGeneral(Kolor.BIALY, Stan.NA_PLANSZY, 5, 8));
-//        listaBierek.add(new SrebrnyGeneral(Kolor.BIALY, Stan.NA_PLANSZY, 2, 8));
-//        listaBierek.add(new SrebrnyGeneral(Kolor.BIALY, Stan.NA_PLANSZY, 6, 8));
-//        listaBierek.add(new Skoczek(Kolor.BIALY, Stan.NA_PLANSZY, 1, 8));
-//        listaBierek.add(new Skoczek(Kolor.BIALY, Stan.NA_PLANSZY, 7, 8));
-//        listaBierek.add(new Lanca(Kolor.BIALY, Stan.NA_PLANSZY, 0, 8));
-//        listaBierek.add(new Lanca(Kolor.BIALY, Stan.NA_PLANSZY, 8, 8));
-//
-//        for (int i = 0; i < 9; i++) {
-//            listaBierek.add(new Pion(Kolor.BIALY, Stan.NA_PLANSZY, i, 6));
-//        }
-//
-//        listaBierek.add(new Krol(Kolor.CZARNY, Stan.NA_PLANSZY, 4, 0));
-//        listaBierek.add(new Wieza(Kolor.CZARNY, Stan.NA_PLANSZY, 7, 1));
-//        listaBierek.add(new Goniec(Kolor.CZARNY, Stan.NA_PLANSZY, 1, 1));
-//        listaBierek.add(new ZlotyGeneral(Kolor.CZARNY, Stan.NA_PLANSZY, 3, 0));
-//        listaBierek.add(new ZlotyGeneral(Kolor.CZARNY, Stan.NA_PLANSZY, 5, 0));
-//        listaBierek.add(new SrebrnyGeneral(Kolor.CZARNY, Stan.NA_PLANSZY, 2, 0));
-//        listaBierek.add(new SrebrnyGeneral(Kolor.CZARNY, Stan.NA_PLANSZY, 6, 0));
-//        listaBierek.add(new Skoczek(Kolor.CZARNY, Stan.NA_PLANSZY, 1, 0));
-//        listaBierek.add(new Skoczek(Kolor.CZARNY, Stan.NA_PLANSZY, 7, 0));
-//        listaBierek.add(new Lanca(Kolor.CZARNY, Stan.NA_PLANSZY, 0, 0));
-//        listaBierek.add(new Lanca(Kolor.CZARNY, Stan.NA_PLANSZY, 8, 0));
-//
-//        for (int i = 0; i < 9; i++) {
-//            listaBierek.add(new Pion(Kolor.CZARNY, Stan.NA_PLANSZY, i, 2));
-//        }
-//    }
-
-
 
     public void setMainApp(Main mainApp) {
         this.mainApp = mainApp;

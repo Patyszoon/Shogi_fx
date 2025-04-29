@@ -2,6 +2,7 @@ package rozgrywka;
 
 import Myapp.ScenaRozgrywkiController;
 import bierki.*;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
@@ -14,6 +15,7 @@ public class Rozgrywka {
     public Bierka aktywna = null;
     private boolean czyAktywne = false;
     private Kolor strona = Kolor.CZARNY;
+    private Button[][] planszaPrzyciskow = null;
 
     //**********************Metody publiczne*********************************************
 
@@ -59,13 +61,31 @@ public class Rozgrywka {
             dodajBierke(new Pion(Kolor.CZARNY, Stan.NA_PLANSZY, i, 6));
         }
         wypisNaKonsole();
+        planszaPrzyciskow = null;
     }
 
-    public Klikniecie klikniecie;
+    public Rozgrywka(Button[][] planszaPioneczkow)
+    {
+        this();
+        for(int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                System.out.print(planszaPioneczkow[i][j]);
+            }
+            System.out.println();
+        }
+        planszaPrzyciskow = planszaPioneczkow;
+        for(int i = 0; i < 9; i++)
+            for(int j = 0; j < 9; j++)
+            {
+                planszaPrzyciskow[i][j].setGraphic(obrazekBierki(plansza[i][j]));
+            }
+    }
+
+    //public Klikniecie klikniecie;
     //metoda zwraca true, jeżeli klikniecie sprawia zmianę sytuacji wyświetlanej na planszy
     public boolean ruch(Klikniecie klikniecie)
     {
-        this.klikniecie = klikniecie;
+        //this.klikniecie = klikniecie;
         System.out.println("kliknieto na pole: " + klikniecie.getX() + " " + klikniecie.getY());
         if (!klikniecie.czyPrawy())
         {
@@ -81,11 +101,9 @@ public class Rozgrywka {
                     if (aktywna.czyLegalny(klikniecie.getX(), klikniecie.getY()))
                     {
                         System.out.println("ruch jest legalny");
-                        if (aktywna.czyNieSkoczek())
-                        {
+                        if (aktywna.czyNieSkoczek()) {
                             System.out.println("nieskoczek");
-                            if (!czyDrogaWolna(aktywna.getNrKolumny(), aktywna.getNrWiersza(), klikniecie.getX(), klikniecie.getY()))
-                            {
+                            if (!czyDrogaWolna(aktywna.getNrKolumny(), aktywna.getNrWiersza(), klikniecie.getX(), klikniecie.getY())) {
                                 //System.out.println("droga zajeta na polu: "+klikniecie.getX() + " " + klikniecie.getY());
 
                                 aktywna = null;
@@ -93,35 +111,14 @@ public class Rozgrywka {
                             }// else System.out.println("droga wolna na polu: "+klikniecie.getX() + " " + klikniecie.getY());
                         }
                         plansza[aktywna.getNrKolumny()][aktywna.getNrWiersza()] = null;
-
-                        if (aktywna instanceof Goniec) {
-                            Goniec instancja = (Goniec) aktywna;
+                        System.out.println(planszaPrzyciskow[aktywna.getNrKolumny()][aktywna.getNrWiersza()]);
+                        for(int i = 0; i < 9; i++) {
+                            for (int j = 0; j < 9; j++) {
+                                System.out.print(planszaPrzyciskow[i][j]);
+                            }
+                            System.out.println();
                         }
-                        else if (aktywna instanceof Skoczek) {
-                            Skoczek instancja = (Skoczek) aktywna;
-                        }
-                        else if(aktywna instanceof Lanca) {
-                            Lanca instancja = (Lanca) aktywna;
-                        }
-                        else if(aktywna instanceof Krol) {
-                            Krol instancja = (Krol) aktywna;
-                        }
-                        else if(aktywna instanceof Pion) {
-                            Pion instancja = (Pion) aktywna;
-                        }
-                        else if(aktywna instanceof SrebrnyGeneral) {
-                            SrebrnyGeneral instancja = (SrebrnyGeneral) aktywna;
-                        }
-                        else if(aktywna instanceof ZlotyGeneral) {
-                            ZlotyGeneral instancja = (ZlotyGeneral) aktywna;
-                        }
-                        else{
-                            Wieza instancja = (Wieza) aktywna;
-                        }
-                        //Image image = new Image(getClass().getResourceAsStream("/Myapp/bierki/Empty.png"));
-                        //ImageView imageView = new ImageView(image);
-                        //scena.przyciski[aktywna.getNrKolumny()][aktywna.getNrWiersza()].setGraphic(imageView);
-
+                        planszaPrzyciskow[aktywna.getNrKolumny()][aktywna.getNrWiersza()].setGraphic(obrazekBierki(null));
 
                         aktywna.ruch(klikniecie.getX(), klikniecie.getY());
                         if (plansza[klikniecie.getX()][klikniecie.getY()] != null)
@@ -129,6 +126,7 @@ public class Rozgrywka {
                             plansza[aktywna.getNrKolumny()][aktywna.getNrWiersza()].zbity();
                         }
                         plansza[aktywna.getNrKolumny()][aktywna.getNrWiersza()] = aktywna;
+                        planszaPrzyciskow[aktywna.getNrKolumny()][aktywna.getNrWiersza()].setGraphic(obrazekBierki(aktywna));
                         zmianaGracza();
                     }
                     aktywna = null;
@@ -207,6 +205,67 @@ public class Rozgrywka {
     {
         return plansza;
     }
+
+    public ImageView obrazekBierki(Bierka bierka)
+    {
+        String adres = "";
+
+        if (bierka != null) {
+            if(bierka instanceof PromowalnaBierka)
+            {
+                switch (bierka.getClass().getName())
+                {
+                    case "bierki.Lanca":
+                        adres = ((PromowalnaBierka) bierka).czyPromowana()?"/Myapp/bierki/PromowanaLanca.png":"/Myapp/bierki/Lanca.png";
+                        break;
+                    case "bierki.Pion":
+                        adres = ((PromowalnaBierka) bierka).czyPromowana()?"/Myapp/bierki/PromowanyPion.png":"/Myapp/bierki/Pionek.png";
+                        break;
+                    case "bierki.Goniec":
+                        adres = ((PromowalnaBierka) bierka).czyPromowana()?"/Myapp/bierki/PromowanyGoniec.png":"/Myapp/bierki/Goniec.png";
+                        break;
+                    case "bierki.Skoczek":
+                        adres = ((PromowalnaBierka) bierka).czyPromowana()?"/Myapp/bierki/PromowanySkoczek.png":"/Myapp/bierki/Skoczek.png";
+                        break;
+                    case "bierki.Wieza":
+                        adres = ((PromowalnaBierka) bierka).czyPromowana()?"/Myapp/bierki/PromowanaWieza.png":"/Myapp/bierki/Wieza.png";
+                        break;
+                    case "bierki.SrebrnyGeneral":
+                        adres = ((PromowalnaBierka) bierka).czyPromowana()?"/Myapp/bierki/PromowanySrebrny.png":"/Myapp/bierki/SrebrnyGeneral.png";
+                        break;
+                }
+            } else {
+                switch (bierka.getClass().getName())
+                {
+                    case "bierki.ZlotyGeneral":
+                        adres = "/Myapp/bierki/ZlotyGeneral.png";
+                        break;
+                    case "bierki.Krol":
+                        if(bierka.getKolor() == Kolor.BIALY) {
+                            adres = "/Myapp/bierki/Krol2.png";
+                        }
+                        else
+                        {adres = "/Myapp/bierki/Krol.png";}
+                        break;
+                }
+            }
+        } else adres = "/Myapp/bierki/Empty.png";
+        System.out.println(adres);
+        Image obrazek = new Image(getClass().getResourceAsStream(adres));
+        ImageView widokObrazka = new ImageView(obrazek);
+        System.out.println(adres);
+        widokObrazka.setFitWidth(50);
+        System.out.println(adres);
+        widokObrazka.setFitHeight(60);
+        System.out.println(adres);
+        if((bierka != null)?bierka.getKolor()==Kolor.BIALY:false){
+            widokObrazka.setRotate(180);
+        }
+        System.out.println(adres);
+        return widokObrazka;
+    }
+
+
     //*****************************metody do debugowania***********************************
 
     //wypisuje na konsole stan planszy
