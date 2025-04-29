@@ -10,8 +10,8 @@ import java.util.ArrayList;
 public class Rozgrywka {
 
     private ArrayList<Bierka> bierki = new ArrayList<Bierka>();
-    private Bierka[][] plansza = new Bierka[9][9];//[kolumna][wiersz]
-    private Bierka aktywna = null;
+    public Bierka[][] plansza = new Bierka[9][9];//[kolumna][wiersz]
+    public Bierka aktywna = null;
     private boolean czyAktywne = false;
     private Kolor strona = Kolor.CZARNY;
 
@@ -61,10 +61,11 @@ public class Rozgrywka {
         wypisNaKonsole();
     }
 
-    //ScenaRozgrywkiController scena = new ScenaRozgrywkiController();
+    public Klikniecie klikniecie;
     //metoda zwraca true, jeżeli klikniecie sprawia zmianę sytuacji wyświetlanej na planszy
     public boolean ruch(Klikniecie klikniecie)
     {
+        this.klikniecie = klikniecie;
         System.out.println("kliknieto na pole: " + klikniecie.getX() + " " + klikniecie.getY());
         if (!klikniecie.czyPrawy())
         {
@@ -93,10 +94,34 @@ public class Rozgrywka {
                         }
                         plansza[aktywna.getNrKolumny()][aktywna.getNrWiersza()] = null;
 
-
-                        Image image = new Image(getClass().getResourceAsStream("/Myapp/bierki/Empty.png"));
-                        ImageView imageView = new ImageView(image);
+                        if (aktywna instanceof Goniec) {
+                            Goniec instancja = (Goniec) aktywna;
+                        }
+                        else if (aktywna instanceof Skoczek) {
+                            Skoczek instancja = (Skoczek) aktywna;
+                        }
+                        else if(aktywna instanceof Lanca) {
+                            Lanca instancja = (Lanca) aktywna;
+                        }
+                        else if(aktywna instanceof Krol) {
+                            Krol instancja = (Krol) aktywna;
+                        }
+                        else if(aktywna instanceof Pion) {
+                            Pion instancja = (Pion) aktywna;
+                        }
+                        else if(aktywna instanceof SrebrnyGeneral) {
+                            SrebrnyGeneral instancja = (SrebrnyGeneral) aktywna;
+                        }
+                        else if(aktywna instanceof ZlotyGeneral) {
+                            ZlotyGeneral instancja = (ZlotyGeneral) aktywna;
+                        }
+                        else{
+                            Wieza instancja = (Wieza) aktywna;
+                        }
+                        //Image image = new Image(getClass().getResourceAsStream("/Myapp/bierki/Empty.png"));
+                        //ImageView imageView = new ImageView(image);
                         //scena.przyciski[aktywna.getNrKolumny()][aktywna.getNrWiersza()].setGraphic(imageView);
+
 
                         aktywna.ruch(klikniecie.getX(), klikniecie.getY());
                         if (plansza[klikniecie.getX()][klikniecie.getY()] != null)

@@ -258,6 +258,8 @@ public class  ScenaRozgrywkiController {
     ImageView zlotyGeneral2down = new ImageView(zlotyGeneral);*/
     //Image image = new Image(getClass().getResourceAsStream("/Myapp/bierki/Empty.png"));
     //ImageView imageView = new ImageView(image);
+    Image image = new Image(getClass().getResourceAsStream("/Myapp/bierki/Empty.png"));
+    ImageView imageViewww = new ImageView(image);
 
 
 
@@ -574,6 +576,8 @@ public class  ScenaRozgrywkiController {
             w0k0.setGraphic(imageView);*/
 
             r.ruch(new Klikniecie(0,0));
+            przyciski[r.aktywna.getNrKolumny()][r.aktywna.getNrWiersza()].setGraphic(imageViewww);
+            //przyciski[r.klikniecie.getX()][r.klikniecie.getY()].setGraphic(r.ruch(r.klikniecie).instancja.imageView);
         });
         w0k1.setOnAction(event -> {
             r.ruch(new Klikniecie(1,0));
