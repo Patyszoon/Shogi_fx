@@ -11,7 +11,7 @@ public class Lanca extends PromowalnaBierka{
     public Lanca(Kolor kolor, Stan stanb, int kolumna, int wiersz) {
         super(kolor, stanb, kolumna, wiersz);
         if(promowana == false){
-            Image image = new Image(getClass().getResourceAsStream("/Myapp/bierki/Lanca.png"));
+            Image image = new Image(getClass().getResourceAsStream("/Myapp/klasyczne/Lanca.png"));
             ImageView imageView = new ImageView(image);
             imageView.setFitWidth(50);
             imageView.setFitHeight(60);
@@ -21,7 +21,7 @@ public class Lanca extends PromowalnaBierka{
             //scena.przyciski[kolumna][wiersz].setGraphic(imageView);
         }
         else{
-            Image image = new Image(getClass().getResourceAsStream("/Myapp/bierki/PromowanaLanca.png"));
+            Image image = new Image(getClass().getResourceAsStream("/Myapp/klasyczne/PromowanaLanca.png"));
             ImageView imageView = new ImageView(image);
             imageView.setFitWidth(50);
             imageView.setFitHeight(60);

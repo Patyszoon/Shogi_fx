@@ -1,5 +1,6 @@
 package rozgrywka;
 
+import Myapp.ScenaOpcjeController;
 import Myapp.ScenaRozgrywkiController;
 import bierki.*;
 import javafx.scene.control.Button;
@@ -216,40 +217,40 @@ public class Rozgrywka {
                 switch (bierka.getClass().getName())
                 {
                     case "bierki.Lanca":
-                        adres = ((PromowalnaBierka) bierka).czyPromowana()?"/Myapp/bierki/PromowanaLanca.png":"/Myapp/bierki/Lanca.png";
+                        adres = ((PromowalnaBierka) bierka).czyPromowana()?"/Myapp/klasyczne/PromowanaLanca.png":"/Myapp/klasyczne/Lanca.png";
                         break;
                     case "bierki.Pion":
-                        adres = ((PromowalnaBierka) bierka).czyPromowana()?"/Myapp/bierki/PromowanyPion.png":"/Myapp/bierki/Pionek.png";
+                        adres = ((PromowalnaBierka) bierka).czyPromowana()?"/Myapp/klasyczne/PromowanyPion.png":"/Myapp/klasyczne/Pionek.png";
                         break;
                     case "bierki.Goniec":
-                        adres = ((PromowalnaBierka) bierka).czyPromowana()?"/Myapp/bierki/PromowanyGoniec.png":"/Myapp/bierki/Goniec.png";
+                        adres = ((PromowalnaBierka) bierka).czyPromowana()?"/Myapp/klasyczne/PromowanyGoniec.png":"/Myapp/klasyczne/Goniec.png";
                         break;
                     case "bierki.Skoczek":
-                        adres = ((PromowalnaBierka) bierka).czyPromowana()?"/Myapp/bierki/PromowanySkoczek.png":"/Myapp/bierki/Skoczek.png";
+                        adres = ((PromowalnaBierka) bierka).czyPromowana()?"/Myapp/klasyczne/PromowanySkoczek.png":"/Myapp/klasyczne/Skoczek.png";
                         break;
                     case "bierki.Wieza":
-                        adres = ((PromowalnaBierka) bierka).czyPromowana()?"/Myapp/bierki/PromowanaWieza.png":"/Myapp/bierki/Wieza.png";
+                        adres = ((PromowalnaBierka) bierka).czyPromowana()?"/Myapp/klasyczne/PromowanaWieza.png":"/Myapp/klasyczne/Wieza.png";
                         break;
                     case "bierki.SrebrnyGeneral":
-                        adres = ((PromowalnaBierka) bierka).czyPromowana()?"/Myapp/bierki/PromowanySrebrny.png":"/Myapp/bierki/SrebrnyGeneral.png";
+                        adres = ((PromowalnaBierka) bierka).czyPromowana()?"/Myapp/klasyczne/PromowanySrebrny.png":"/Myapp/klasyczne/SrebrnyGeneral.png";
                         break;
                 }
             } else {
                 switch (bierka.getClass().getName())
                 {
                     case "bierki.ZlotyGeneral":
-                        adres = "/Myapp/bierki/ZlotyGeneral.png";
+                        adres = "/Myapp/klasyczne/ZlotyGeneral.png";
                         break;
                     case "bierki.Krol":
                         if(bierka.getKolor() == Kolor.BIALY) {
-                            adres = "/Myapp/bierki/Krol2.png";
+                            adres = "/Myapp/klasyczne/Krol2.png";
                         }
                         else
-                        {adres = "/Myapp/bierki/Krol.png";}
+                        {adres = "/Myapp/klasyczne/Krol.png";}
                         break;
                 }
             }
-        } else adres = "/Myapp/bierki/Empty.png";
+        } else adres = "/Myapp/klasyczne/Empty.png";
         System.out.println(adres);
         Image obrazek = new Image(getClass().getResourceAsStream(adres));
         ImageView widokObrazka = new ImageView(obrazek);
@@ -264,7 +265,6 @@ public class Rozgrywka {
         System.out.println(adres);
         return widokObrazka;
     }
-
 
     //*****************************metody do debugowania***********************************
 

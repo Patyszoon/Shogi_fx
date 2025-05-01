@@ -20,7 +20,7 @@ public class Krol extends Bierka{
         super(kolor, stanb, kolumna, wiersz);
 
         if(kolor==Kolor.BIALY){
-            Image image = new Image(getClass().getResourceAsStream("/Myapp/bierki/Krol.png"));
+            Image image = new Image(getClass().getResourceAsStream("/Myapp/klasyczne/Krol.png"));
             ImageView imageView = new ImageView(image);
             imageView.setFitWidth(50);
             imageView.setFitHeight(60);
@@ -28,7 +28,7 @@ public class Krol extends Bierka{
             //scena.przyciski[kolumna][wiersz].setGraphic(imageView);
         }
         else{
-            Image image = new Image(getClass().getResourceAsStream("/Myapp/bierki/Krol2.png"));
+            Image image = new Image(getClass().getResourceAsStream("/Myapp/klasyczne/Krol2.png"));
             ImageView imageView = new ImageView(image);
             imageView.setFitWidth(50);
             imageView.setFitHeight(60);
