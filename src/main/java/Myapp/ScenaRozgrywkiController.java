@@ -11,7 +11,9 @@ import javafx.scene.shape.Rectangle;
 import rozgrywka.Klikniecie;
 import rozgrywka.Rozgrywka;
 
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 public class  ScenaRozgrywkiController {
@@ -363,13 +365,24 @@ public class  ScenaRozgrywkiController {
 
     @FXML
     public void initialize() {
-
+        String zapis1="Zapis1testowy";
         zapiszMenu.setOnAction(event -> {
+
+            try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(zapis1))) {
+                out.writeObject(r.plansza);
+                System.out.println("Zapisano tablicę obiektów do pliku: " + zapis1);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+
             try {
                 mainApp.pokazScenaMenu();
             } catch (IOException e) {
                 e.printStackTrace();
             }
+
+
         });
         menu.setOnAction(event -> {
             try {
@@ -379,6 +392,12 @@ public class  ScenaRozgrywkiController {
             }
         });
         zapisz.setOnAction(event -> {
+            try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(zapis1))) {
+                out.writeObject(r.plansza);
+                System.out.println("Zapisano tablicę obiektów do pliku: " + zapis1);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         });
 
         w0k0.setOnAction(event -> {
@@ -389,14 +408,14 @@ public class  ScenaRozgrywkiController {
             imageView.setRotate(180);
             w0k0.setGraphic(imageView);*/
 
-            if(r.ruch(new Klikniecie(0,0)))
+            /*if(r.ruch(new Klikniecie(0,0)))
             {
                 for(int i=0; i < 9; i++)
                     for(int j=0; j < 9; j++)
                     {
 
                     }
-            }
+            }*/
             //przyciski[r.aktywna.getNrKolumny()][r.aktywna.getNrWiersza()].setGraphic(imageViewww);
             //przyciski[r.klikniecie.getX()][r.klikniecie.getY()].setGraphic(r.ruch(r.klikniecie).instancja.imageView);
         });

@@ -1,6 +1,8 @@
 package bierki;
 
-public abstract class Bierka {
+import java.io.Serializable;
+
+public abstract class Bierka implements Serializable {
 
     //************************POLA********************************
     protected Kolor kolor;
