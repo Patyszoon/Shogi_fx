@@ -7,11 +7,31 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Myapp.ScenaStatystykiController">
     <children>
-        <Button fx:id="powrotDoMenu" layoutX="243.0" layoutY="187.0" mnemonicParsing="false" text="Powrót do menu" />
-      <Label layoutX="161.0" layoutY="24.0" text="S T A T Y S T Y K I">
-         <font>
-            <Font size="36.0" />
-         </font>
-      </Label>
+        <Button fx:id="powrotDoMenu" layoutX="243.0" layoutY="200.0" mnemonicParsing="false" text="Powrót do menu" />
+
+        <Label layoutX="161.0" layoutY="24.0" text="S T A T Y S T Y K I">
+            <font>
+                <Font size="36.0" />
+            </font>
+        </Label>
+
+        <Label fx:id="labelWygrane" layoutX="161.0" layoutY="80.0" text="Wygrane: 0">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Label>
+
+        <Label fx:id="labelPrzegrane" layoutX="161.0" layoutY="120.0" text="Przegrane: 0">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Label>
+
+        <Label fx:id="labelGry" layoutX="161.0" layoutY="160.0" text="Rozegrane gry: 0">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Label>
     </children>
 </AnchorPane>
+
