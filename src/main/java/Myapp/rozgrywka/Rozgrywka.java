@@ -1,8 +1,6 @@
-package rozgrywka;
+package Myapp.rozgrywka;
 
-import Myapp.ScenaOpcjeController;
-import Myapp.ScenaRozgrywkiController;
-import bierki.*;
+import Myapp.bierki.*;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -141,10 +139,10 @@ public class Rozgrywka {
             }
             else
             {
-                //nie ma jeszcze zaznaczonej bierki
+                //nie ma jeszcze zaznaczonej Myapp.bierki
 
-                //klikniecie lewym na bierke - wybranie bierki
-                System.out.println("nie ma jeszcze aktywnej bierki");
+                //klikniecie lewym na bierke - wybranie Myapp.bierki
+                System.out.println("nie ma jeszcze aktywnej Myapp.bierki");
                 if(plansza[klikniecie.getX()][klikniecie.getY()] != null)
                 {
                     System.out.println("kliknieta na zajete pole");
@@ -169,7 +167,7 @@ public class Rozgrywka {
         {
             //klikniecie prawym przyciskiem
             aktywna = null;
-            //klikniecie prawym na pusty - proba wstawienia bierki
+            //klikniecie prawym na pusty - proba wstawienia Myapp.bierki
             if(plansza[klikniecie.getX()][klikniecie.getY()] == null)
             {
                 //nie mamy jeszcze dopracowanego wstawiania
@@ -207,6 +205,13 @@ public class Rozgrywka {
         return plansza;
     }
 
+    public String obecnaSkorka = "klasyczne";
+    public String getObecnaSkorka(){return obecnaSkorka;}
+    public String setObecnaSkorka(String obecnaSkorka){
+        this.obecnaSkorka = obecnaSkorka;
+        return obecnaSkorka;
+    }
+
     public ImageView obrazekBierki(Bierka bierka)
     {
         String adres = "";
@@ -216,41 +221,41 @@ public class Rozgrywka {
             {
                 switch (bierka.getClass().getName())
                 {
-                    case "bierki.Lanca":
-                        adres = ((PromowalnaBierka) bierka).czyPromowana()?"/Myapp/klasyczne/PromowanaLanca.png":"/Myapp/klasyczne/Lanca.png";
+                    case "Myapp.bierki.Lanca":
+                        adres = ((PromowalnaBierka) bierka).czyPromowana()?"/Myapp/"+ bierka.obecnaSkorka+"/PromowanaLanca.png":"/Myapp/"+bierka.obecnaSkorka+"/Lanca.png";
                         break;
-                    case "bierki.Pion":
-                        adres = ((PromowalnaBierka) bierka).czyPromowana()?"/Myapp/klasyczne/PromowanyPion.png":"/Myapp/klasyczne/Pionek.png";
+                    case "Myapp.bierki.Pion":
+                        adres = ((PromowalnaBierka) bierka).czyPromowana()?"/Myapp/"+bierka.obecnaSkorka+"/PromowanyPion.png":"/Myapp/"+bierka.obecnaSkorka+"/Pionek.png";
                         break;
-                    case "bierki.Goniec":
-                        adres = ((PromowalnaBierka) bierka).czyPromowana()?"/Myapp/klasyczne/PromowanyGoniec.png":"/Myapp/klasyczne/Goniec.png";
+                    case "Myapp.bierki.Goniec":
+                        adres = ((PromowalnaBierka) bierka).czyPromowana()?"/Myapp/"+bierka.obecnaSkorka+"/PromowanyGoniec.png":"/Myapp/"+bierka.obecnaSkorka+"/Goniec.png";
                         break;
-                    case "bierki.Skoczek":
-                        adres = ((PromowalnaBierka) bierka).czyPromowana()?"/Myapp/klasyczne/PromowanySkoczek.png":"/Myapp/klasyczne/Skoczek.png";
+                    case "Myapp.bierki.Skoczek":
+                        adres = ((PromowalnaBierka) bierka).czyPromowana()?"/Myapp/"+bierka.obecnaSkorka+"/PromowanySkoczek.png":"/Myapp/"+bierka.obecnaSkorka+"/Skoczek.png";
                         break;
-                    case "bierki.Wieza":
-                        adres = ((PromowalnaBierka) bierka).czyPromowana()?"/Myapp/klasyczne/PromowanaWieza.png":"/Myapp/klasyczne/Wieza.png";
+                    case "Myapp.bierki.Wieza":
+                        adres = ((PromowalnaBierka) bierka).czyPromowana()?"/Myapp/"+bierka.obecnaSkorka+"/PromowanaWieza.png":"/Myapp/"+bierka.obecnaSkorka+"/Wieza.png";
                         break;
-                    case "bierki.SrebrnyGeneral":
-                        adres = ((PromowalnaBierka) bierka).czyPromowana()?"/Myapp/klasyczne/PromowanySrebrny.png":"/Myapp/klasyczne/SrebrnyGeneral.png";
+                    case "Myapp.bierki.SrebrnyGeneral":
+                        adres = ((PromowalnaBierka) bierka).czyPromowana()?"/Myapp/"+bierka.obecnaSkorka+"/PromowanySrebrny.png":"/Myapp/"+bierka.obecnaSkorka+"/SrebrnyGeneral.png";
                         break;
                 }
             } else {
                 switch (bierka.getClass().getName())
                 {
-                    case "bierki.ZlotyGeneral":
-                        adres = "/Myapp/klasyczne/ZlotyGeneral.png";
+                    case "Myapp.bierki.ZlotyGeneral":
+                        adres = "/Myapp/"+bierka.obecnaSkorka+"/ZlotyGeneral.png";
                         break;
-                    case "bierki.Krol":
+                    case "Myapp.bierki.Krol":
                         if(bierka.getKolor() == Kolor.BIALY) {
-                            adres = "/Myapp/klasyczne/Krol2.png";
+                            adres = "/Myapp/"+bierka.obecnaSkorka+"/Krol2.png";
                         }
                         else
-                        {adres = "/Myapp/klasyczne/Krol.png";}
+                        {adres = "/Myapp/"+bierka.obecnaSkorka+"/Krol.png";}
                         break;
                 }
             }
-        } else adres = "/Myapp/klasyczne/Empty.png";
+        } else adres = "/Myapp/"+bierka.obecnaSkorka+"/Empty.png";
         System.out.println(adres);
         Image obrazek = new Image(getClass().getResourceAsStream(adres));
         ImageView widokObrazka = new ImageView(obrazek);
@@ -295,42 +300,42 @@ public class Rozgrywka {
         {
             switch (bierka.getClass().getName())
             {
-                case "bierki.Lanca":
+                case "Myapp.bierki.Lanca":
                     return 'L';
-                case "bierki.Pion":
+                case "Myapp.bierki.Pion":
                     return 'P';
-                case "bierki.Goniec":
+                case "Myapp.bierki.Goniec":
                     return 'G';
-                case "bierki.Skoczek":
+                case "Myapp.bierki.Skoczek":
                     return 'S';
-                case "bierki.Wieza":
+                case "Myapp.bierki.Wieza":
                     return 'W';
-                case "bierki.ZlotyGeneral":
+                case "Myapp.bierki.ZlotyGeneral":
                     return 'Z';
-                case "bierki.SrebrnyGeneral":
+                case "Myapp.bierki.SrebrnyGeneral":
                     return 'X';
-                case "bierki.Krol":
+                case "Myapp.bierki.Krol":
                     return 'K';
             }
         }else
         {
             switch (bierka.getClass().getName())
             {
-                case "bierki.Lanca":
+                case "Myapp.bierki.Lanca":
                     return 'l';
-                case "bierki.Pion":
+                case "Myapp.bierki.Pion":
                     return 'p';
-                case "bierki.Goniec":
+                case "Myapp.bierki.Goniec":
                     return 'g';
-                case "bierki.Skoczek":
+                case "Myapp.bierki.Skoczek":
                     return 's';
-                case "bierki.Wieza":
+                case "Myapp.bierki.Wieza":
                     return 'w';
-                case "bierki.ZlotyGeneral":
+                case "Myapp.bierki.ZlotyGeneral":
                     return 'z';
-                case "bierki.SrebrnyGeneral":
+                case "Myapp.bierki.SrebrnyGeneral":
                     return 'x';
-                case "bierki.Krol":
+                case "Myapp.bierki.Krol":
                     return 'k';
             }
         }

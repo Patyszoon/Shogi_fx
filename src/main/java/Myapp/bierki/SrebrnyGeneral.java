@@ -1,17 +1,14 @@
-package bierki;
+package Myapp.bierki;
 
-
-import Myapp.ScenaRozgrywkiController;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-public class Skoczek extends PromowalnaBierka {
+public class SrebrnyGeneral extends PromowalnaBierka{
     //ScenaRozgrywkiController scena = new ScenaRozgrywkiController();
-    public Skoczek(Kolor kolor, Stan stanb, int kolumna, int wiersz) {
+    public SrebrnyGeneral(Kolor kolor, Stan stanb, int kolumna, int wiersz) {
         super(kolor, stanb, kolumna, wiersz);
-        nieSkoczek = false;
         if(promowana == false){
-            Image image = new Image(getClass().getResourceAsStream("/Myapp/klasyczne/Skoczek.png"));
+            Image image = new Image(getClass().getResourceAsStream("/Myapp/"+obecnaSkorka+"/SrebrnyGeneral.png"));
             ImageView imageView = new ImageView(image);
             imageView.setFitWidth(50);
             imageView.setFitHeight(60);
@@ -21,7 +18,7 @@ public class Skoczek extends PromowalnaBierka {
             //scena.przyciski[kolumna][wiersz].setGraphic(imageView);
         }
         else{
-            Image image = new Image(getClass().getResourceAsStream("/Myapp/klasyczne/PromowanySkoczek.png"));
+            Image image = new Image(getClass().getResourceAsStream("/Myapp/"+obecnaSkorka+"/PromowanySrebrny.png"));
             ImageView imageView = new ImageView(image);
             imageView.setFitWidth(50);
             imageView.setFitHeight(60);
@@ -30,13 +27,15 @@ public class Skoczek extends PromowalnaBierka {
             }
             //scena.przyciski[kolumna][wiersz].setGraphic(imageView);
         }
-
     }
 
     @Override
     protected boolean czyLegalnyPrzedPromocja(int kolumna, int wiersz) {
         int odwrotka = (this.getKolor() == Kolor.BIALY)?1:-1;
-        if(kolumna == this.nrKolumny -1 && wiersz == this.nrWiersza +2*odwrotka)return true;
-        return kolumna == this.nrKolumny + 1 && wiersz == this.nrWiersza + 2*odwrotka;
+        if(kolumna == this.nrKolumny -1 && wiersz == this.nrWiersza +odwrotka)return true;
+        if(kolumna == this.nrKolumny && wiersz == this.nrWiersza +odwrotka)return true;
+        if(kolumna == this.nrKolumny +1 && wiersz == this.nrWiersza +odwrotka)return true;
+        if(kolumna == this.nrKolumny -1 && wiersz == this.nrWiersza -odwrotka)return true;
+        return (kolumna == (this.nrKolumny + 1)) && (wiersz == (this.nrWiersza - odwrotka));
     }
 }

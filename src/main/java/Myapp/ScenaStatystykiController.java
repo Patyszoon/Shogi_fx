@@ -3,7 +3,7 @@ package Myapp;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import rozgrywka.Statystyki;
+import Myapp.rozgrywka.Statystyki;
 
 
 import java.io.IOException;

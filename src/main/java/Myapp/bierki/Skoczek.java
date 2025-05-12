@@ -1,17 +1,16 @@
-package bierki;
+package Myapp.bierki;
 
-import Myapp.ScenaRozgrywkiController;
+
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-public class Lanca extends PromowalnaBierka{
+public class Skoczek extends PromowalnaBierka {
     //ScenaRozgrywkiController scena = new ScenaRozgrywkiController();
-
-    //do sprite'a bierki
-    public Lanca(Kolor kolor, Stan stanb, int kolumna, int wiersz) {
+    public Skoczek(Kolor kolor, Stan stanb, int kolumna, int wiersz) {
         super(kolor, stanb, kolumna, wiersz);
+        nieSkoczek = false;
         if(promowana == false){
-            Image image = new Image(getClass().getResourceAsStream("/Myapp/klasyczne/Lanca.png"));
+            Image image = new Image(getClass().getResourceAsStream("/Myapp/"+obecnaSkorka+"/Skoczek.png"));
             ImageView imageView = new ImageView(image);
             imageView.setFitWidth(50);
             imageView.setFitHeight(60);
@@ -21,7 +20,7 @@ public class Lanca extends PromowalnaBierka{
             //scena.przyciski[kolumna][wiersz].setGraphic(imageView);
         }
         else{
-            Image image = new Image(getClass().getResourceAsStream("/Myapp/klasyczne/PromowanaLanca.png"));
+            Image image = new Image(getClass().getResourceAsStream("/Myapp/"+obecnaSkorka+"/PromowanySkoczek.png"));
             ImageView imageView = new ImageView(image);
             imageView.setFitWidth(50);
             imageView.setFitHeight(60);
@@ -35,6 +34,8 @@ public class Lanca extends PromowalnaBierka{
 
     @Override
     protected boolean czyLegalnyPrzedPromocja(int kolumna, int wiersz) {
-        return (kolumna == this.nrKolumny) && ((this.getKolor() == Kolor.BIALY)?wiersz > this.nrWiersza:wiersz < this.nrWiersza);
+        int odwrotka = (this.getKolor() == Kolor.BIALY)?1:-1;
+        if(kolumna == this.nrKolumny -1 && wiersz == this.nrWiersza +2*odwrotka)return true;
+        return kolumna == this.nrKolumny + 1 && wiersz == this.nrWiersza + 2*odwrotka;
     }
 }

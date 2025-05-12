@@ -1,4 +1,4 @@
-package bierki;
+package Myapp.bierki;
 
 import java.io.Serializable;
 
@@ -31,7 +31,7 @@ public abstract class Bierka implements Serializable {
         return kolor;
     }
 
-    //po zadaniu koordynatow na planszy zwraca informacje, czy jest to ruch zgodny z zasadami ruchu dla danej bierki
+    //po zadaniu koordynatow na planszy zwraca informacje, czy jest to ruch zgodny z zasadami ruchu dla danej Myapp.bierki
     public abstract boolean czyLegalny(int kolumna, int wiersz);
 
     //wywolywane gdy zbijany - zmienia jego stan an zbity i zmienia kolor
@@ -75,4 +75,9 @@ public abstract class Bierka implements Serializable {
         return nrKolumny;
     }
 
+    public String obecnaSkorka;
+    public String setSkorka(String obecnaSkorka) {
+        this.obecnaSkorka = obecnaSkorka;
+        return obecnaSkorka;
+    }
 }

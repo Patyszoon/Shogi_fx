@@ -1,17 +1,16 @@
-package bierki;
+package Myapp.bierki;
 
-
-import Myapp.ScenaRozgrywkiController;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-public class Pion extends PromowalnaBierka{
-
+public class Lanca extends PromowalnaBierka{
     //ScenaRozgrywkiController scena = new ScenaRozgrywkiController();
-    public Pion(Kolor kolor, Stan stanb, int kolumna, int wiersz) {
+
+    //do sprite'a Myapp.bierki
+    public Lanca(Kolor kolor, Stan stanb, int kolumna, int wiersz) {
         super(kolor, stanb, kolumna, wiersz);
         if(promowana == false){
-            Image image = new Image(getClass().getResourceAsStream("/Myapp/klasyczne/Pionek.png"));
+            Image image = new Image(getClass().getResourceAsStream("/Myapp/"+obecnaSkorka+"/Lanca.png"));
             ImageView imageView = new ImageView(image);
             imageView.setFitWidth(50);
             imageView.setFitHeight(60);
@@ -21,7 +20,7 @@ public class Pion extends PromowalnaBierka{
             //scena.przyciski[kolumna][wiersz].setGraphic(imageView);
         }
         else{
-            Image image = new Image(getClass().getResourceAsStream("/Myapp/klasyczne/PromowanyPion.png"));
+            Image image = new Image(getClass().getResourceAsStream("/Myapp/"+obecnaSkorka+"/PromowanaLanca.png"));
             ImageView imageView = new ImageView(image);
             imageView.setFitWidth(50);
             imageView.setFitHeight(60);
@@ -30,12 +29,11 @@ public class Pion extends PromowalnaBierka{
             }
             //scena.przyciski[kolumna][wiersz].setGraphic(imageView);
         }
+
     }
 
     @Override
     protected boolean czyLegalnyPrzedPromocja(int kolumna, int wiersz) {
-        int odwrotka = (this.getKolor() == Kolor.BIALY)?1:-1;
-        System.out.println((kolumna == this.nrKolumny) && (wiersz == this.nrWiersza + odwrotka));
-        return (kolumna == this.nrKolumny) && (wiersz == this.nrWiersza +odwrotka);
+        return (kolumna == this.nrKolumny) && ((this.getKolor() == Kolor.BIALY)?wiersz > this.nrWiersza:wiersz < this.nrWiersza);
     }
 }

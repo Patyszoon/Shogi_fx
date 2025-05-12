@@ -1,6 +1,5 @@
-package bierki;
+package Myapp.bierki;
 
-import Myapp.ScenaRozgrywkiController;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
@@ -26,7 +25,7 @@ public class Goniec extends PromowalnaBierka{
     public Goniec(Kolor kolor, Stan stanb, int kolumna, int wiersz) {
         super(kolor, stanb, kolumna, wiersz);
         if(promowana == false){
-            Image image = new Image(getClass().getResourceAsStream("/Myapp/klasyczne/Goniec.png"));
+            Image image = new Image(getClass().getResourceAsStream("/Myapp/"+obecnaSkorka+"/Goniec.png"));
             ImageView imageView = new ImageView(image);
             imageView.setFitWidth(50);
             imageView.setFitHeight(60);
@@ -36,7 +35,7 @@ public class Goniec extends PromowalnaBierka{
             //scena.przyciski[kolumna][wiersz].setGraphic(imageView);
         }
         else{
-            Image image = new Image(getClass().getResourceAsStream("/Myapp/klasyczne/PromowanyGoniec.png"));
+            Image image = new Image(getClass().getResourceAsStream("/Myapp/"+obecnaSkorka+"/PromowanyGoniec.png"));
             ImageView imageView = new ImageView(image);
             imageView.setFitWidth(50);
             imageView.setFitHeight(60);
