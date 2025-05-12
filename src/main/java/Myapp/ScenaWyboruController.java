@@ -1,9 +1,9 @@
 package Myapp;
 
-import Myapp.bierki.Bierka;
+import bierki.Bierka;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import Myapp.rozgrywka.Rozgrywka;
+import rozgrywka.Rozgrywka;
 
 import java.io.FileInputStream;
 import java.io.IOException;

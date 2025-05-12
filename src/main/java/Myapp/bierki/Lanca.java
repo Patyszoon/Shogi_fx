@@ -1,16 +1,17 @@
-package Myapp.bierki;
+package bierki;
 
+import Myapp.ScenaRozgrywkiController;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 public class Lanca extends PromowalnaBierka{
     //ScenaRozgrywkiController scena = new ScenaRozgrywkiController();
 
-    //do sprite'a Myapp.bierki
+    //do sprite'a bierki
     public Lanca(Kolor kolor, Stan stanb, int kolumna, int wiersz) {
         super(kolor, stanb, kolumna, wiersz);
         if(promowana == false){
-            Image image = new Image(getClass().getResourceAsStream("/Myapp/"+setSkorka(skorka)+"/Lanca.png"));
+            Image image = new Image(getClass().getResourceAsStream("/Myapp/klasyczne/Lanca.png"));
             ImageView imageView = new ImageView(image);
             imageView.setFitWidth(50);
             imageView.setFitHeight(60);
@@ -20,7 +21,7 @@ public class Lanca extends PromowalnaBierka{
             //scena.przyciski[kolumna][wiersz].setGraphic(imageView);
         }
         else{
-            Image image = new Image(getClass().getResourceAsStream("/Myapp/"+setSkorka(skorka)+"/PromowanaLanca.png"));
+            Image image = new Image(getClass().getResourceAsStream("/Myapp/klasyczne/PromowanaLanca.png"));
             ImageView imageView = new ImageView(image);
             imageView.setFitWidth(50);
             imageView.setFitHeight(60);

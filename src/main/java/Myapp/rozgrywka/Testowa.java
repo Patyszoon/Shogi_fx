@@ -1,4 +1,4 @@
-package Myapp.rozgrywka;
+package rozgrywka;
 
 public class Testowa
 {

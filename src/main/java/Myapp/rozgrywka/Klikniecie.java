@@ -1,4 +1,4 @@
-package Myapp.rozgrywka;
+package rozgrywka;
 
 public class Klikniecie {
     //ta klasa powinna pozwolić na przekazanie parametrów z kliknięcia

@@ -1,6 +1,7 @@
-package Myapp.bierki;
+package bierki;
 
 
+import Myapp.ScenaRozgrywkiController;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
@@ -10,7 +11,7 @@ public class Pion extends PromowalnaBierka{
     public Pion(Kolor kolor, Stan stanb, int kolumna, int wiersz) {
         super(kolor, stanb, kolumna, wiersz);
         if(promowana == false){
-            Image image = new Image(getClass().getResourceAsStream("/Myapp/"+setSkorka(skorka)+"/Pionek.png"));
+            Image image = new Image(getClass().getResourceAsStream("/Myapp/klasyczne/Pionek.png"));
             ImageView imageView = new ImageView(image);
             imageView.setFitWidth(50);
             imageView.setFitHeight(60);
@@ -20,7 +21,7 @@ public class Pion extends PromowalnaBierka{
             //scena.przyciski[kolumna][wiersz].setGraphic(imageView);
         }
         else{
-            Image image = new Image(getClass().getResourceAsStream("/Myapp/"+setSkorka(skorka)+"/PromowanyPion.png"));
+            Image image = new Image(getClass().getResourceAsStream("/Myapp/klasyczne/PromowanyPion.png"));
             ImageView imageView = new ImageView(image);
             imageView.setFitWidth(50);
             imageView.setFitHeight(60);

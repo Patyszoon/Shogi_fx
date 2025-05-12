@@ -1,14 +1,20 @@
 package Myapp;
 
+import bierki.*;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import Myapp.rozgrywka.Klikniecie;
-import Myapp.rozgrywka.Rozgrywka;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
+import rozgrywka.Klikniecie;
+import rozgrywka.Rozgrywka;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
+import java.util.ArrayList;
 
 public class  ScenaRozgrywkiController {
     @FXML
@@ -184,21 +190,21 @@ public class  ScenaRozgrywkiController {
     public Button[][] przyciski = new Button[9][9];
     //private Przycisk[][] przyciskiEksp = new Przycisk[9][9];
 
-    /*Image krol2 = new Image(getClass().getResourceAsStream("/Myapp/klasyczne/Krol2.png"));
+    /*Image krol2 = new Image(getClass().getResourceAsStream("/Myapp/bierki/Krol2.png"));
     ImageView krol2up = new ImageView(krol2);
     ImageView krol2down = new ImageView(krol2);
-    Image goniec = new Image(getClass().getResourceAsStream("/Myapp/klasyczne/Goniec.png"));
+    Image goniec = new Image(getClass().getResourceAsStream("/Myapp/bierki/Goniec.png"));
     ImageView goniecup = new ImageView(goniec);
     ImageView goniecdown = new ImageView(goniec);
-    Image krol = new Image(getClass().getResourceAsStream("/Myapp/klasyczne/Krol.png"));
+    Image krol = new Image(getClass().getResourceAsStream("/Myapp/bierki/Krol.png"));
     ImageView krolup = new ImageView(krol);
     ImageView kroldown = new ImageView(krol);
-    Image lanca = new Image(getClass().getResourceAsStream("/Myapp/klasyczne/Lanca.png"));
+    Image lanca = new Image(getClass().getResourceAsStream("/Myapp/bierki/Lanca.png"));
     ImageView lanca1up = new ImageView(lanca);
     ImageView lanca1down = new ImageView(lanca);
     ImageView lanca2up = new ImageView(lanca);
     ImageView lanca2down = new ImageView(lanca);
-    Image pionek = new Image(getClass().getResourceAsStream("/Myapp/klasyczne/Pionek.png"));
+    Image pionek = new Image(getClass().getResourceAsStream("/Myapp/bierki/Pionek.png"));
     ImageView pionek1up = new ImageView(pionek);
     ImageView pionek1down = new ImageView(pionek);
     ImageView pionek2up = new ImageView(pionek);
@@ -217,43 +223,43 @@ public class  ScenaRozgrywkiController {
     ImageView pionek8down = new ImageView(pionek);
     ImageView pionek9up = new ImageView(pionek);
     ImageView pionek9down = new ImageView(pionek);
-    Image promowanaLanca = new Image(getClass().getResourceAsStream("/Myapp/klasyczne/PromowanaLanca.png"));
+    Image promowanaLanca = new Image(getClass().getResourceAsStream("/Myapp/bierki/PromowanaLanca.png"));
     ImageView promowanaLancaup = new ImageView(promowanaLanca);
     ImageView promowanaLancadown = new ImageView(promowanaLanca);
-    Image promowanaWieza = new Image(getClass().getResourceAsStream("/Myapp/klasyczne/PromowanaWieza.png"));
+    Image promowanaWieza = new Image(getClass().getResourceAsStream("/Myapp/bierki/PromowanaWieza.png"));
     ImageView promowanaWiezaup = new ImageView(promowanaWieza);
     ImageView promowanaWiezadown = new ImageView(promowanaWieza);
-    Image promowanyGoniec = new Image(getClass().getResourceAsStream("/Myapp/klasyczne/PromowanyGoniec.png"));
+    Image promowanyGoniec = new Image(getClass().getResourceAsStream("/Myapp/bierki/PromowanyGoniec.png"));
     ImageView promowanyGoniecup = new ImageView(promowanyGoniec);
     ImageView promowanyGoniecdown = new ImageView(promowanyGoniec);
-    Image promowanyPion = new Image(getClass().getResourceAsStream("/Myapp/klasyczne/PromowanyPion.png"));
+    Image promowanyPion = new Image(getClass().getResourceAsStream("/Myapp/bierki/PromowanyPion.png"));
     ImageView promowanyPionup = new ImageView(promowanyPion);
     ImageView promowanyPiondown = new ImageView(promowanyPion);
-    Image promowanySkoczek = new Image(getClass().getResourceAsStream("/Myapp/klasyczne/PromowanySkoczek.png"));
+    Image promowanySkoczek = new Image(getClass().getResourceAsStream("/Myapp/bierki/PromowanySkoczek.png"));
     ImageView promowanySkoczekup = new ImageView(promowanySkoczek);
     ImageView promowanySkoczekdown = new ImageView(promowanySkoczek);
-    Image promowanySrebrny = new Image(getClass().getResourceAsStream("/Myapp/klasyczne/PromowanySrebrny.png"));
+    Image promowanySrebrny = new Image(getClass().getResourceAsStream("/Myapp/bierki/PromowanySrebrny.png"));
     ImageView promowanySrebrnyup = new ImageView(promowanySrebrny);
     ImageView promowanySrebrnydown = new ImageView(promowanySrebrny);
-    Image skoczek = new Image(getClass().getResourceAsStream("/Myapp/klasyczne/Skoczek.png"));
+    Image skoczek = new Image(getClass().getResourceAsStream("/Myapp/bierki/Skoczek.png"));
     ImageView skoczek1up = new ImageView(skoczek);
     ImageView skoczek1down = new ImageView(skoczek);
     ImageView skoczek2up = new ImageView(skoczek);
     ImageView skoczek2down = new ImageView(skoczek);
-    Image srebrnyGeneral = new Image(getClass().getResourceAsStream("/Myapp/klasyczne/SrebrnyGeneral.png"));
+    Image srebrnyGeneral = new Image(getClass().getResourceAsStream("/Myapp/bierki/SrebrnyGeneral.png"));
     ImageView srebrnyGeneral1up = new ImageView(srebrnyGeneral);
     ImageView srebrnyGeneral1down = new ImageView(srebrnyGeneral);
     ImageView srebrnyGeneral2up = new ImageView(srebrnyGeneral);
     ImageView srebrnyGeneral2down = new ImageView(srebrnyGeneral);
-    Image wieza = new Image(getClass().getResourceAsStream("/Myapp/klasyczne/Wieza.png"));
+    Image wieza = new Image(getClass().getResourceAsStream("/Myapp/bierki/Wieza.png"));
     ImageView wiezaup = new ImageView(wieza);
     ImageView wiezadown = new ImageView(wieza);
-    Image zlotyGeneral = new Image(getClass().getResourceAsStream("/Myapp/klasyczne/ZlotyGeneral.png"));
+    Image zlotyGeneral = new Image(getClass().getResourceAsStream("/Myapp/bierki/ZlotyGeneral.png"));
     ImageView zlotyGeneral1up = new ImageView(zlotyGeneral);
     ImageView zlotyGeneral1down = new ImageView(zlotyGeneral);
     ImageView zlotyGeneral2up = new ImageView(zlotyGeneral);
     ImageView zlotyGeneral2down = new ImageView(zlotyGeneral);*/
-    //Image image = new Image(getClass().getResourceAsStream("/Myapp/klasyczne/Empty.png"));
+    //Image image = new Image(getClass().getResourceAsStream("/Myapp/bierki/Empty.png"));
     //ImageView imageView = new ImageView(image);
 
     Rozgrywka r = null;
@@ -394,7 +400,7 @@ public class  ScenaRozgrywkiController {
         });
 
         w0k0.setOnAction(event -> {
-            /*Image image = new Image(getClass().getResourceAsStream("/Myapp/Myapp.bierki/Empty.png"));
+            /*Image image = new Image(getClass().getResourceAsStream("/Myapp/bierki/Empty.png"));
             ImageView imageView = new ImageView(image);
             imageView.setFitWidth(50);
             imageView.setFitHeight(60);

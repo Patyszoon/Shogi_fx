@@ -1,4 +1,4 @@
-package Myapp.bierki;
+package bierki;
 
 public enum Kolor {
     BIALY,

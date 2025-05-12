@@ -1,9 +1,11 @@
 package Myapp;
 
+import bierki.Kolor;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
-import Myapp.rozgrywka.Rozgrywka;
+import rozgrywka.Rozgrywka;
+
 import java.io.IOException;
 
 public class ScenaOpcjeController {
@@ -13,18 +15,12 @@ public class ScenaOpcjeController {
     private Button powrotDoMenu;
 
     @FXML
-    private ChoiceBox<String> skorka;
-
-    @FXML
     private void initialize() {
-        //w przyszlosci wystarczy ze tutaj bedziemy dopisywac kolejne skorki oraz dodawac tak samo nazwane foldery i powinno dzialac
-        skorka.getItems().addAll("klasyczne", "europejskie");
-        System.out.println("Obecna skorka: " + Rozgrywka.getObecnaSkorka());
+        skorka.getItems().addAll("klasyczna", "europejska");
+        skorka.setValue(obecnaSkorka);
 
-        skorka.setValue(Rozgrywka.getObecnaSkorka());
-        skorka.getSelectionModel().selectedItemProperty().addListener((obs, obecnaSkorka, nowaSkorka) -> {
-            rozgrywka.setObecnaSkorka(nowaSkorka);
-            System.out.println("Wybrano " + nowaSkorka);
+        skorka.getSelectionModel().selectedItemProperty().addListener((obs, staraSkorka, nowaSkorka) -> {
+            obecnaSkorka = nowaSkorka;
         });
         powrotDoMenu.setOnAction(event -> {
             try {
@@ -35,9 +31,15 @@ public class ScenaOpcjeController {
         });
     }
 
+    @FXML
+    private ChoiceBox<String> skorka;
+    private String obecnaSkorka = "klasyczna";
+
+
     public void setMainApp(Main mainApp) {
         this.mainApp = mainApp;
     }
+
     private Rozgrywka rozgrywka;
     public void setRozgrywka(Rozgrywka rozgrywka) {
         this.rozgrywka = rozgrywka;

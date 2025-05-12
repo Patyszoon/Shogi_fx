@@ -1,4 +1,4 @@
-package Myapp.rozgrywka;
+package rozgrywka;
 
 import java.io.*;
 import java.util.Scanner;
