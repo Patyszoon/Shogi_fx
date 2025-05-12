@@ -1,6 +1,6 @@
 package Myapp;
 
-import bierki.*;
+import Myapp.bierki.*;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
@@ -8,8 +8,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
-import rozgrywka.Klikniecie;
-import rozgrywka.Rozgrywka;
+import Myapp.rozgrywka.Klikniecie;
+import Myapp.rozgrywka.Rozgrywka;
 
 import java.io.FileOutputStream;
 import java.io.IOException;

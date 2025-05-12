@@ -1,10 +1,10 @@
 package Myapp;
 
-import bierki.Kolor;
+import Myapp.bierki.Kolor;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
-import rozgrywka.Rozgrywka;
+import Myapp.rozgrywka.Rozgrywka;
 
 import java.io.IOException;
 

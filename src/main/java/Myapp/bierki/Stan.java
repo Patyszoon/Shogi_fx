@@ -1,4 +1,4 @@
-package bierki;
+package Myapp.bierki;
 
 public enum Stan {
     NA_PLANSZY,

@@ -1,8 +1,8 @@
-package rozgrywka;
+package Myapp.rozgrywka;
 
 import Myapp.ScenaOpcjeController;
 import Myapp.ScenaRozgrywkiController;
-import bierki.*;
+import Myapp.bierki.*;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;

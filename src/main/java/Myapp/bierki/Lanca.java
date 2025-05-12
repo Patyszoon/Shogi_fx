@@ -1,4 +1,4 @@
-package bierki;
+package Myapp.bierki;
 
 import Myapp.ScenaRozgrywkiController;
 import javafx.scene.image.Image;

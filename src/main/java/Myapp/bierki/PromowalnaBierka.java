@@ -1,4 +1,4 @@
-package bierki;
+package Myapp.bierki;
 
 public abstract class PromowalnaBierka extends Bierka{
     protected boolean promowana = false;
