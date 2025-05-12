@@ -394,7 +394,6 @@ public class  ScenaRozgrywkiController {
         zapisz.setOnAction(event -> {
             try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(zapis1))) {
                 out.writeObject(r.plansza);
-                System.out.println("Zapisano tablicę obiektów do pliku: " + zapis1);
             } catch (IOException e) {
                 e.printStackTrace();
             }

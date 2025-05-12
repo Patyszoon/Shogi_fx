@@ -1,9 +1,13 @@
 package Myapp;
 
+import bierki.Bierka;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import rozgrywka.Rozgrywka;
 
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 
 public class ScenaWyboruController {
     private Main mainApp;
@@ -31,7 +35,16 @@ public class ScenaWyboruController {
                 e.printStackTrace();
             }
         });
+        String fileName="Zapis1testowy";
         wczytajZapis.setOnAction(event -> {
+            /*try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(fileName))) {
+                Rozgrywka r = new Rozgrywka((Bierka[][]) in.readObject());
+                return (Bierka[][]) in.readObject();
+            } catch (IOException | ClassNotFoundException e) {
+                e.printStackTrace();
+                return new Bierka[9][9];
+            }*/
+
             try {
                 mainApp.pokazScenaRozgrywki();
             } catch (IOException e) {
