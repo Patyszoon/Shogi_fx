@@ -6,6 +6,7 @@ import Myapp.bierki.*;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import Myapp.rozgrywka.Rozgrywka;
 
 import java.util.ArrayList;
 
@@ -207,6 +208,12 @@ public class Rozgrywka {
         return plansza;
     }
 
+    public static String obecnaSkorka = "klasyczne";
+    public static String getObecnaSkorka(){return obecnaSkorka;}
+    public static void setObecnaSkorka(String nowaSkorka){
+        obecnaSkorka = nowaSkorka;
+    }
+
     public ImageView obrazekBierki(Bierka bierka)
     {
         String adres = "";
@@ -216,41 +223,41 @@ public class Rozgrywka {
             {
                 switch (bierka.getClass().getName())
                 {
-                    case "bierki.Lanca":
-                        adres = ((PromowalnaBierka) bierka).czyPromowana()?"/Myapp/klasyczne/PromowanaLanca.png":"/Myapp/klasyczne/Lanca.png";
+                    case "Myapp.bierki.Lanca":
+                        adres = ((PromowalnaBierka) bierka).czyPromowana()?"/Myapp/"+Rozgrywka.obecnaSkorka+"/PromowanaLanca.png":"/Myapp/"+Rozgrywka.obecnaSkorka+"/Lanca.png";
                         break;
-                    case "bierki.Pion":
-                        adres = ((PromowalnaBierka) bierka).czyPromowana()?"/Myapp/klasyczne/PromowanyPion.png":"/Myapp/klasyczne/Pionek.png";
+                    case "Myapp.bierki.Pion":
+                        adres = ((PromowalnaBierka) bierka).czyPromowana()?"/Myapp/"+Rozgrywka.obecnaSkorka+"/PromowanyPion.png":"/Myapp/"+Rozgrywka.obecnaSkorka+"/Pionek.png";
                         break;
-                    case "bierki.Goniec":
-                        adres = ((PromowalnaBierka) bierka).czyPromowana()?"/Myapp/klasyczne/PromowanyGoniec.png":"/Myapp/klasyczne/Goniec.png";
+                    case "Myapp.bierki.Goniec":
+                        adres = ((PromowalnaBierka) bierka).czyPromowana()?"/Myapp/"+Rozgrywka.obecnaSkorka+"/PromowanyGoniec.png":"/Myapp/"+Rozgrywka.obecnaSkorka+"/Goniec.png";
                         break;
-                    case "bierki.Skoczek":
-                        adres = ((PromowalnaBierka) bierka).czyPromowana()?"/Myapp/klasyczne/PromowanySkoczek.png":"/Myapp/klasyczne/Skoczek.png";
+                    case "Myapp.bierki.Skoczek":
+                        adres = ((PromowalnaBierka) bierka).czyPromowana()?"/Myapp/"+Rozgrywka.obecnaSkorka+"/PromowanySkoczek.png":"/Myapp/"+Rozgrywka.obecnaSkorka+"/Skoczek.png";
                         break;
-                    case "bierki.Wieza":
-                        adres = ((PromowalnaBierka) bierka).czyPromowana()?"/Myapp/klasyczne/PromowanaWieza.png":"/Myapp/klasyczne/Wieza.png";
+                    case "Myapp.bierki.Wieza":
+                        adres = ((PromowalnaBierka) bierka).czyPromowana()?"/Myapp/"+Rozgrywka.obecnaSkorka+"/PromowanaWieza.png":"/Myapp/"+Rozgrywka.obecnaSkorka+"/Wieza.png";
                         break;
-                    case "bierki.SrebrnyGeneral":
-                        adres = ((PromowalnaBierka) bierka).czyPromowana()?"/Myapp/klasyczne/PromowanySrebrny.png":"/Myapp/klasyczne/SrebrnyGeneral.png";
+                    case "Myapp.bierki.SrebrnyGeneral":
+                        adres = ((PromowalnaBierka) bierka).czyPromowana()?"/Myapp/"+Rozgrywka.obecnaSkorka+"/PromowanySrebrny.png":"/Myapp/"+Rozgrywka.obecnaSkorka+"/SrebrnyGeneral.png";
                         break;
                 }
             } else {
                 switch (bierka.getClass().getName())
                 {
-                    case "bierki.ZlotyGeneral":
-                        adres = "/Myapp/klasyczne/ZlotyGeneral.png";
+                    case "Myapp.bierki.ZlotyGeneral":
+                        adres = "/Myapp/"+Rozgrywka.obecnaSkorka+"/ZlotyGeneral.png";
                         break;
-                    case "bierki.Krol":
+                    case "Myapp.bierki.Krol":
                         if(bierka.getKolor() == Kolor.BIALY) {
-                            adres = "/Myapp/klasyczne/Krol2.png";
+                            adres = "/Myapp/"+Rozgrywka.obecnaSkorka+"/Krol2.png";
                         }
                         else
-                        {adres = "/Myapp/klasyczne/Krol.png";}
+                        {adres = "/Myapp/"+Rozgrywka.obecnaSkorka+"/Krol.png";}
                         break;
                 }
             }
-        } else adres = "/Myapp/klasyczne/Empty.png";
+        } else adres = "/Myapp/"+Rozgrywka.obecnaSkorka+"/Empty.png";
         System.out.println(adres);
         Image obrazek = new Image(getClass().getResourceAsStream(adres));
         ImageView widokObrazka = new ImageView(obrazek);
