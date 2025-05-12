@@ -205,11 +205,10 @@ public class Rozgrywka {
         return plansza;
     }
 
-    public String obecnaSkorka = "klasyczne";
-    public String getObecnaSkorka(){return obecnaSkorka;}
-    public String setObecnaSkorka(String obecnaSkorka){
-        this.obecnaSkorka = obecnaSkorka;
-        return obecnaSkorka;
+    public static String obecnaSkorka = "klasyczne";
+    public static String getObecnaSkorka(){return obecnaSkorka;}
+    public static void setObecnaSkorka(String nowaSkorka){
+        obecnaSkorka = nowaSkorka;
     }
 
     public ImageView obrazekBierki(Bierka bierka)
@@ -222,40 +221,40 @@ public class Rozgrywka {
                 switch (bierka.getClass().getName())
                 {
                     case "Myapp.bierki.Lanca":
-                        adres = ((PromowalnaBierka) bierka).czyPromowana()?"/Myapp/"+ bierka.obecnaSkorka+"/PromowanaLanca.png":"/Myapp/"+bierka.obecnaSkorka+"/Lanca.png";
+                        adres = ((PromowalnaBierka) bierka).czyPromowana()?"/Myapp/"+bierka.setSkorka(obecnaSkorka)+"/PromowanaLanca.png":"/Myapp/"+bierka.setSkorka(obecnaSkorka)+"/Lanca.png";
                         break;
                     case "Myapp.bierki.Pion":
-                        adres = ((PromowalnaBierka) bierka).czyPromowana()?"/Myapp/"+bierka.obecnaSkorka+"/PromowanyPion.png":"/Myapp/"+bierka.obecnaSkorka+"/Pionek.png";
+                        adres = ((PromowalnaBierka) bierka).czyPromowana()?"/Myapp/"+bierka.setSkorka(obecnaSkorka)+"/PromowanyPion.png":"/Myapp/"+bierka.setSkorka(obecnaSkorka)+"/Pionek.png";
                         break;
                     case "Myapp.bierki.Goniec":
-                        adres = ((PromowalnaBierka) bierka).czyPromowana()?"/Myapp/"+bierka.obecnaSkorka+"/PromowanyGoniec.png":"/Myapp/"+bierka.obecnaSkorka+"/Goniec.png";
+                        adres = ((PromowalnaBierka) bierka).czyPromowana()?"/Myapp/"+bierka.setSkorka(obecnaSkorka)+"/PromowanyGoniec.png":"/Myapp/"+bierka.setSkorka(obecnaSkorka)+"/Goniec.png";
                         break;
                     case "Myapp.bierki.Skoczek":
-                        adres = ((PromowalnaBierka) bierka).czyPromowana()?"/Myapp/"+bierka.obecnaSkorka+"/PromowanySkoczek.png":"/Myapp/"+bierka.obecnaSkorka+"/Skoczek.png";
+                        adres = ((PromowalnaBierka) bierka).czyPromowana()?"/Myapp/"+bierka.setSkorka(obecnaSkorka)+"/PromowanySkoczek.png":"/Myapp/"+bierka.setSkorka(obecnaSkorka)+"/Skoczek.png";
                         break;
                     case "Myapp.bierki.Wieza":
-                        adres = ((PromowalnaBierka) bierka).czyPromowana()?"/Myapp/"+bierka.obecnaSkorka+"/PromowanaWieza.png":"/Myapp/"+bierka.obecnaSkorka+"/Wieza.png";
+                        adres = ((PromowalnaBierka) bierka).czyPromowana()?"/Myapp/"+bierka.setSkorka(obecnaSkorka)+"/PromowanaWieza.png":"/Myapp/"+bierka.setSkorka(obecnaSkorka)+"/Wieza.png";
                         break;
                     case "Myapp.bierki.SrebrnyGeneral":
-                        adres = ((PromowalnaBierka) bierka).czyPromowana()?"/Myapp/"+bierka.obecnaSkorka+"/PromowanySrebrny.png":"/Myapp/"+bierka.obecnaSkorka+"/SrebrnyGeneral.png";
+                        adres = ((PromowalnaBierka) bierka).czyPromowana()?"/Myapp/"+bierka.setSkorka(obecnaSkorka)+"/PromowanySrebrny.png":"/Myapp/"+bierka.setSkorka(obecnaSkorka)+"/SrebrnyGeneral.png";
                         break;
                 }
             } else {
                 switch (bierka.getClass().getName())
                 {
                     case "Myapp.bierki.ZlotyGeneral":
-                        adres = "/Myapp/"+bierka.obecnaSkorka+"/ZlotyGeneral.png";
+                        adres = "/Myapp/"+bierka.setSkorka(obecnaSkorka)+"/ZlotyGeneral.png";
                         break;
                     case "Myapp.bierki.Krol":
                         if(bierka.getKolor() == Kolor.BIALY) {
-                            adres = "/Myapp/"+bierka.obecnaSkorka+"/Krol2.png";
+                            adres = "/Myapp/"+bierka.setSkorka(obecnaSkorka)+"/Krol2.png";
                         }
                         else
-                        {adres = "/Myapp/"+bierka.obecnaSkorka+"/Krol.png";}
+                        {adres = "/Myapp/"+bierka.setSkorka(obecnaSkorka)+"/Krol.png";}
                         break;
                 }
             }
-        } else adres = "/Myapp/"+bierka.obecnaSkorka+"/Empty.png";
+        } else adres = "/Myapp/"+bierka.setSkorka(obecnaSkorka)+"/Empty.png";
         System.out.println(adres);
         Image obrazek = new Image(getClass().getResourceAsStream(adres));
         ImageView widokObrazka = new ImageView(obrazek);

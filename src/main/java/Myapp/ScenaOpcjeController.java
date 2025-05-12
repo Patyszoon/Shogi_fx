@@ -14,17 +14,17 @@ public class ScenaOpcjeController {
 
     @FXML
     private ChoiceBox<String> skorka;
-    private String obecnaSkorka = "klasyczna";
 
     @FXML
     private void initialize() {
         //w przyszlosci wystarczy ze tutaj bedziemy dopisywac kolejne skorki oraz dodawac tak samo nazwane foldery i powinno dzialac
-        skorka.getItems().addAll("klasyczna", "europejska");
-        skorka.setValue(obecnaSkorka);
+        skorka.getItems().addAll("klasyczne", "europejskie");
+        System.out.println("Obecna skorka: " + Rozgrywka.getObecnaSkorka());
 
-        skorka.getSelectionModel().selectedItemProperty().addListener((obs, staraSkorka, nowaSkorka) -> {
+        skorka.setValue(Rozgrywka.getObecnaSkorka());
+        skorka.getSelectionModel().selectedItemProperty().addListener((obs, obecnaSkorka, nowaSkorka) -> {
             rozgrywka.setObecnaSkorka(nowaSkorka);
-            obecnaSkorka = nowaSkorka;
+            System.out.println("Wybrano " + nowaSkorka);
         });
         powrotDoMenu.setOnAction(event -> {
             try {
@@ -37,9 +37,6 @@ public class ScenaOpcjeController {
 
     public void setMainApp(Main mainApp) {
         this.mainApp = mainApp;
-    }
-    public void ustawSkorke(String nazwaSkorki) {
-        Rozgrywka.setSkorka(nazwaSkorki);
     }
     private Rozgrywka rozgrywka;
     public void setRozgrywka(Rozgrywka rozgrywka) {

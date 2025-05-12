@@ -8,7 +8,7 @@ public class SrebrnyGeneral extends PromowalnaBierka{
     public SrebrnyGeneral(Kolor kolor, Stan stanb, int kolumna, int wiersz) {
         super(kolor, stanb, kolumna, wiersz);
         if(promowana == false){
-            Image image = new Image(getClass().getResourceAsStream("/Myapp/"+obecnaSkorka+"/SrebrnyGeneral.png"));
+            Image image = new Image(getClass().getResourceAsStream("/Myapp/"+setSkorka(skorka)+"/SrebrnyGeneral.png"));
             ImageView imageView = new ImageView(image);
             imageView.setFitWidth(50);
             imageView.setFitHeight(60);
@@ -18,7 +18,7 @@ public class SrebrnyGeneral extends PromowalnaBierka{
             //scena.przyciski[kolumna][wiersz].setGraphic(imageView);
         }
         else{
-            Image image = new Image(getClass().getResourceAsStream("/Myapp/"+obecnaSkorka+"/PromowanySrebrny.png"));
+            Image image = new Image(getClass().getResourceAsStream("/Myapp/"+setSkorka(skorka)+"/PromowanySrebrny.png"));
             ImageView imageView = new ImageView(image);
             imageView.setFitWidth(50);
             imageView.setFitHeight(60);

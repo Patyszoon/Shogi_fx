@@ -19,7 +19,7 @@ public class ZlotyGeneral extends Bierka{
     //ScenaRozgrywkiController scena = new ScenaRozgrywkiController();
     public ZlotyGeneral(Kolor kolor, Stan stanb, int kolumna, int wiersz) {
         super(kolor, stanb, kolumna, wiersz);
-        Image image = new Image(getClass().getResourceAsStream("/Myapp/"+obecnaSkorka+"/ZlotyGeneral.png"));
+        Image image = new Image(getClass().getResourceAsStream("/Myapp/"+setSkorka(skorka)+"/ZlotyGeneral.png"));
         ImageView imageView = new ImageView(image);
         imageView.setFitWidth(50);
         imageView.setFitHeight(60);

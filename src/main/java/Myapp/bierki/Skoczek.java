@@ -10,7 +10,7 @@ public class Skoczek extends PromowalnaBierka {
         super(kolor, stanb, kolumna, wiersz);
         nieSkoczek = false;
         if(promowana == false){
-            Image image = new Image(getClass().getResourceAsStream("/Myapp/"+obecnaSkorka+"/Skoczek.png"));
+            Image image = new Image(getClass().getResourceAsStream("/Myapp/"+setSkorka(skorka)+"/Skoczek.png"));
             ImageView imageView = new ImageView(image);
             imageView.setFitWidth(50);
             imageView.setFitHeight(60);
@@ -20,7 +20,7 @@ public class Skoczek extends PromowalnaBierka {
             //scena.przyciski[kolumna][wiersz].setGraphic(imageView);
         }
         else{
-            Image image = new Image(getClass().getResourceAsStream("/Myapp/"+obecnaSkorka+"/PromowanySkoczek.png"));
+            Image image = new Image(getClass().getResourceAsStream("/Myapp/"+setSkorka(skorka)+"/PromowanySkoczek.png"));
             ImageView imageView = new ImageView(image);
             imageView.setFitWidth(50);
             imageView.setFitHeight(60);

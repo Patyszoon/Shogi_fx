@@ -75,9 +75,9 @@ public abstract class Bierka implements Serializable {
         return nrKolumny;
     }
 
-    public String obecnaSkorka;
+    public String skorka;
     public String setSkorka(String obecnaSkorka) {
-        this.obecnaSkorka = obecnaSkorka;
+        this.skorka = obecnaSkorka;
         return obecnaSkorka;
     }
 }
