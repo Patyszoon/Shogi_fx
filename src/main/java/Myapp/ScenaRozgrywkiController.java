@@ -701,6 +701,7 @@ public class  ScenaRozgrywkiController {
         przyciski[6][8]=w8k6;
         przyciski[7][8]=w8k7;
         przyciski[8][8]=w8k8;
+
         for(int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
                 System.out.print(przyciski[i][j]);
