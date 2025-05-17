@@ -63,6 +63,11 @@ public class Rozgrywka
                 {
                     jedynaPrawdziwa.planszaPrzyciskow[i][j].setGraphic(jedynaPrawdziwa.obrazekBierki(jedynaPrawdziwa.plansza[i][j]));
                 }
+//            for (int i = 9; i < 17; i++)
+//                for(int j = 0; j < 5; j++)
+//                {
+//                    jedynaPrawdziwa.planszaPrzyciskow[i][j].setGraphic(jedynaPrawdziwa.obrazekBierki(jedynaPrawdziwa.plansza[i][j]));
+//                }
         }
         return jedynaPrawdziwa;
     }
@@ -84,7 +89,7 @@ public class Rozgrywka
     //konstruktor
     private Rozgrywka()
     {
-        for (int i = 0; i < 9; i++)
+        for (int i = 0; i < 17; i++)
             for (int j = 0; j < 9; j++)
             {
                 plansza[i][j] = null;
@@ -145,6 +150,11 @@ public class Rozgrywka
             {
                 planszaPrzyciskow[i][j].setGraphic(obrazekBierki(plansza[i][j]));
             }
+//        for (int i = 9; i < 17; i++)
+//            for(int j = 0; j < 5; j++)
+//            {
+//                jedynaPrawdziwa.planszaPrzyciskow[i][j].setGraphic(jedynaPrawdziwa.obrazekBierki(jedynaPrawdziwa.plansza[i][j]));
+//            }
     }
 
     private Rozgrywka(ArrayList<Bierka> bierka, Kolor strona)

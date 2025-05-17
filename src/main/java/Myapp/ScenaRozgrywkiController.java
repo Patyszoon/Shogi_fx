@@ -185,9 +185,90 @@ public class  ScenaRozgrywkiController {
     private Button w8k7;
     @FXML
     private Button w8k8;
+    @FXML
+    private Button Bialew0k0;
+    @FXML
+    private Button Bialew0k1;
+    @FXML
+    private Button Bialew0k2;
+    @FXML
+    private Button Bialew0k3;
+    @FXML
+    private Button Bialew0k4;
+    @FXML
+    private Button Bialew1k0;
+    @FXML
+    private Button Bialew1k1;
+    @FXML
+    private Button Bialew1k2;
+    @FXML
+    private Button Bialew1k3;
+    @FXML
+    private Button Bialew1k4;
+    @FXML
+    private Button Bialew2k0;
+    @FXML
+    private Button Bialew2k1;
+    @FXML
+    private Button Bialew2k2;
+    @FXML
+    private Button Bialew2k3;
+    @FXML
+    private Button Bialew2k4;
+    @FXML
+    private Button Bialew3k0;
+    @FXML
+    private Button Bialew3k1;
+    @FXML
+    private Button Bialew3k2;
+    @FXML
+    private Button Bialew3k3;
+    @FXML
+    private Button Bialew3k4;
+    @FXML
+    private Button Czarnew0k0;
+    @FXML
+    private Button Czarnew0k1;
+    @FXML
+    private Button Czarnew0k2;
+    @FXML
+    private Button Czarnew0k3;
+    @FXML
+    private Button Czarnew0k4;
+    @FXML
+    private Button Czarnew1k0;
+    @FXML
+    private Button Czarnew1k1;
+    @FXML
+    private Button Czarnew1k2;
+    @FXML
+    private Button Czarnew1k3;
+    @FXML
+    private Button Czarnew1k4;
+    @FXML
+    private Button Czarnew2k0;
+    @FXML
+    private Button Czarnew2k1;
+    @FXML
+    private Button Czarnew2k2;
+    @FXML
+    private Button Czarnew2k3;
+    @FXML
+    private Button Czarnew2k4;
+    @FXML
+    private Button Czarnew3k0;
+    @FXML
+    private Button Czarnew3k1;
+    @FXML
+    private Button Czarnew3k2;
+    @FXML
+    private Button Czarnew3k3;
+    @FXML
+    private Button Czarnew3k4;
+
     private Main mainApp;
 
-    public Button[][] przyciski = new Button[9][9];
+    public Button[][] przyciski = new Button[17][9];
     Rozgrywka r = null;
 
     @FXML
@@ -237,23 +318,7 @@ public class  ScenaRozgrywkiController {
         });
 
         w0k0.setOnAction(event -> {
-            /*Image image = new Image(getClass().getResourceAsStream("/Myapp/bierki/Empty.png"));
-            ImageView imageView = new ImageView(image);
-            imageView.setFitWidth(50);
-            imageView.setFitHeight(60);
-            imageView.setRotate(180);
-            w0k0.setGraphic(imageView);*/
-
-            /*if(r.ruch(new Klikniecie(0,0)))
-            {
-                for(int i=0; i < 9; i++)
-                    for(int j=0; j < 9; j++)
-                    {
-
-                    }
-            }*/
-            //przyciski[r.aktywna.getNrKolumny()][r.aktywna.getNrWiersza()].setGraphic(imageViewww);
-            //przyciski[r.klikniecie.getX()][r.klikniecie.getY()].setGraphic(r.ruch(r.klikniecie).instancja.imageView);
+            r.ruch(new Klikniecie(0,0));
         });
         w0k1.setOnAction(event -> {
             r.ruch(new Klikniecie(1,0));
@@ -495,6 +560,64 @@ public class  ScenaRozgrywkiController {
         w8k8.setOnAction(event -> {
             r.ruch(new Klikniecie(8,8));
         });
+        //nie usuwać, kod do przyszłej naprawy
+//        Bialew0k0.setOnAction(event -> {
+//            r.ruch(new Klikniecie(0,9));
+//        });
+//        Bialew0k1.setOnAction(event -> {
+//            r.ruch(new Klikniecie(1,9));
+//        });
+//        Bialew0k2.setOnAction(event -> {
+//            r.ruch(new Klikniecie(2,9));
+//        });
+//        Bialew0k3.setOnAction(event -> {
+//            r.ruch(new Klikniecie(3,9));
+//        });
+//        Bialew0k4.setOnAction(event -> {
+//            r.ruch(new Klikniecie(4,9));
+//        });
+//        Bialew1k0.setOnAction(event -> {
+//            r.ruch(new Klikniecie(6,9));
+//        });
+//        Bialew1k1.setOnAction(event -> {
+//            r.ruch(new Klikniecie(7,9));
+//        });
+//        Bialew1k2.setOnAction(event -> {
+//            r.ruch(new Klikniecie(8,9));
+//        });
+//        Bialew1k3.setOnAction(event -> {
+//            r.ruch(new Klikniecie(0,10));
+//        });
+//        Bialew1k4.setOnAction(event -> {
+//            r.ruch(new Klikniecie(1,10));
+//        });
+//        Bialew2k0.setOnAction(event -> {
+//            r.ruch(new Klikniecie(2,10));
+//        });
+//        Bialew2k1.setOnAction(event -> {
+//            r.ruch(new Klikniecie(3,10));
+//        });
+//        Bialew2k2.setOnAction(event -> {
+//            r.ruch(new Klikniecie(4,10));
+//        });
+//        Bialew2k3.setOnAction(event -> {
+//            r.ruch(new Klikniecie(5,10));
+//        });
+//        Bialew2k4.setOnAction(event -> {
+//            r.ruch(new Klikniecie(6,10));
+//        });
+//        Bialew3k0.setOnAction(event -> {
+//            r.ruch(new Klikniecie(7,10));
+//        });
+//        Bialew3k1.setOnAction(event -> {
+//            r.ruch(new Klikniecie(8,10));
+//        });
+//        Bialew3k2.setOnAction(event -> {
+//            r.ruch(new Klikniecie(9,10));
+//        });
+
+
+
 
 
         przyciski[0][0]=w0k0;

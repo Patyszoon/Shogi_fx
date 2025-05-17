@@ -136,7 +136,7 @@
             <Button fx:id="Bialew0k0" mnemonicParsing="false" prefHeight="79.0" prefWidth="93.0" />
             <Button fx:id="Bialew0k1" mnemonicParsing="false" prefHeight="79.0" prefWidth="93.0" GridPane.columnIndex="1" />
             <Button fx:id="Bialew0k2" mnemonicParsing="false" prefHeight="79.0" prefWidth="93.0" GridPane.columnIndex="2" GridPane.rowIndex="0" />
-            <Button fx:id="Bialewok3" mnemonicParsing="false" prefHeight="79.0" prefWidth="93.0" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+            <Button fx:id="Bialew0k3" mnemonicParsing="false" prefHeight="79.0" prefWidth="93.0" GridPane.columnIndex="3" GridPane.rowIndex="0" />
             <Button fx:id="Bialew0k4" mnemonicParsing="false" prefHeight="79.0" prefWidth="93.0" GridPane.columnIndex="4" GridPane.rowIndex="0" />
             <Button fx:id="Bialew1k0" mnemonicParsing="false" prefHeight="79.0" prefWidth="93.0" GridPane.rowIndex="1" />
             <Button fx:id="Bialew1k1" mnemonicParsing="false" prefHeight="79.0" prefWidth="93.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
