@@ -6,7 +6,7 @@ public class Testowa
     {
         //ABY TESTOWAĆ NALEŻY DODAWAĆ KOLEJNE KLIKNIECIA
 
-        Rozgrywka p = new Rozgrywka();
+        Rozgrywka p = Rozgrywka.getInstancja();
         p.ruch(new Klikniecie(0,6));
         p.ruch(new Klikniecie(0,5));
         p.ruch(new Klikniecie(3,0));
