@@ -1,22 +1,19 @@
 package Myapp;
 
-import Myapp.bierki.*;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
 import Myapp.rozgrywka.Klikniecie;
 import Myapp.rozgrywka.Rozgrywka;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
-import java.util.ArrayList;
+import java.util.concurrent.atomic.AtomicReference;
 
 public class  ScenaRozgrywkiController {
+    private String wybrany;
     @FXML
     private Button zapiszMenu;
     @FXML
@@ -265,6 +262,13 @@ public class  ScenaRozgrywkiController {
     private Button Czarnew3k3;
     @FXML
     private Button Czarnew3k4;
+    @FXML
+    private ChoiceBox wyborZapisu;
+
+
+
+
+
 
     private Main mainApp;
 
@@ -283,12 +287,47 @@ public class  ScenaRozgrywkiController {
 
     @FXML
     public void initialize() {
-        String zapis1="Zapis1testowy";
+        String[] zapisy = new String[10];
+        zapisy[0]="Zapis 1";
+        zapisy[1]="Zapis 2";
+        zapisy[2]="Zapis 3";
+        zapisy[3]="Zapis 4";
+        zapisy[4]="Zapis 5";
+        zapisy[5]="Zapis 6";
+        zapisy[6]="Zapis 7";
+        zapisy[7]="Zapis 8";
+        zapisy[8]="Zapis 9";
+        zapisy[9]="Zapis 10";
+        wyborZapisu.getItems().add(zapisy[0]);
+        wyborZapisu.getItems().add(zapisy[1]);
+        wyborZapisu.getItems().add(zapisy[2]);
+        wyborZapisu.getItems().add(zapisy[3]);
+        wyborZapisu.getItems().add(zapisy[4]);
+        wyborZapisu.getItems().add(zapisy[5]);
+        wyborZapisu.getItems().add(zapisy[6]);
+        wyborZapisu.getItems().add(zapisy[7]);
+        wyborZapisu.getItems().add(zapisy[8]);
+        wyborZapisu.getItems().add(zapisy[9]);
+
+
+        wyborZapisu.setOnAction((event -> {
+            int selectedIndex = wyborZapisu.getSelectionModel().getSelectedIndex();
+             wybrany = wyborZapisu.getSelectionModel().getSelectedItem().toString();
+        }));
+
+
         zapiszMenu.setOnAction(event -> {
 
-            try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(zapis1))) {
+            try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(wybrany))) {
                 out.writeObject(r.plansza);
-                System.out.println("Zapisano tablicę obiektów do pliku: " + zapis1);
+                System.out.println("Zapisano tablicę obiektów do pliku: " + wybrany);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            String kolorowy=wybrany+"_kolor";
+            try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(kolorowy))) {
+                out.writeObject(r.strona);
+                System.out.println("Zapisano stronę do pliku: " + wybrany);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -310,7 +349,7 @@ public class  ScenaRozgrywkiController {
             }
         });
         zapisz.setOnAction(event -> {
-            try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(zapis1))) {
+            try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(wybrany))) {
                 out.writeObject(r.plansza);
             } catch (IOException e) {
                 e.printStackTrace();
