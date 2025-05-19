@@ -75,7 +75,7 @@ public class Rozgrywka {
     }
 
     //konstruktor
-    private Rozgrywka() {
+    public Rozgrywka() {
         for (int i = 0; i < 9; i++)
             for (int j = 0; j < 9; j++) {
                 plansza[i][j] = null;
@@ -393,5 +393,9 @@ public class Rozgrywka {
                 return false;
         }
         return true;
+    }
+
+    public void dropZwyczajny(){
+        jedynaPrawdziwa= null;
     }
 }

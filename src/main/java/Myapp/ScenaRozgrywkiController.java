@@ -373,6 +373,7 @@ public class  ScenaRozgrywkiController {
                     System.out.println("Usunięto istniejący plik: " + wybrany);
                 }
             }
+            file1=null;
 
             File file2 = new File(kolorowy);
             if (file2.exists()) {
@@ -380,6 +381,7 @@ public class  ScenaRozgrywkiController {
                     System.out.println("Usunięto istniejący plik: " + kolorowy);
                 }
             }
+            file2=null;
 
             try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(wybrany))) {
                 out.writeObject(r.bierki);

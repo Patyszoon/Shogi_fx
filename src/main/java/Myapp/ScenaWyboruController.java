@@ -25,6 +25,7 @@ public class ScenaWyboruController {
     private Button wczytajZapis;
     @FXML
     private ChoiceBox wybor;
+    Rozgrywka r = new Rozgrywka();
 
     @FXML
     private void initialize() {
@@ -63,6 +64,7 @@ public class ScenaWyboruController {
             }
         });
         nowaGra.setOnAction(event -> {
+            r.dropZwyczajny();
             try {
                 mainApp.pokazScenaRozgrywki();
             } catch (IOException e) {
@@ -71,6 +73,7 @@ public class ScenaWyboruController {
         });
 
         wczytajZapis.setOnAction(event -> {
+            r.dropZwyczajny();
             String kolorowy = wybrany + "_kolor";
 
 
@@ -84,21 +87,23 @@ public class ScenaWyboruController {
                 System.out.println("Plik nie istnieje");
             }
 
+            ArrayList<Bierka> bierki = null;
             try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(wybrany))) {
-                ArrayList<Bierka> bierki = (ArrayList<Bierka>) in.readObject();
+                bierki = (ArrayList<Bierka>) in.readObject();
                 System.out.println("Wczytano bierki z pliku: " + wybrany);
             } catch (IOException | ClassNotFoundException e) {
                 e.printStackTrace();
             }
 
 
-
+            Kolor kolor = null;
             try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(kolorowy))) {
-                Kolor kolor = (Kolor) in.readObject();
+                kolor = (Kolor) in.readObject();
                 System.out.println("Wczytano kolor z pliku: " + kolorowy);
             } catch (IOException | ClassNotFoundException e) {
                 e.printStackTrace();
             }
+            r.getInstancja(bierki, kolor);
 
             try {
                 mainApp.pokazScenaRozgrywki();
