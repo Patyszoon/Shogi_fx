@@ -78,38 +78,43 @@ public class ScenaWyboruController {
 
 
             File file1 = new File(wybrany);
-            if (!file1.exists()) {
-                System.out.println("Plik nie istnieje");
-            }
-
             File file2 = new File(kolorowy);
-            if (!file2.exists()) {
+            if (!file1.exists()&&!file2.exists()) {
                 System.out.println("Plik nie istnieje");
             }
+            else{
+                ArrayList<Bierka> bierki = null;
+                try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(wybrany))) {
+                    bierki = (ArrayList<Bierka>) in.readObject();
+                    System.out.println("Wczytano bierki z pliku: " + wybrany);
+                } catch (IOException | ClassNotFoundException e) {
+                    e.printStackTrace();
+                }
 
-            ArrayList<Bierka> bierki = null;
-            try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(wybrany))) {
-                bierki = (ArrayList<Bierka>) in.readObject();
-                System.out.println("Wczytano bierki z pliku: " + wybrany);
-            } catch (IOException | ClassNotFoundException e) {
-                e.printStackTrace();
+
+                Kolor kolor = null;
+                try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(kolorowy))) {
+                    kolor = (Kolor) in.readObject();
+                    System.out.println("Wczytano kolor z pliku: " + kolorowy);
+                } catch (IOException | ClassNotFoundException e) {
+                    e.printStackTrace();
+                }
+                r.getInstancja(bierki, kolor);
+
+                try {
+                    mainApp.pokazScenaRozgrywki();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
+            file2=null;
+            file1=null;
 
 
-            Kolor kolor = null;
-            try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(kolorowy))) {
-                kolor = (Kolor) in.readObject();
-                System.out.println("Wczytano kolor z pliku: " + kolorowy);
-            } catch (IOException | ClassNotFoundException e) {
-                e.printStackTrace();
-            }
-            r.getInstancja(bierki, kolor);
 
-            try {
-                mainApp.pokazScenaRozgrywki();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+
+
+
         });
     }
 
