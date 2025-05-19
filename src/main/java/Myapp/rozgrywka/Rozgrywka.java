@@ -14,11 +14,11 @@ public class Rozgrywka {
 
 
     //*********************Pola**********************************************************
-    private ArrayList<Bierka> bierki = new ArrayList<Bierka>();
+    public ArrayList<Bierka> bierki = new ArrayList<Bierka>();
     public Bierka[][] plansza = new Bierka[9][14];//[kolumna][wiersz]
 
     public Bierka aktywna = null;
-    private Kolor strona = null;
+    public Kolor strona = null;
     private Button[][] planszaPrzyciskow = null;
 
     public static String obecnaSkorka = "klasyczne";

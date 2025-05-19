@@ -1,6 +1,7 @@
 package Myapp;
 
 import Myapp.bierki.Bierka;
+import Myapp.bierki.Kolor;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import Myapp.rozgrywka.Rozgrywka;
@@ -9,6 +10,7 @@ import javafx.scene.control.ChoiceBox;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.util.ArrayList;
 
 public class ScenaWyboruController {
     private String wybrany;
@@ -68,13 +70,21 @@ public class ScenaWyboruController {
         });
 
         wczytajZapis.setOnAction(event -> {
-            /*try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(wybrany))) {
-                Rozgrywka r = new Rozgrywka((Bierka[][]) in.readObject());
-                return (Bierka[][]) in.readObject();
+            try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(wybrany))) {
+                ArrayList<Bierka> bierki = (ArrayList<Bierka>) in.readObject();
+                System.out.println("Wczytano bierki z pliku: " + wybrany);
             } catch (IOException | ClassNotFoundException e) {
                 e.printStackTrace();
-                return new Bierka[9][9];
-            }*/
+            }
+
+
+            String kolorowy = wybrany + "_kolor";
+            try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(kolorowy))) {
+                Kolor kolor = (Kolor) in.readObject();
+                System.out.println("Wczytano kolor z pliku: " + kolorowy);
+            } catch (IOException | ClassNotFoundException e) {
+                e.printStackTrace();
+            }
 
             try {
                 mainApp.pokazScenaRozgrywki();

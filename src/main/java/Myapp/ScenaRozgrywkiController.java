@@ -7,6 +7,7 @@ import javafx.scene.layout.AnchorPane;
 import Myapp.rozgrywka.Klikniecie;
 import Myapp.rozgrywka.Rozgrywka;
 
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
@@ -286,51 +287,66 @@ public class  ScenaRozgrywkiController {
     }
 
     @FXML
-    public void initialize() {
-        String[] zapisy = new String[10];
-        zapisy[0]="Zapis 1";
-        zapisy[1]="Zapis 2";
-        zapisy[2]="Zapis 3";
-        zapisy[3]="Zapis 4";
-        zapisy[4]="Zapis 5";
-        zapisy[5]="Zapis 6";
-        zapisy[6]="Zapis 7";
-        zapisy[7]="Zapis 8";
-        zapisy[8]="Zapis 9";
-        zapisy[9]="Zapis 10";
-        wyborZapisu.getItems().add(zapisy[0]);
-        wyborZapisu.getItems().add(zapisy[1]);
-        wyborZapisu.getItems().add(zapisy[2]);
-        wyborZapisu.getItems().add(zapisy[3]);
-        wyborZapisu.getItems().add(zapisy[4]);
-        wyborZapisu.getItems().add(zapisy[5]);
-        wyborZapisu.getItems().add(zapisy[6]);
-        wyborZapisu.getItems().add(zapisy[7]);
-        wyborZapisu.getItems().add(zapisy[8]);
-        wyborZapisu.getItems().add(zapisy[9]);
+            public void initialize() {
+                String[] zapisy = new String[10];
+                zapisy[0]="Zapis 1";
+                zapisy[1]="Zapis 2";
+                zapisy[2]="Zapis 3";
+                zapisy[3]="Zapis 4";
+                zapisy[4]="Zapis 5";
+                zapisy[5]="Zapis 6";
+                zapisy[6]="Zapis 7";
+                zapisy[7]="Zapis 8";
+                zapisy[8]="Zapis 9";
+                zapisy[9]="Zapis 10";
+                wyborZapisu.getItems().add(zapisy[0]);
+                wyborZapisu.getItems().add(zapisy[1]);
+                wyborZapisu.getItems().add(zapisy[2]);
+                wyborZapisu.getItems().add(zapisy[3]);
+                wyborZapisu.getItems().add(zapisy[4]);
+                wyborZapisu.getItems().add(zapisy[5]);
+                wyborZapisu.getItems().add(zapisy[6]);
+                wyborZapisu.getItems().add(zapisy[7]);
+                wyborZapisu.getItems().add(zapisy[8]);
+                wyborZapisu.getItems().add(zapisy[9]);
 
 
-        wyborZapisu.setOnAction((event -> {
-            int selectedIndex = wyborZapisu.getSelectionModel().getSelectedIndex();
-             wybrany = wyborZapisu.getSelectionModel().getSelectedItem().toString();
-        }));
+                wyborZapisu.setOnAction((event -> {
+                    int selectedIndex = wyborZapisu.getSelectionModel().getSelectedIndex();
+                    wybrany = wyborZapisu.getSelectionModel().getSelectedItem().toString();
+                }));
 
 
-        zapiszMenu.setOnAction(event -> {
+                zapiszMenu.setOnAction(event -> {
+                    String kolorowy=wybrany+"_kolor";
 
-            try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(wybrany))) {
-                out.writeObject(r.plansza);
-                System.out.println("Zapisano tablicę obiektów do pliku: " + wybrany);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            String kolorowy=wybrany+"_kolor";
-            try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(kolorowy))) {
-                out.writeObject(r.strona);
-                System.out.println("Zapisano stronę do pliku: " + wybrany);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+                    File file1 = new File(wybrany);
+                    if (file1.exists()) {
+                        if (file1.delete()) {
+                            System.out.println("Usunięto istniejący plik: " + wybrany);
+                        }
+                    }
+
+                    File file2 = new File(kolorowy);
+                    if (file2.exists()) {
+                        if (file2.delete()) {
+                            System.out.println("Usunięto istniejący plik: " + kolorowy);
+                        }
+                    }
+
+                    try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(wybrany))) {
+                        out.writeObject(r.bierki);
+                        System.out.println("Zapisano tablicę obiektów do pliku: " + wybrany);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+
+                    try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(kolorowy))) {
+                        out.writeObject(r.strona);
+                        System.out.println("Zapisano kolor do pliku: " + kolorowy);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
 
 
             try {
@@ -349,8 +365,32 @@ public class  ScenaRozgrywkiController {
             }
         });
         zapisz.setOnAction(event -> {
+            String kolorowy=wybrany+"_kolor";
+
+            File file1 = new File(wybrany);
+            if (file1.exists()) {
+                if (file1.delete()) {
+                    System.out.println("Usunięto istniejący plik: " + wybrany);
+                }
+            }
+
+            File file2 = new File(kolorowy);
+            if (file2.exists()) {
+                if (file2.delete()) {
+                    System.out.println("Usunięto istniejący plik: " + kolorowy);
+                }
+            }
+
             try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(wybrany))) {
-                out.writeObject(r.plansza);
+                out.writeObject(r.bierki);
+                System.out.println("Zapisano tablicę obiektów do pliku: " + wybrany);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(kolorowy))) {
+                out.writeObject(r.strona);
+                System.out.println("Zapisano kolor do pliku: " + kolorowy);
             } catch (IOException e) {
                 e.printStackTrace();
             }
