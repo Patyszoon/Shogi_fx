@@ -3,8 +3,10 @@ package Myapp;
 import Myapp.bierki.Bierka;
 import Myapp.bierki.Kolor;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import Myapp.rozgrywka.Rozgrywka;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ChoiceBox;
 
 import java.io.File;
@@ -50,6 +52,7 @@ public class ScenaWyboruController {
         wybor.getItems().add(zapisy[7]);
         wybor.getItems().add(zapisy[8]);
         wybor.getItems().add(zapisy[9]);
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Ten zapis nie istnieje, wybierz inny!", ButtonType.YES, ButtonType.CANCEL);
 
         wybor.setOnAction((event -> {
             int selectedIndex = wybor.getSelectionModel().getSelectedIndex();
@@ -80,7 +83,12 @@ public class ScenaWyboruController {
             File file1 = new File(wybrany);
             File file2 = new File(kolorowy);
             if (!file1.exists()&&!file2.exists()) {
-                System.out.println("Plik nie istnieje");
+                alert.showAndWait();
+
+                if (alert.getResult() == ButtonType.YES) {
+                    System.out.println("Plik nie istnieje");
+                }
+
             }
             else{
                 ArrayList<Bierka> bierki = null;

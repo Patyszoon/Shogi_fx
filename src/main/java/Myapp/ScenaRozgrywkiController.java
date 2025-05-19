@@ -1,7 +1,9 @@
 package Myapp;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.layout.AnchorPane;
 import Myapp.rozgrywka.Klikniecie;
@@ -309,6 +311,7 @@ public class  ScenaRozgrywkiController {
                 wyborZapisu.getItems().add(zapisy[7]);
                 wyborZapisu.getItems().add(zapisy[8]);
                 wyborZapisu.getItems().add(zapisy[9]);
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Wybrany zapis już istnieje, czy chcesz go nadpisać?", ButtonType.YES, ButtonType.CANCEL);
 
 
                 wyborZapisu.setOnAction((event -> {
@@ -322,10 +325,16 @@ public class  ScenaRozgrywkiController {
 
                     File file1 = new File(wybrany);
                     if (file1.exists()) {
-                        if (file1.delete()) {
-                            System.out.println("Usunięto istniejący plik: " + wybrany);
+                        alert.showAndWait();
+
+                        if (alert.getResult() == ButtonType.YES) {
+                            if (file1.delete()) {
+                                System.out.println("Usunięto istniejący plik: " + wybrany);
+                            }
                         }
+
                     }
+                    file1=null;
 
                     File file2 = new File(kolorowy);
                     if (file2.exists()) {
@@ -333,6 +342,7 @@ public class  ScenaRozgrywkiController {
                             System.out.println("Usunięto istniejący plik: " + kolorowy);
                         }
                     }
+                    file2=null;
 
                     try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(wybrany))) {
                         out.writeObject(r.bierki);
@@ -366,12 +376,16 @@ public class  ScenaRozgrywkiController {
         });
         zapisz.setOnAction(event -> {
             String kolorowy=wybrany+"_kolor";
-
             File file1 = new File(wybrany);
             if (file1.exists()) {
-                if (file1.delete()) {
-                    System.out.println("Usunięto istniejący plik: " + wybrany);
+                alert.showAndWait();
+
+                if (alert.getResult() == ButtonType.YES) {
+                    if (file1.delete()) {
+                        System.out.println("Usunięto istniejący plik: " + wybrany);
+                    }
                 }
+
             }
             file1=null;
 

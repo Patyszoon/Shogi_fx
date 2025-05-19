@@ -6,6 +6,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.fxml.FXMLLoader;
 
+import java.awt.*;
 import java.io.IOException;
 
 public class Main extends Application {
@@ -33,9 +34,14 @@ public class Main extends Application {
         ScenaRozgrywkiController controllerPlanszy = loader.getController();
         controllerPlanszy.setMainApp(this);
 
-        scenaPlanszy = new Scene(root);
+        GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
+        int szerokosc = gd.getDisplayMode().getWidth();
+        int wysokosc = gd.getDisplayMode().getHeight();
+
+        scenaPlanszy = new Scene(root,szerokosc,wysokosc);
         primaryStage.setScene(scenaPlanszy);
         primaryStage.setTitle("SHOGI");
+        primaryStage.setMaximized(true);
         primaryStage.show();
     }
 
