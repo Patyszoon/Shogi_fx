@@ -268,7 +268,7 @@ public class  ScenaRozgrywkiController {
 
     private Main mainApp;
 
-    public Button[][] przyciski = new Button[17][9];
+    public Button[][] przyciski = new Button[9][14];
     Rozgrywka r = null;
 
     @FXML

@@ -15,7 +15,7 @@ public class Rozgrywka {
 
     //*********************Pola**********************************************************
     private ArrayList<Bierka> bierki = new ArrayList<Bierka>();
-    public Bierka[][] plansza = new Bierka[9][9];//[kolumna][wiersz]
+    public Bierka[][] plansza = new Bierka[9][14];//[kolumna][wiersz]
 
     public Bierka aktywna = null;
     private Kolor strona = null;
@@ -50,15 +50,14 @@ public class Rozgrywka {
                 System.out.println();
             }
             jedynaPrawdziwa.planszaPrzyciskow = planszaPioneczkow;
-            for (int i = 0; i < 9; i++)
+            for (int i = 0; i < 13; i++)
                 for (int j = 0; j < 9; j++) {
                     jedynaPrawdziwa.planszaPrzyciskow[i][j].setGraphic(jedynaPrawdziwa.obrazekBierki(jedynaPrawdziwa.plansza[i][j]));
                 }
-//            for (int i = 9; i < 17; i++)
-//                for(int j = 0; j < 5; j++)
-//                {
-//                    jedynaPrawdziwa.planszaPrzyciskow[i][j].setGraphic(jedynaPrawdziwa.obrazekBierki(jedynaPrawdziwa.plansza[i][j]));
-//                }
+            for(int i = 0; i < 5; i++)
+                {
+                    jedynaPrawdziwa.planszaPrzyciskow[i][13].setGraphic(jedynaPrawdziwa.obrazekBierki(jedynaPrawdziwa.plansza[i][13]));
+                }
         }
         return jedynaPrawdziwa;
     }
@@ -117,27 +116,6 @@ public class Rozgrywka {
         planszaPrzyciskow = null;
     }
 
-
-    private Rozgrywka(Button[][] planszaPioneczkow) {
-        this();
-        for (int i = 0; i < 9; i++) {
-            for (int j = 0; j < 9; j++) {
-                System.out.print(planszaPioneczkow[i][j]);
-            }
-            System.out.println();
-        }
-        planszaPrzyciskow = planszaPioneczkow;
-        for (int i = 0; i < 9; i++)
-            for (int j = 0; j < 9; j++) {
-                planszaPrzyciskow[i][j].setGraphic(obrazekBierki(plansza[i][j]));
-            }
-//        for (int i = 9; i < 17; i++)
-//            for(int j = 0; j < 5; j++)
-//            {
-//                jedynaPrawdziwa.planszaPrzyciskow[i][j].setGraphic(jedynaPrawdziwa.obrazekBierki(jedynaPrawdziwa.plansza[i][j]));
-//            }
-    }
-
     private Rozgrywka(ArrayList<Bierka> bierka, Kolor strona) {
         for (int i = 0; i < 9; i++)
             for (int j = 0; j < 9; j++) {
@@ -150,7 +128,29 @@ public class Rozgrywka {
         planszaPrzyciskow = null;
     }
 
-    //public Klikniecie klikniecie;
+    private Rozgrywka(Button[][] planszaPioneczkow) {
+        this();
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                System.out.print(planszaPioneczkow[i][j]);
+            }
+            System.out.println();
+        }
+        planszaPrzyciskow = planszaPioneczkow;
+        for (int i = 0; i < 9; i++)
+            for (int j = 0; j < 13; j++) {
+                planszaPrzyciskow[i][j].setGraphic(obrazekBierki(plansza[i][j]));
+            }
+        for (int i = 0; i < 4; i++)
+        {
+            planszaPrzyciskow[i][13].setGraphic(obrazekBierki(plansza[i][13]));
+        }
+    }
+
+    private void probaAwansu(int kolumna, int wiersz){
+
+    }
+
     //metoda zwraca true, jeżeli klikniecie sprawia zmianę sytuacji wyświetlanej na planszy
     public boolean ruch(Klikniecie klikniecie) {
         //this.klikniecie = klikniecie;
@@ -159,21 +159,15 @@ public class Rozgrywka {
             System.out.println("Kliknieto lewym klawiszem myszy");
             if (aktywna != null) {
                 //jest juz zaznaczona bierka
-                System.out.println("Jest juz aktywna bierka");
                 if ((plansza[klikniecie.getX()][klikniecie.getY()] == null) || (plansza[klikniecie.getX()][klikniecie.getY()].getKolor() != aktywna.getKolor()))
                 //klikniecie na puste lub bierke przeciwnika - proba ruchu
                 {
-                    System.out.println("podjeta proba ruchu");
-                    if (aktywna.czyLegalny(klikniecie.getX(), klikniecie.getY())) {
-                        System.out.println("ruch jest legalny");
-                        if (aktywna.czyNieSkoczek()) {
-                            System.out.println("nieskoczek");
+                    if (aktywna.czyLegalny(klikniecie.getX(), klikniecie.getY())) {//sprawdza czy ruch jest legalny
+                        if (aktywna.czyNieSkoczek()) {//sprawdza czy dana figura skacze
                             if (!czyDrogaWolna(aktywna.getNrKolumny(), aktywna.getNrWiersza(), klikniecie.getX(), klikniecie.getY())) {
-                                //System.out.println("droga zajeta na polu: "+klikniecie.getX() + " " + klikniecie.getY());
-
                                 aktywna = null;
                                 return true;
-                            }// else System.out.println("droga wolna na polu: "+klikniecie.getX() + " " + klikniecie.getY());
+                            }
                         }
                         plansza[aktywna.getNrKolumny()][aktywna.getNrWiersza()] = null;
                         System.out.println(planszaPrzyciskow[aktywna.getNrKolumny()][aktywna.getNrWiersza()]);
