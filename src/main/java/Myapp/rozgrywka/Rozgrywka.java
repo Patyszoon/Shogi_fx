@@ -75,7 +75,7 @@ public class Rozgrywka {
     }
 
     //konstruktor
-    public Rozgrywka() {
+    private Rozgrywka() {
         for (int i = 0; i < 9; i++)
             for (int j = 0; j < 9; j++) {
                 plansza[i][j] = null;
@@ -147,16 +147,9 @@ public class Rozgrywka {
         }
     }
 
-    private void probaAwansu(int kolumna, int wiersz){
-
-    }
-
     //metoda zwraca true, jeżeli klikniecie sprawia zmianę sytuacji wyświetlanej na planszy
     public boolean ruch(Klikniecie klikniecie) {
-        //this.klikniecie = klikniecie;
-        System.out.println("kliknieto na pole: " + klikniecie.getX() + " " + klikniecie.getY());
         if (!klikniecie.czyPrawy()) {
-            System.out.println("Kliknieto lewym klawiszem myszy");
             if (aktywna != null) {
                 //jest juz zaznaczona bierka
                 if ((plansza[klikniecie.getX()][klikniecie.getY()] == null) || (plansza[klikniecie.getX()][klikniecie.getY()].getKolor() != aktywna.getKolor()))
@@ -189,35 +182,16 @@ public class Rozgrywka {
                     }
                     aktywna = null;
                     return true;
-                } else
+                } else if (aktywna.getNrKolumny()==klikniecie.getX() && aktywna.getNrWiersza()== klikniecie.getY())
+                //dwa razy kliknieto ta samą bierkę swojego koloru - próba promocji
+                {
+                    return probaAwansu(klikniecie);
+                }else
                 //klikniecie na bierke wsojego koloru - zmiana aktywnej
                 {
                     aktywna = plansza[klikniecie.getX()][klikniecie.getY()];
-                    return true;
                 }
-            } else {
-                //nie ma jeszcze zaznaczonej bierki
-
-                //klikniecie lewym na bierke - wybranie bierki
-                System.out.println("nie ma jeszcze aktywnej bierki");
-                if (plansza[klikniecie.getX()][klikniecie.getY()] != null) {
-                    System.out.println("kliknieta na zajete pole");
-                    System.out.println(plansza[klikniecie.getX()][klikniecie.getY()].getKolor());
-                    System.out.println(strona);
-                    if (plansza[klikniecie.getX()][klikniecie.getY()].getKolor() == strona) {
-                        System.out.println("kolor sie zgadza");
-                        aktywna = plansza[klikniecie.getX()][klikniecie.getY()];
-                        //do debugowania
-                        System.out.println("Aktywna bierka: " + aktywna.getClass().getName() + " x = " + aktywna.getNrKolumny() + " y = " + aktywna.getNrWiersza());
-                        return true;
-                    }
-                } else
-                //klikniecie lewym na puste - brak interakcji
-                {
-                    System.out.println("Kliknieto na puste pole");
-                    return false;
-                }
-            }
+            } else return brakAktywnej(klikniecie);
         } else {
             //klikniecie prawym przyciskiem
             aktywna = null;
@@ -249,9 +223,9 @@ public class Rozgrywka {
         return bierki;
     }
 
-    public Bierka[][] getPlansza() {
-        return plansza;
-    }
+//    public Bierka[][] getPlansza() {
+//        return plansza;
+//    }
 
     public ImageView obrazekBierki(Bierka bierka) {
         String adres = "";
@@ -395,7 +369,45 @@ public class Rozgrywka {
         return true;
     }
 
-    public void dropZwyczajny(){
+    public static void dropZwyczajny(){
         jedynaPrawdziwa= null;
+    }
+
+    private boolean brakAktywnej(Klikniecie klikniecie)
+    {
+        System.out.println("nie ma jeszcze aktywnej bierki");
+        if (plansza[klikniecie.getX()][klikniecie.getY()] != null) {
+            System.out.println("kliknieta na zajete pole");
+            System.out.println(plansza[klikniecie.getX()][klikniecie.getY()].getKolor());
+            System.out.println(strona);
+            if (plansza[klikniecie.getX()][klikniecie.getY()].getKolor() == strona) {
+                System.out.println("kolor sie zgadza");
+                aktywna = plansza[klikniecie.getX()][klikniecie.getY()];
+                //do debugowania
+                System.out.println("Aktywna bierka: " + aktywna.getClass().getName() + " x = " + aktywna.getNrKolumny() + " y = " + aktywna.getNrWiersza());
+                return true;
+            }
+        } else
+        //klikniecie lewym na puste - brak interakcji
+        {
+            System.out.println("Kliknieto na puste pole");
+            return false;
+        }
+        return false;
+    }
+
+    private boolean probaAwansu(Klikniecie klikniecie){
+        if (plansza[klikniecie.getX()][klikniecie.getY()] instanceof PromowalnaBierka) {
+            PromowalnaBierka awansowana = (PromowalnaBierka) plansza[klikniecie.getX()][klikniecie.getY()];
+            if (((awansowana.getKolor() == Kolor.BIALY) && (awansowana.getNrWiersza() >= 6)) ||
+                    ((awansowana.getKolor() == Kolor.CZARNY) && (awansowana.getNrWiersza() <= 2))) {
+                if (!awansowana.czyPromowana()) {
+                    awansowana.promocja();
+                    zmianaGracza();
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 }

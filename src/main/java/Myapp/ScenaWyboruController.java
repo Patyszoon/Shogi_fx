@@ -25,7 +25,7 @@ public class ScenaWyboruController {
     private Button wczytajZapis;
     @FXML
     private ChoiceBox wybor;
-    Rozgrywka r = new Rozgrywka();
+    Rozgrywka r = null;
 
     @FXML
     private void initialize() {
@@ -73,7 +73,6 @@ public class ScenaWyboruController {
         });
 
         wczytajZapis.setOnAction(event -> {
-            r.dropZwyczajny();
             String kolorowy = wybrany + "_kolor";
 
 
