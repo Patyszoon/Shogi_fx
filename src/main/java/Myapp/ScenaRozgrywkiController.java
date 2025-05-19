@@ -560,61 +560,126 @@ public class  ScenaRozgrywkiController {
         w8k8.setOnAction(event -> {
             r.ruch(new Klikniecie(8,8));
         });
-        //nie usuwać, kod do przyszłej naprawy
-//        Bialew0k0.setOnAction(event -> {
-//            r.ruch(new Klikniecie(0,9));
-//        });
-//        Bialew0k1.setOnAction(event -> {
-//            r.ruch(new Klikniecie(1,9));
-//        });
-//        Bialew0k2.setOnAction(event -> {
-//            r.ruch(new Klikniecie(2,9));
-//        });
-//        Bialew0k3.setOnAction(event -> {
-//            r.ruch(new Klikniecie(3,9));
-//        });
-//        Bialew0k4.setOnAction(event -> {
-//            r.ruch(new Klikniecie(4,9));
-//        });
-//        Bialew1k0.setOnAction(event -> {
-//            r.ruch(new Klikniecie(6,9));
-//        });
-//        Bialew1k1.setOnAction(event -> {
-//            r.ruch(new Klikniecie(7,9));
-//        });
-//        Bialew1k2.setOnAction(event -> {
-//            r.ruch(new Klikniecie(8,9));
-//        });
-//        Bialew1k3.setOnAction(event -> {
-//            r.ruch(new Klikniecie(0,10));
-//        });
-//        Bialew1k4.setOnAction(event -> {
-//            r.ruch(new Klikniecie(1,10));
-//        });
-//        Bialew2k0.setOnAction(event -> {
-//            r.ruch(new Klikniecie(2,10));
-//        });
-//        Bialew2k1.setOnAction(event -> {
-//            r.ruch(new Klikniecie(3,10));
-//        });
-//        Bialew2k2.setOnAction(event -> {
-//            r.ruch(new Klikniecie(4,10));
-//        });
-//        Bialew2k3.setOnAction(event -> {
-//            r.ruch(new Klikniecie(5,10));
-//        });
-//        Bialew2k4.setOnAction(event -> {
-//            r.ruch(new Klikniecie(6,10));
-//        });
-//        Bialew3k0.setOnAction(event -> {
-//            r.ruch(new Klikniecie(7,10));
-//        });
-//        Bialew3k1.setOnAction(event -> {
-//            r.ruch(new Klikniecie(8,10));
-//        });
-//        Bialew3k2.setOnAction(event -> {
-//            r.ruch(new Klikniecie(9,10));
-//        });
+        Bialew0k0.setOnAction(event -> {
+            r.ruch(new Klikniecie(0,9));
+        });
+        Bialew0k1.setOnAction(event -> {
+            r.ruch(new Klikniecie(1,9));
+        });
+        Bialew0k2.setOnAction(event -> {
+            r.ruch(new Klikniecie(2,9));
+        });
+        Bialew0k3.setOnAction(event -> {
+            r.ruch(new Klikniecie(3,9));
+        });
+        Bialew0k4.setOnAction(event -> {
+            r.ruch(new Klikniecie(4,9));
+        });
+        Bialew1k0.setOnAction(event -> {
+            r.ruch(new Klikniecie(5,9));
+        });
+        Bialew1k1.setOnAction(event -> {
+            r.ruch(new Klikniecie(6,9));
+        });
+        Bialew1k2.setOnAction(event -> {
+            r.ruch(new Klikniecie(7,9));
+        });
+        Bialew1k3.setOnAction(event -> {
+            r.ruch(new Klikniecie(8,9));
+        });
+        Bialew1k4.setOnAction(event -> {
+            r.ruch(new Klikniecie(0,10));
+        });
+        Bialew2k0.setOnAction(event -> {
+            r.ruch(new Klikniecie(1,10));
+        });
+        Bialew2k1.setOnAction(event -> {
+            r.ruch(new Klikniecie(2, 10));
+        });
+        Bialew2k2.setOnAction(event -> {
+            r.ruch(new Klikniecie(3, 10));
+        });
+        Bialew2k3.setOnAction(event -> {
+            r.ruch(new Klikniecie(4,10));
+        });
+        Bialew2k4.setOnAction(event -> {
+            r.ruch(new Klikniecie(5,10));
+        });
+        Bialew3k0.setOnAction(event -> {
+            r.ruch(new Klikniecie(6,10));
+        });
+        Bialew3k1.setOnAction(event -> {
+            r.ruch(new Klikniecie(7,10));
+        });
+        Bialew3k2.setOnAction(event -> {
+            r.ruch(new Klikniecie(8,10));
+        });
+        Bialew3k3.setOnAction(event -> {
+            r.ruch(new Klikniecie(0,13));
+        });
+        Bialew3k4.setOnAction(event -> {
+            r.ruch(new Klikniecie(1,13));
+        });
+        Czarnew0k0.setOnAction(event -> {
+            r.ruch(new Klikniecie(0,11));
+        });
+        Czarnew0k1.setOnAction(event -> {
+            r.ruch(new Klikniecie(1,11));
+        });
+        Czarnew0k2.setOnAction(event -> {
+            r.ruch(new Klikniecie(2,11));
+        });
+        Czarnew0k3.setOnAction(event -> {
+            r.ruch(new Klikniecie(3,11));
+        });
+        Czarnew0k4.setOnAction(event -> {
+            r.ruch(new Klikniecie(4,11));
+        });
+        Czarnew1k0.setOnAction(event -> {
+            r.ruch(new Klikniecie(5,11));
+        });
+        Czarnew1k1.setOnAction(event -> {
+            r.ruch(new Klikniecie(6,11));
+        });
+        Czarnew1k2.setOnAction(event -> {
+            r.ruch(new Klikniecie(7,11));
+        });
+        Czarnew1k3.setOnAction(event -> {
+            r.ruch(new Klikniecie(8,11));
+        });
+        Czarnew1k4.setOnAction(event -> {
+            r.ruch(new Klikniecie(0,12));
+        });
+        Czarnew2k0.setOnAction(event -> {
+            r.ruch(new Klikniecie(1,12));
+        });
+        Czarnew2k1.setOnAction(event -> {
+            r.ruch(new Klikniecie(2,12));
+        });
+        Czarnew2k2.setOnAction(event -> {
+            r.ruch(new Klikniecie(3,12));
+        });
+        Czarnew2k3.setOnAction(event -> {
+            r.ruch(new Klikniecie(4,12));
+        });
+        Czarnew2k4.setOnAction(event -> {
+            r.ruch(new Klikniecie(5,12));
+        });
+        Czarnew3k0.setOnAction(event -> {
+            r.ruch(new Klikniecie(6,12));
+        });
+        Czarnew3k1.setOnAction(event -> {
+            r.ruch(new Klikniecie(7,12));
+        });
+        Czarnew3k2.setOnAction(event -> {
+            r.ruch(new Klikniecie(8,12));
+        });
+        Czarnew3k3.setOnAction(event -> {
+            r.ruch(new Klikniecie(2,13));
+        });
+        Czarnew3k4.setOnAction(event -> {
+            r.ruch(new Klikniecie(3,13));
+        });
 
 
 
@@ -701,6 +766,46 @@ public class  ScenaRozgrywkiController {
         przyciski[6][8]=w8k6;
         przyciski[7][8]=w8k7;
         przyciski[8][8]=w8k8;
+        przyciski[0][9]=Bialew0k0;
+        przyciski[1][9]=Bialew0k1;
+        przyciski[2][9]=Bialew0k2;
+        przyciski[3][9]=Bialew0k3;
+        przyciski[4][9]=Bialew0k4;
+        przyciski[5][9]=Bialew1k0;
+        przyciski[6][9]=Bialew1k1;
+        przyciski[7][9]=Bialew1k2;
+        przyciski[8][9]=Bialew1k3;
+        przyciski[0][10]=Bialew1k4;
+        przyciski[1][10]=Bialew2k0;
+        przyciski[2][10]=Bialew2k1;
+        przyciski[3][10]=Bialew2k2;
+        przyciski[4][10]=Bialew2k3;
+        przyciski[5][10]=Bialew2k4;
+        przyciski[6][10]=Bialew3k0;
+        przyciski[7][10]=Bialew3k1;
+        przyciski[8][10]=Bialew3k2;
+        przyciski[0][11]=Czarnew0k0;
+        przyciski[1][11]=Czarnew0k1;
+        przyciski[2][11]=Czarnew0k2;
+        przyciski[3][11]=Czarnew0k3;
+        przyciski[4][11]=Czarnew0k4;
+        przyciski[5][11]=Czarnew1k0;
+        przyciski[6][11]=Czarnew1k1;
+        przyciski[7][11]=Czarnew1k2;
+        przyciski[8][11]=Czarnew1k3;
+        przyciski[0][12]=Czarnew1k4;
+        przyciski[1][12]=Czarnew2k0;
+        przyciski[2][12]=Czarnew2k1;
+        przyciski[3][12]=Czarnew2k2;
+        przyciski[4][12]=Czarnew2k3;
+        przyciski[5][12]=Czarnew2k4;
+        przyciski[6][12]=Czarnew3k0;
+        przyciski[7][12]=Czarnew3k1;
+        przyciski[8][12]=Czarnew3k2;
+        przyciski[0][13]=Bialew3k3;
+        przyciski[1][13]=Bialew3k4;
+        przyciski[2][13]=Czarnew3k3;
+        przyciski[3][13]=Czarnew3k4;
 
         for(int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
