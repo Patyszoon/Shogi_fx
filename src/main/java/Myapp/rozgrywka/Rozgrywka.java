@@ -19,7 +19,7 @@ public class Rozgrywka
     public Bierka[][] plansza = new Bierka[9][9];//[kolumna][wiersz]
 
     public Bierka aktywna = null;
-    private Kolor strona = null;
+    public Kolor strona = null;
     private Button[][] planszaPrzyciskow = null;
 
     public static String obecnaSkorka = "klasyczne";
@@ -133,7 +133,7 @@ public class Rozgrywka
     }
 
 
-    private Rozgrywka(Button[][] planszaPioneczkow)
+    public Rozgrywka(Button[][] planszaPioneczkow)
     {
         this();
         for (int i = 0; i < 9; i++)
