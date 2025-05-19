@@ -50,13 +50,13 @@ public class Rozgrywka {
                 System.out.println();
             }
             jedynaPrawdziwa.planszaPrzyciskow = planszaPioneczkow;
-            for (int i = 0; i < 13; i++)
-                for (int j = 0; j < 9; j++) {
+            for (int i = 0; i < 9; i++)
+                for (int j = 0; j < 13; j++) {
                     jedynaPrawdziwa.planszaPrzyciskow[i][j].setGraphic(jedynaPrawdziwa.obrazekBierki(jedynaPrawdziwa.plansza[i][j]));
                 }
             for(int i = 0; i < 5; i++)
                 {
-                    jedynaPrawdziwa.planszaPrzyciskow[i][13].setGraphic(jedynaPrawdziwa.obrazekBierki(jedynaPrawdziwa.plansza[i][13]));
+                    jedynaPrawdziwa.planszaPrzyciskow[i][12].setGraphic(jedynaPrawdziwa.obrazekBierki(jedynaPrawdziwa.plansza[i][12]));
                 }
         }
         return jedynaPrawdziwa;

@@ -7,6 +7,7 @@ import javafx.scene.control.Button;
 import Myapp.rozgrywka.Rozgrywka;
 import javafx.scene.control.ChoiceBox;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -70,6 +71,19 @@ public class ScenaWyboruController {
         });
 
         wczytajZapis.setOnAction(event -> {
+            String kolorowy = wybrany + "_kolor";
+
+
+            File file1 = new File(wybrany);
+            if (!file1.exists()) {
+                System.out.println("Plik nie istnieje");
+            }
+
+            File file2 = new File(kolorowy);
+            if (!file2.exists()) {
+                System.out.println("Plik nie istnieje");
+            }
+
             try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(wybrany))) {
                 ArrayList<Bierka> bierki = (ArrayList<Bierka>) in.readObject();
                 System.out.println("Wczytano bierki z pliku: " + wybrany);
@@ -78,7 +92,7 @@ public class ScenaWyboruController {
             }
 
 
-            String kolorowy = wybrany + "_kolor";
+
             try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(kolorowy))) {
                 Kolor kolor = (Kolor) in.readObject();
                 System.out.println("Wczytano kolor z pliku: " + kolorowy);
