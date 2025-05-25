@@ -6,21 +6,41 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Myapp.ScenaOpcjeController">
     <children>
-        <Button fx:id="powrotDoMenu" layoutX="243.0" layoutY="187.0" mnemonicParsing="false" text="Powrót do menu" />
-      <Label layoutX="230.0" layoutY="26.0" text="O P C J E">
-         <font>
-            <Font size="36.0" />
-         </font>
-      </Label>
-      <TextFlow layoutX="130.0" layoutY="90.0" prefHeight="52.0" prefWidth="372.0">
-         <children>
-            <Label prefHeight="18.0" prefWidth="116.0" text="Wybór skórki">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
-             <ChoiceBox fx:id="skorka" prefWidth="150.0" />
-         </children>
-      </TextFlow>
+        <Button fx:id="powrotDoMenu" layoutX="243.0" layoutY="280.0" mnemonicParsing="false" text="Powrót do menu" />
+
+        <Label layoutX="230.0" layoutY="26.0" text="O P C J E">
+            <font>
+                <Font size="36.0" />
+            </font>
+        </Label>
+
+        <TextFlow layoutX="130.0" layoutY="90.0" prefHeight="52.0" prefWidth="372.0">
+            <children>
+                <Label prefHeight="18.0" prefWidth="116.0" text="Wybór skórki">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Label>
+                <ChoiceBox fx:id="skorka" prefWidth="150.0" />
+            </children>
+        </TextFlow>
+
+        <TextFlow layoutX="130.0" layoutY="120.0" prefHeight="52.0" prefWidth="372.0">
+            <children>
+                <Label prefHeight="18.0" prefWidth="116.0" text="Wybór profilu:">
+                    <font>
+                        <Font size="14.0"/>
+                    </font>
+                </Label>
+                <ChoiceBox fx:id="profil" prefWidth="150.0"/>
+            </children>
+        </TextFlow>
+
+        <Label fx:id="labelWybranyProfil" layoutX="130.0" layoutY="160.0" text="Wybrany profil: "/>
+
+        <TextField fx:id="nowyProfilNazwa" layoutX="130.0" layoutY="190.0" prefWidth="150.0" promptText="Nowy profil"/>
+
+        <Button fx:id="dodajProfilButton" layoutX="300.0" layoutY="220.0" text="Dodaj profil"/>
     </children>
 </AnchorPane>
+
