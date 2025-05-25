@@ -85,7 +85,7 @@ public class Main extends Application {
 
 
 
-
+    private Profile profile = new Profile();
 
     public void pokazScenaOpcje() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("ScenaOpcje.fxml"));
@@ -93,11 +93,14 @@ public class Main extends Application {
 
         ScenaOpcjeController controllerScenaOpcje = loader.getController();
         controllerScenaOpcje.setMainApp(this);
+        controllerScenaOpcje.setProfile(profile);
 
         scenaOpcje = new Scene(root);
         primaryStage.setScene(scenaOpcje);
         primaryStage.setTitle("SHOGI OPCJE");
     }
+
+
 
     public void pokazScenaStatystyki() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("ScenaStatystyki.fxml"));
@@ -105,6 +108,7 @@ public class Main extends Application {
 
         ScenaStatystykiController controllerScenaStatystyki = loader.getController();
         controllerScenaStatystyki.setMainApp(this);
+        controllerScenaStatystyki.setProfile(profile);
 
         scenaStatystyki = new Scene(root);
         primaryStage.setScene(scenaStatystyki);
