@@ -10,7 +10,8 @@ import Myapp.rozgrywka.Rozgrywka;
 
 import java.util.ArrayList;
 
-public class Rozgrywka {
+public class Rozgrywka
+{
 
 
     //*********************Pola**********************************************************
@@ -53,14 +54,14 @@ public class Rozgrywka {
             jedynaPrawdziwa = new Rozgrywka(planszaPioneczkow);
         } else
         {
-            for (int i = 0; i < 9; i++)
-            {
-                for (int j = 0; j < 9; j++)
-                {
-                    System.out.print(planszaPioneczkow[i][j]);
-                }
-                System.out.println();
-            }
+//            for (int i = 0; i < 9; i++)
+//            {
+//                for (int j = 0; j < 9; j++)
+//                {
+//                    System.out.print(planszaPioneczkow[i][j]);
+//                }
+//                System.out.println();
+//            }
             jedynaPrawdziwa.planszaPrzyciskow = planszaPioneczkow;
             for (int i = 0; i < 9; i++)
                 for (int j = 0; j < 13; j++)
@@ -131,7 +132,7 @@ public class Rozgrywka {
         {
             dodajBierke(new Pion(Kolor.CZARNY, Stan.NA_PLANSZY, i, 6));
         }
-        wypisNaKonsole();
+        //wypisNaKonsole();
         planszaPrzyciskow = null;
     }
 
@@ -145,21 +146,21 @@ public class Rozgrywka {
         for (Bierka b : bierka)
             dodajBierke(b);
         this.strona = strona;
-        wypisNaKonsole();
+        //wypisNaKonsole();
         planszaPrzyciskow = null;
     }
 
     private Rozgrywka(Button[][] planszaPioneczkow)
     {
         this();
-        for (int i = 0; i < 9; i++)
-        {
-            for (int j = 0; j < 9; j++)
-            {
-                System.out.print(planszaPioneczkow[i][j]);
-            }
-            System.out.println();
-        }
+//        for (int i = 0; i < 9; i++)
+//        {
+//            for (int j = 0; j < 9; j++)
+//            {
+//                System.out.print(planszaPioneczkow[i][j]);
+//            }
+//            System.out.println();
+//        }
         planszaPrzyciskow = planszaPioneczkow;
         for (int i = 0; i < 9; i++)
             for (int j = 0; j < 13; j++)
@@ -176,14 +177,16 @@ public class Rozgrywka {
     public boolean ruch(Klikniecie klikniecie)
     {
         System.out.println("*******************************************");
+        System.out.println(klikniecie.getX() + " " + klikniecie.getY());
         if (aktywna != null)
         {
             //jest juz zaznaczona bierka
-            System.out.println("Bierka aktywna");
+            System.out.println("Bierka aktywna - " + aktywna);
             if ((plansza[klikniecie.getX()][klikniecie.getY()] == null) || (plansza[klikniecie.getX()][klikniecie.getY()].getKolor() != aktywna.getKolor()))
             //klikniecie na puste lub bierke przeciwnika - proba ruchu
             {
                 System.out.println("Proba ruchu");
+                System.out.println("Wiersz - " + aktywna.getNrWiersza());
                 if (aktywna.getNrWiersza() < 9)
                 {
                     System.out.println("Proba ruchu normalnego");
@@ -198,16 +201,16 @@ public class Rozgrywka {
                             }
                         }
                         przemieszczenie(klikniecie);
-                    } else
-                    //podjeto probe wrzutki
-                    {
-                        System.out.println("proba zrzutki");
-                        if (czyLegalnaZrzutka(klikniecie))
-                        {
-                            System.out.println("Zrzutka legalna");
-                            przemieszczenie(klikniecie);
-                        } else System.out.println("Zrzutka nielegalna");
                     }
+                } else
+                //podjeto probe wrzutki
+                {
+                    System.out.println("proba zrzutki");
+                    if ((plansza[klikniecie.getX()][klikniecie.getY()] == null) && czyLegalnaZrzutka(klikniecie))
+                    {
+                        System.out.println("Zrzutka legalna");
+                        przemieszczenie(klikniecie);
+                    } else System.out.println("Zrzutka nielegalna");
                 }
                 aktywna = null;
                 return true;
@@ -216,7 +219,7 @@ public class Rozgrywka {
             {
                 return probaAwansu(klikniecie);
             } else
-            //klikniecie na bierke wsojego koloru - zmiana aktywnej
+            //klikniecie na bierke swojego koloru - zmiana aktywnej
             {
                 aktywna = plansza[klikniecie.getX()][klikniecie.getY()];
             }
@@ -234,35 +237,63 @@ public class Rozgrywka {
         if (plansza[klikniecie.getX()][klikniecie.getY()] != null)
         {
             Bierka zbijany = plansza[aktywna.getNrKolumny()][aktywna.getNrWiersza()].zbity();
+//            System.out.println("Zbijany = NULL ? " + zbijany==null);
             //wyszukiwanie podstawienia na poprawne wolne pole przechowywania
-            int rzadTymczasowy = (zbijany.getKolor()==Kolor.BIALY)?9:11;
-            for(int i = rzadTymczasowy; i < rzadTymczasowy+2; i++)
-                for(int j = 0; j < 9; j++)
-                    if(plansza[j][i] == null)
+            int rzadTymczasowy = (zbijany.getKolor() == Kolor.BIALY) ? 9 : 11;
+            for (int i = rzadTymczasowy; i < rzadTymczasowy + 2; i++)
+            {
+                for (int j = 0; j < 9; j++)
+                    if (plansza[j][i] == null)
                     {
                         plansza[j][i] = zbijany;
                         planszaPrzyciskow[j][i].setGraphic(obrazekBierki(plansza[j][i]));
-                        plansza[j][i].ustawPozycje(j,i);
+//                        System.out.println("Zbijany = NULL ? " + (plansza[j][i] == null));
+//                        System.out.println("Kolumna = " + i + " Wiersz  " + j);
+                        plansza[j][i].setNrKolumny(j);
+                        plansza[j][i].setNrWiersza(i);
+//                        System.out.println(plansza[j][i].getKolor());
                         zbijany = null;
                         break;
                     }
-            if(zbijany != null)
+                if (zbijany == null) break;
+            }
+
+            if (zbijany != null)
             {
-                if (rzadTymczasowy == 9){
+                if (rzadTymczasowy == 9)
+                {
                     plansza[0][13] = zbijany;
                     planszaPrzyciskow[0][13].setGraphic(obrazekBierki(plansza[0][13]));
-                    plansza[0][13].ustawPozycje(0,13);
-                } else{
+                    plansza[0][13].setNrKolumny(0);
+                    plansza[0][13].setNrWiersza(13);
+                    //plansza[0][13].ustawPozycje(0,13);
+                } else
+                {
                     plansza[2][13] = zbijany;
                     planszaPrzyciskow[2][13].setGraphic(obrazekBierki(plansza[2][13]));
-                    plansza[2][13].ustawPozycje(2,13);
+                    plansza[2][13].setNrKolumny(2);
+                    plansza[2][13].setNrWiersza(13);
+                    //plansza[2][13].ustawPozycje(2,13);
                 }
 
             }
         }
         plansza[aktywna.getNrKolumny()][aktywna.getNrWiersza()] = aktywna;
         planszaPrzyciskow[aktywna.getNrKolumny()][aktywna.getNrWiersza()].setGraphic(obrazekBierki(aktywna));
+        czyKoniecGry();
         zmianaGracza();
+    }
+
+    private boolean czyKoniecGry()
+    {
+        for(Bierka q:bierki)
+        {
+            if(q instanceof Krol)
+            {
+                if (q.czyWNiewoli()) return true;
+            }
+        }
+        return false;
     }
 
     public ArrayList<Bierka> getBierki()
@@ -463,8 +494,11 @@ public class Rozgrywka {
 
     private boolean probaAwansu(Klikniecie klikniecie)
     {
+
+        System.out.println("HEHEHEHEHEHEHEH");
         if (plansza[klikniecie.getX()][klikniecie.getY()] instanceof PromowalnaBierka)
         {
+            System.out.println("awansowalna");
             PromowalnaBierka awansowana = (PromowalnaBierka) plansza[klikniecie.getX()][klikniecie.getY()];
             if (((awansowana.getKolor() == Kolor.BIALY) && (awansowana.getNrWiersza() >= 6)) ||
                     ((awansowana.getKolor() == Kolor.CZARNY) && (awansowana.getNrWiersza() <= 2)))
@@ -472,6 +506,9 @@ public class Rozgrywka {
                 if (!awansowana.czyPromowana())
                 {
                     awansowana.promocja();
+                    planszaPrzyciskow[klikniecie.getX()][klikniecie.getY()].setGraphic(obrazekBierki(plansza[klikniecie.getX()][klikniecie.getY()]));
+                    aktywna = null;
+                    czyKoniecGry();
                     zmianaGracza();
                     return true;
                 }
@@ -482,31 +519,33 @@ public class Rozgrywka {
 
     private boolean czyLegalnaZrzutka(Klikniecie klikniecie)
     {
-
-        if (plansza[klikniecie.getX()][klikniecie.getY()] instanceof Pion)
+        System.out.println("Witamy państwa z wnętrza funkcji czy legalna zrzutka");
+        System.out.println(klikniecie.getX()+" "+klikniecie.getY());
+        System.out.println(aktywna);
+        if (aktywna instanceof Pion)
         {
             //zakaz wstawiania pionów bez ruchu
-            if (klikniecie.getY() == ((strona == Kolor.BIALY)?8:0))
+            System.out.println("To jest pion");
+            if (klikniecie.getY() == ((strona == Kolor.BIALY) ? 8 : 0))
             {
                 System.out.println("ZAKAZ BRAK RUCHU");
                 return false;
             }
             //zakaz podwójnego wstawiania pionów
-            for(int i = 0; i < 9; i++)
+            for (int i = 0; i < 9; i++)
             {
-                if (i == klikniecie.getY()) continue;
-                if (plansza[klikniecie.getX()][i] instanceof Pion)
+                if ((plansza[klikniecie.getX()][i] instanceof Pion) && (plansza[klikniecie.getX()][i].getKolor() == aktywna.getKolor()))
                 {
                     System.out.println("ZAKAZ PODWÓJNY PION");
                     return false;
                 }
             }
         }
-        if ((plansza[klikniecie.getX()][klikniecie.getY()] instanceof Lanca) &&
-                (klikniecie.getY() == ((strona == Kolor.BIALY)?8:0))) return false;
-        if ((plansza[klikniecie.getX()][klikniecie.getY()] instanceof Skoczek) &&
-                ((klikniecie.getY() == ((strona == Kolor.BIALY)?8:0))) ||
-                (klikniecie.getY() == ((strona == Kolor.BIALY)?7:1))) return false;
+        if ((aktywna instanceof Lanca) &&
+                (klikniecie.getY() == ((strona == Kolor.BIALY) ? 8 : 0))) return false;
+        if ((aktywna instanceof Skoczek) &&
+                ((klikniecie.getY() == ((strona == Kolor.BIALY) ? 8 : 0))) ||
+                (klikniecie.getY() == ((strona == Kolor.BIALY) ? 7 : 1))) return false;
         return true;
     }
 }

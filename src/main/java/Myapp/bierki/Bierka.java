@@ -39,19 +39,19 @@ public abstract class Bierka implements Serializable {
     {
         stan = Stan.ZBITY;
         if(kolor == Kolor.CZARNY) kolor = Kolor.BIALY; else kolor = Kolor.CZARNY; //zmiana koloru
-        nrWiersza = -1;
-        nrKolumny = -1;
+//        nrWiersza = -1;
+//        nrKolumny = -1;
         return this;
     }
 
+    public void setNrWiersza(int nrWiersza)
+    {
+        this.nrWiersza = nrWiersza;
+    }
 
-    //NIE UŻYWAĆ POD ŻADNYM POZOREM!!!!!!!!!!!!!!!!!!!!
-    //ISTNIEJE TYLKO DLA JEDNEGO UŻYVIA
-    //W INNYCH WYPADKACH UŻYĆ RUCH
-    public void ustawPozycje(int nrKolumny, int nrWiersza)
+    public void setNrKolumny(int nrKolumny)
     {
         this.nrKolumny = nrKolumny;
-        this.nrWiersza = nrWiersza;
     }
 
     public boolean czyWNiewoli()
