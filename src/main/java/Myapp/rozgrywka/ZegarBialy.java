@@ -19,6 +19,9 @@ public class ZegarBialy {
     public static int getMinuty() {
         return minuty;
     }
+    public static int getSekundy() {
+        return sekundy;
+    }
 
     public static String getObecnyCzas() {
         return minuty + ":" + sekundy;

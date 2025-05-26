@@ -283,6 +283,12 @@ public class  ScenaRozgrywkiController {
     public Text tura_b;
     @FXML
     public Text tura_c;
+    int bialyMinuty;
+    int bialySekundy;
+    int czarnyMinuty;
+    int czarnySekundy;
+    int bialyCzas;
+    int czarnyCzas;
 
     private Main mainApp;
 
@@ -354,6 +360,9 @@ public class  ScenaRozgrywkiController {
 
         zapiszMenu.setOnAction(event -> {
             String kolorowy=wybrany+"_kolor";
+            String zegarowy_b=wybrany+"_zegar_bialy";
+            String zegarowy_c=wybrany+"_zegar_czarny";
+
 
             File file1 = new File(wybrany);
             if (file1.exists()) {
@@ -376,6 +385,22 @@ public class  ScenaRozgrywkiController {
             }
             file2=null;
 
+            File file3 = new File(zegarowy_b);
+            if (file3.exists()) {
+                if (file3.delete()) {
+                    System.out.println("Usunięto istniejący plik: " + zegarowy_b);
+                }
+            }
+            file3=null;
+
+            File file4 = new File(zegarowy_c);
+            if (file4.exists()) {
+                if (file4.delete()) {
+                    System.out.println("Usunięto istniejący plik: " + zegarowy_c);
+                }
+            }
+            file4=null;
+
             try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(wybrany))) {
                 out.writeObject(r.bierki);
                 System.out.println("Zapisano tablicę obiektów do pliku: " + wybrany);
@@ -386,6 +411,29 @@ public class  ScenaRozgrywkiController {
             try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(kolorowy))) {
                 out.writeObject(r.strona);
                 System.out.println("Zapisano kolor do pliku: " + kolorowy);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            bialyMinuty=ZegarBialy.getMinuty();
+            bialySekundy=ZegarBialy.getSekundy();
+            czarnyMinuty=ZegarCzarny.getMinuty();
+            czarnySekundy=ZegarCzarny.getSekundy();
+            bialyCzas=60*bialyMinuty+bialySekundy;
+            czarnyCzas=60*czarnyMinuty+czarnySekundy;
+
+
+
+            try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(zegarowy_b))) {
+                out.writeObject(bialyCzas);
+                System.out.println("Zapisano stan zegara białego do pliku: " + zegarowy_b);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(zegarowy_c))) {
+                out.writeObject(czarnyCzas);
+                System.out.println("Zapisano stan zegara czarnego do pliku: " + zegarowy_c);
             } catch (IOException e) {
                 e.printStackTrace();
             }
