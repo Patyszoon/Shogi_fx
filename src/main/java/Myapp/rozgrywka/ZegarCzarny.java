@@ -15,6 +15,9 @@ public class ZegarCzarny {
     public static void setMinuty(int nowaMinuty) {
         minuty = nowaMinuty;
     }
+    public static void setSekundy(int nowaSekundy) {
+        sekundy = nowaSekundy;
+    }
 
     public static int getMinuty() {
         return minuty;

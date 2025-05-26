@@ -2,6 +2,8 @@ package Myapp;
 
 import Myapp.bierki.Bierka;
 import Myapp.bierki.Kolor;
+import Myapp.rozgrywka.ZegarBialy;
+import Myapp.rozgrywka.ZegarCzarny;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -28,6 +30,14 @@ public class ScenaWyboruController {
     @FXML
     private ChoiceBox wybor;
     Rozgrywka r = new Rozgrywka();
+    ZegarBialy zeg_bial;
+    ZegarCzarny zeg_czar;
+    int bialyMinuty;
+    int bialySekundy;
+    int czarnyMinuty;
+    int czarnySekundy;
+    int bialyCzas;
+    int czarnyCzas;
 
     @FXML
     private void initialize() {
@@ -78,11 +88,16 @@ public class ScenaWyboruController {
         wczytajZapis.setOnAction(event -> {
             r.dropZwyczajny();
             String kolorowy = wybrany + "_kolor";
+            String zegarowy_b=wybrany+"_zegar_bialy";
+            String zegarowy_c=wybrany+"_zegar_czarny";
 
 
             File file1 = new File(wybrany);
             File file2 = new File(kolorowy);
-            if (!file1.exists()&&!file2.exists()) {
+            File file3 = new File(zegarowy_b);
+            File file4 = new File(zegarowy_c);
+
+            if (!file1.exists()) {
                 alert.showAndWait();
 
                 if (alert.getResult() == ButtonType.YES) {
@@ -107,6 +122,31 @@ public class ScenaWyboruController {
                 } catch (IOException | ClassNotFoundException e) {
                     e.printStackTrace();
                 }
+
+
+                try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(zegarowy_b))) {
+                    bialyCzas = (int) in.readObject();
+                    System.out.println("Wczytano czas z pliku: " + zegarowy_b);
+                } catch (IOException | ClassNotFoundException e) {
+                    e.printStackTrace();
+                }
+
+                try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(zegarowy_c))) {
+                    czarnyCzas = (int) in.readObject();
+                    System.out.println("Wczytano czas z pliku: " + zegarowy_c);
+                } catch (IOException | ClassNotFoundException e) {
+                    e.printStackTrace();
+                }
+                bialyMinuty=bialyCzas/60;
+                czarnyMinuty=czarnyCzas/60;
+                bialySekundy=bialyCzas%60;
+                czarnySekundy=czarnyCzas%60;
+                zeg_bial.setMinuty(bialyMinuty);
+                zeg_bial.setSekundy(bialySekundy);
+                zeg_czar.setMinuty(czarnyMinuty);
+                zeg_czar.setSekundy(czarnySekundy);
+
+
                 r.getInstancja(bierki, kolor);
 
                 try {
@@ -117,6 +157,8 @@ public class ScenaWyboruController {
             }
             file2=null;
             file1=null;
+            file3=null;
+            file4=null;
 
 
 
