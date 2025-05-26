@@ -41,7 +41,7 @@ public class ScenaOpcjeController {
     @FXML
     private void initialize() {
         //w przyszlosci wystarczy ze tutaj bedziemy dopisywac kolejne skorki oraz dodawac tak samo nazwane foldery i powinno dzialac
-        skorka.getItems().addAll("klasyczne", "europejskie");
+        skorka.getItems().addAll("klasyczne", "europejskie", "szachowe");
         System.out.println("Obecna skorka: " + Rozgrywka.getObecnaSkorka());
 
         skorka.setValue(Rozgrywka.getObecnaSkorka());
