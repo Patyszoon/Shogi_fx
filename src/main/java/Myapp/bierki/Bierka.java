@@ -35,12 +35,23 @@ public abstract class Bierka implements Serializable {
     public abstract boolean czyLegalny(int kolumna, int wiersz);
 
     //wywolywane gdy zbijany - zmienia jego stan an zbity i zmienia kolor
-    public void zbity()
+    public Bierka zbity()
     {
         stan = Stan.ZBITY;
         if(kolor == Kolor.CZARNY) kolor = Kolor.BIALY; else kolor = Kolor.CZARNY; //zmiana koloru
         nrWiersza = -1;
         nrKolumny = -1;
+        return this;
+    }
+
+
+    //NIE UŻYWAĆ POD ŻADNYM POZOREM!!!!!!!!!!!!!!!!!!!!
+    //ISTNIEJE TYLKO DLA JEDNEGO UŻYVIA
+    //W INNYCH WYPADKACH UŻYĆ RUCH
+    public void ustawPozycje(int nrKolumny, int nrWiersza)
+    {
+        this.nrKolumny = nrKolumny;
+        this.nrWiersza = nrWiersza;
     }
 
     public boolean czyWNiewoli()

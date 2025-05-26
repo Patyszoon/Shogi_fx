@@ -20,10 +20,10 @@ public abstract class PromowalnaBierka extends Bierka{
     }
 
     @Override
-    public void zbity()
+    public Bierka zbity()
     {
         promowana = false;
-        super.zbity();
+        return super.zbity();
     }
 
     protected abstract boolean czyLegalnyPrzedPromocja(int kolumna, int wiersz);
