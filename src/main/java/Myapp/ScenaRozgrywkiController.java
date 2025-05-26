@@ -275,8 +275,14 @@ public class  ScenaRozgrywkiController {
     private Button Czarnew3k4;
     @FXML
     private ChoiceBox wyborZapisu;
+    @FXML
     public Text zegar1;
+    @FXML
     public Text zegar2;
+    @FXML
+    public Text tura_b;
+    @FXML
+    public Text tura_c;
 
     private Main mainApp;
 
@@ -292,9 +298,13 @@ public class  ScenaRozgrywkiController {
                         if(r.strona == BIALY){
                             ZegarBialy.mijanieSekundy();
                             zegar2.setText(ZegarBialy.getObecnyCzas());
+                            tura_b.setText("BIAŁE");
+                            tura_c.setText(" ");
                         } else {
                             ZegarCzarny.mijanieSekundy();
                             zegar1.setText(ZegarCzarny.getObecnyCzas());
+                            tura_c.setText("CZARNE");
+                            tura_b.setText(" ");
                         }
                     }
             ));
