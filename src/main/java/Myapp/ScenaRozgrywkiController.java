@@ -362,6 +362,7 @@ public class  ScenaRozgrywkiController {
             String kolorowy=wybrany+"_kolor";
             String zegarowy_b=wybrany+"_zegar_bialy";
             String zegarowy_c=wybrany+"_zegar_czarny";
+            String skorkowany=wybrany+"_skorka";
 
 
             File file1 = new File(wybrany);
@@ -408,6 +409,14 @@ public class  ScenaRozgrywkiController {
                 e.printStackTrace();
             }
 
+            File file5 = new File(skorkowany);
+            if (file5.exists()) {
+                if (file5.delete()) {
+                    System.out.println("Usunięto istniejący plik: " + skorkowany);
+                }
+            }
+            file5=null;
+
             try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(kolorowy))) {
                 out.writeObject(r.strona);
                 System.out.println("Zapisano kolor do pliku: " + kolorowy);
@@ -434,6 +443,15 @@ public class  ScenaRozgrywkiController {
             try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(zegarowy_c))) {
                 out.writeObject(czarnyCzas);
                 System.out.println("Zapisano stan zegara czarnego do pliku: " + zegarowy_c);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            String skorkaTeraz=r.getObecnaSkorka();
+
+            try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(skorkowany))) {
+                out.writeObject(skorkaTeraz);
+                System.out.println("Zapisano skórkę do pliku: " + skorkowany);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -460,6 +478,7 @@ public class  ScenaRozgrywkiController {
             String kolorowy=wybrany+"_kolor";
             String zegarowy_b=wybrany+"_zegar_bialy";
             String zegarowy_c=wybrany+"_zegar_czarny";
+            String skorkowany=wybrany+"_skorka";
 
 
             File file1 = new File(wybrany);
@@ -506,6 +525,14 @@ public class  ScenaRozgrywkiController {
                 e.printStackTrace();
             }
 
+            File file5 = new File(skorkowany);
+            if (file5.exists()) {
+                if (file5.delete()) {
+                    System.out.println("Usunięto istniejący plik: " + skorkowany);
+                }
+            }
+            file5=null;
+
             try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(kolorowy))) {
                 out.writeObject(r.strona);
                 System.out.println("Zapisano kolor do pliku: " + kolorowy);
@@ -536,12 +563,17 @@ public class  ScenaRozgrywkiController {
                 e.printStackTrace();
             }
 
+            String skorkaTeraz=r.getObecnaSkorka();
 
-            try {
-                mainApp.pokazScenaMenu();
+            try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(skorkowany))) {
+                out.writeObject(skorkaTeraz);
+                System.out.println("Zapisano skórkę do pliku: " + skorkowany);
             } catch (IOException e) {
                 e.printStackTrace();
             }
+
+
+
         });
 
         zegar1.setText(ZegarCzarny.getObecnyCzas());

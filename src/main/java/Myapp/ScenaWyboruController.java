@@ -38,6 +38,7 @@ public class ScenaWyboruController {
     int czarnySekundy;
     int bialyCzas;
     int czarnyCzas;
+    String wczytanaSkorka;
 
     @FXML
     private void initialize() {
@@ -90,12 +91,14 @@ public class ScenaWyboruController {
             String kolorowy = wybrany + "_kolor";
             String zegarowy_b=wybrany+"_zegar_bialy";
             String zegarowy_c=wybrany+"_zegar_czarny";
+            String skorkowany=wybrany+"_skorka";
 
 
             File file1 = new File(wybrany);
             File file2 = new File(kolorowy);
             File file3 = new File(zegarowy_b);
             File file4 = new File(zegarowy_c);
+            File file5 = new File(skorkowany);
 
             if (!file1.exists()) {
                 alert.showAndWait();
@@ -137,6 +140,14 @@ public class ScenaWyboruController {
                 } catch (IOException | ClassNotFoundException e) {
                     e.printStackTrace();
                 }
+
+                try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(skorkowany))) {
+                    wczytanaSkorka = (String) in.readObject();
+                    System.out.println("Wczytano skorkę z pliku: " + skorkowany);
+                } catch (IOException | ClassNotFoundException e) {
+                    e.printStackTrace();
+                }
+
                 bialyMinuty=bialyCzas/60;
                 czarnyMinuty=czarnyCzas/60;
                 bialySekundy=bialyCzas%60;
@@ -148,6 +159,7 @@ public class ScenaWyboruController {
 
 
                 r.getInstancja(bierki, kolor);
+                r.setObecnaSkorka(wczytanaSkorka);
 
                 try {
                     mainApp.pokazScenaRozgrywki();
@@ -159,6 +171,7 @@ public class ScenaWyboruController {
             file1=null;
             file3=null;
             file4=null;
+            file5=null;
 
 
 
