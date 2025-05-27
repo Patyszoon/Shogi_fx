@@ -1,17 +1,26 @@
 package Myapp;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.layout.AnchorPane;
 import Myapp.rozgrywka.Klikniecie;
 import Myapp.rozgrywka.Rozgrywka;
+import javafx.scene.text.Text;
+import javafx.util.Duration;
+import Myapp.rozgrywka.ZegarBialy;
+import Myapp.rozgrywka.ZegarCzarny;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
-import java.util.concurrent.atomic.AtomicReference;
+
+import static Myapp.bierki.Kolor.BIALY;
 
 public class ScenaRozgrywkiController {
     private String wybrany;
@@ -266,10 +275,46 @@ public class ScenaRozgrywkiController {
     @FXML
     private ChoiceBox wyborZapisu;
 
+    @FXML
+    public Text zegar1;
+    @FXML
+    public Text zegar2;
+    @FXML
+    public Text tura_b;
+    @FXML
+    public Text tura_c;
+    int bialyMinuty;
+    int bialySekundy;
+    int czarnyMinuty;
+    int czarnySekundy;
+    int bialyCzas;
+    int czarnyCzas;
+
     private Main mainApp;
 
     public Button[][] przyciski = new Button[9][14];
     Rozgrywka r = null;
+
+    Timeline timeline = new Timeline(
+            new KeyFrame(Duration.seconds(1),
+                    event -> {
+                        if (ZegarBialy.koniecCzasu() || ZegarCzarny.koniecCzasu()) {
+                            System.out.println("Czas się skończył");
+                        }
+                        if(r.strona == BIALY){
+                            ZegarBialy.mijanieSekundy();
+                            zegar2.setText(ZegarBialy.getObecnyCzas());
+                            tura_b.setText("BIAŁE");
+                            tura_c.setText(" ");
+                        } else {
+                            ZegarCzarny.mijanieSekundy();
+                            zegar1.setText(ZegarCzarny.getObecnyCzas());
+                            tura_c.setText("CZARNE");
+                            tura_b.setText(" ");
+                        }
+                    }
+            ));
+
 
     @FXML
     private AnchorPane plansza;
@@ -284,16 +329,16 @@ public class ScenaRozgrywkiController {
     @FXML
     public void initialize() {
         String[] zapisy = new String[10];
-        zapisy[0] = "Zapis 1";
-        zapisy[1] = "Zapis 2";
-        zapisy[2] = "Zapis 3";
-        zapisy[3] = "Zapis 4";
-        zapisy[4] = "Zapis 5";
-        zapisy[5] = "Zapis 6";
-        zapisy[6] = "Zapis 7";
-        zapisy[7] = "Zapis 8";
-        zapisy[8] = "Zapis 9";
-        zapisy[9] = "Zapis 10";
+        zapisy[0]="Zapis 1";
+        zapisy[1]="Zapis 2";
+        zapisy[2]="Zapis 3";
+        zapisy[3]="Zapis 4";
+        zapisy[4]="Zapis 5";
+        zapisy[5]="Zapis 6";
+        zapisy[6]="Zapis 7";
+        zapisy[7]="Zapis 8";
+        zapisy[8]="Zapis 9";
+        zapisy[9]="Zapis 10";
         wyborZapisu.getItems().add(zapisy[0]);
         wyborZapisu.getItems().add(zapisy[1]);
         wyborZapisu.getItems().add(zapisy[2]);
@@ -304,6 +349,7 @@ public class ScenaRozgrywkiController {
         wyborZapisu.getItems().add(zapisy[7]);
         wyborZapisu.getItems().add(zapisy[8]);
         wyborZapisu.getItems().add(zapisy[9]);
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Wybrany zapis już istnieje, czy chcesz go nadpisać?", ButtonType.YES, ButtonType.CANCEL);
 
 
         wyborZapisu.setOnAction((event -> {
@@ -313,14 +359,24 @@ public class ScenaRozgrywkiController {
 
 
         zapiszMenu.setOnAction(event -> {
-            String kolorowy = wybrany + "_kolor";
+            String kolorowy=wybrany+"_kolor";
+            String zegarowy_b=wybrany+"_zegar_bialy";
+            String zegarowy_c=wybrany+"_zegar_czarny";
+            String skorkowany=wybrany+"_skorka";
+
 
             File file1 = new File(wybrany);
             if (file1.exists()) {
-                if (file1.delete()) {
-                    System.out.println("Usunięto istniejący plik: " + wybrany);
+                alert.showAndWait();
+
+                if (alert.getResult() == ButtonType.YES) {
+                    if (file1.delete()) {
+                        System.out.println("Usunięto istniejący plik: " + wybrany);
+                    }
                 }
+
             }
+            file1=null;
 
             File file2 = new File(kolorowy);
             if (file2.exists()) {
@@ -328,6 +384,23 @@ public class ScenaRozgrywkiController {
                     System.out.println("Usunięto istniejący plik: " + kolorowy);
                 }
             }
+            file2=null;
+
+            File file3 = new File(zegarowy_b);
+            if (file3.exists()) {
+                if (file3.delete()) {
+                    System.out.println("Usunięto istniejący plik: " + zegarowy_b);
+                }
+            }
+            file3=null;
+
+            File file4 = new File(zegarowy_c);
+            if (file4.exists()) {
+                if (file4.delete()) {
+                    System.out.println("Usunięto istniejący plik: " + zegarowy_c);
+                }
+            }
+            file4=null;
 
             try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(wybrany))) {
                 out.writeObject(r.bierki);
@@ -336,9 +409,45 @@ public class ScenaRozgrywkiController {
                 e.printStackTrace();
             }
 
-            try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(kolorowy))) {
+            File file5 = new File(skorkowany);
+            if (file5.exists()) {
+                if (file5.delete()) {
+                    System.out.println("Usunięto istniejący plik: " + skorkowany);
+                }
+            }
+            file5=null;try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(kolorowy))) {
                 out.writeObject(r.strona);
                 System.out.println("Zapisano kolor do pliku: " + kolorowy);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }bialyMinuty=ZegarBialy.getMinuty();
+            bialySekundy=ZegarBialy.getSekundy();
+            czarnyMinuty=ZegarCzarny.getMinuty();
+            czarnySekundy=ZegarCzarny.getSekundy();
+            bialyCzas=60*bialyMinuty+bialySekundy;
+            czarnyCzas=60*czarnyMinuty+czarnySekundy;
+
+
+
+            try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(zegarowy_b))) {
+                out.writeObject(bialyCzas);
+                System.out.println("Zapisano stan zegara białego do pliku: " + zegarowy_b);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(zegarowy_c))) {
+                out.writeObject(czarnyCzas);
+                System.out.println("Zapisano stan zegara czarnego do pliku: " + zegarowy_c);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            String skorkaTeraz=r.getObecnaSkorka();
+
+            try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(skorkowany))) {
+                out.writeObject(skorkaTeraz);
+                System.out.println("Zapisano skórkę do pliku: " + skorkowany);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -353,6 +462,7 @@ public class ScenaRozgrywkiController {
 
 
         });
+
         menu.setOnAction(event -> {
             r.dropZwyczajny();
             try {
@@ -361,14 +471,24 @@ public class ScenaRozgrywkiController {
                 e.printStackTrace();
             }
         });
+
         zapisz.setOnAction(event -> {
-            String kolorowy = wybrany + "_kolor";
+            String kolorowy=wybrany+"_kolor";
+            String zegarowy_b=wybrany+"_zegar_bialy";
+            String zegarowy_c=wybrany+"_zegar_czarny";
+            String skorkowany=wybrany+"_skorka";
+
 
             File file1 = new File(wybrany);
             if (file1.exists()) {
-                if (file1.delete()) {
-                    System.out.println("Usunięto istniejący plik: " + wybrany);
+                alert.showAndWait();
+
+                if (alert.getResult() == ButtonType.YES) {
+                    if (file1.delete()) {
+                        System.out.println("Usunięto istniejący plik: " + wybrany);
+                    }
                 }
+
             }
             file1 = null;
 
@@ -380,6 +500,22 @@ public class ScenaRozgrywkiController {
             }
             file2 = null;
 
+            File file3 = new File(zegarowy_b);
+            if (file3.exists()) {
+                if (file3.delete()) {
+                    System.out.println("Usunięto istniejący plik: " + zegarowy_b);
+                }
+            }
+            file3=null;
+
+            File file4 = new File(zegarowy_c);
+            if (file4.exists()) {
+                if (file4.delete()) {
+                    System.out.println("Usunięto istniejący plik: " + zegarowy_c);
+                }
+            }
+            file4=null;
+
             try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(wybrany))) {
                 out.writeObject(r.bierki);
                 System.out.println("Zapisano tablicę obiektów do pliku: " + wybrany);
@@ -387,14 +523,62 @@ public class ScenaRozgrywkiController {
                 e.printStackTrace();
             }
 
+            File file5 = new File(skorkowany);
+            if (file5.exists()) {
+                if (file5.delete()) {
+                    System.out.println("Usunięto istniejący plik: " + skorkowany);
+                }
+            }
+            file5=null;
+
             try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(kolorowy))) {
                 out.writeObject(r.strona);
                 System.out.println("Zapisano kolor do pliku: " + kolorowy);
             } catch (IOException e) {
                 e.printStackTrace();
             }
+
+            bialyMinuty=ZegarBialy.getMinuty();
+            bialySekundy=ZegarBialy.getSekundy();
+            czarnyMinuty=ZegarCzarny.getMinuty();
+            czarnySekundy=ZegarCzarny.getSekundy();
+            bialyCzas=60*bialyMinuty+bialySekundy;
+            czarnyCzas=60*czarnyMinuty+czarnySekundy;
+
+
+
+            try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(zegarowy_b))) {
+                out.writeObject(bialyCzas);
+                System.out.println("Zapisano stan zegara białego do pliku: " + zegarowy_b);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(zegarowy_c))) {
+                out.writeObject(czarnyCzas);
+                System.out.println("Zapisano stan zegara czarnego do pliku: " + zegarowy_c);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            String skorkaTeraz=r.getObecnaSkorka();
+
+            try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(skorkowany))) {
+                out.writeObject(skorkaTeraz);
+                System.out.println("Zapisano skórkę do pliku: " + skorkowany);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+
+
             r.dropZwyczajny();
         });
+
+        zegar1.setText(ZegarCzarny.getObecnyCzas());
+        zegar2.setText(ZegarBialy.getObecnyCzas());
+        timeline.setCycleCount(Timeline.INDEFINITE);
+        timeline.play();
 
         w0k0.setOnAction(event -> {
             r.ruch(new Klikniecie(0, 0));

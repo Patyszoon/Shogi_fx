@@ -2,9 +2,13 @@ package Myapp;
 
 import Myapp.bierki.Bierka;
 import Myapp.bierki.Kolor;
+import Myapp.rozgrywka.ZegarBialy;
+import Myapp.rozgrywka.ZegarCzarny;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import Myapp.rozgrywka.Rozgrywka;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ChoiceBox;
 
 import java.io.File;
@@ -26,6 +30,15 @@ public class ScenaWyboruController {
     @FXML
     private ChoiceBox wybor;
     Rozgrywka r = null;
+    ZegarBialy zeg_bial;
+    ZegarCzarny zeg_czar;
+    int bialyMinuty;
+    int bialySekundy;
+    int czarnyMinuty;
+    int czarnySekundy;
+    int bialyCzas;
+    int czarnyCzas;
+    String wczytanaSkorka;
 
     @FXML
     private void initialize() {
@@ -50,6 +63,7 @@ public class ScenaWyboruController {
         wybor.getItems().add(zapisy[7]);
         wybor.getItems().add(zapisy[8]);
         wybor.getItems().add(zapisy[9]);
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Ten zapis nie istnieje, wybierz inny!", ButtonType.YES, ButtonType.CANCEL);
 
         wybor.setOnAction((event -> {
             int selectedIndex = wybor.getSelectionModel().getSelectedIndex();
@@ -74,41 +88,95 @@ public class ScenaWyboruController {
 
         wczytajZapis.setOnAction(event -> {
             String kolorowy = wybrany + "_kolor";
+            String zegarowy_b=wybrany+"_zegar_bialy";
+            String zegarowy_c=wybrany+"_zegar_czarny";
+            String skorkowany=wybrany+"_skorka";
 
 
             File file1 = new File(wybrany);
-            if (!file1.exists()) {
-                System.out.println("Plik nie istnieje");
-            }
-
             File file2 = new File(kolorowy);
-            if (!file2.exists()) {
-                System.out.println("Plik nie istnieje");
-            }
+            File file3 = new File(zegarowy_b);
+            File file4 = new File(zegarowy_c);
+            File file5 = new File(skorkowany);
 
-            ArrayList<Bierka> bierki = null;
-            try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(wybrany))) {
-                bierki = (ArrayList<Bierka>) in.readObject();
-                System.out.println("Wczytano bierki z pliku: " + wybrany);
-            } catch (IOException | ClassNotFoundException e) {
-                e.printStackTrace();
+            if (!file1.exists()) {
+                alert.showAndWait();
+
+                if (alert.getResult() == ButtonType.YES) {
+                    System.out.println("Plik nie istnieje");
+                }
+
             }
+            else{
+                ArrayList<Bierka> bierki = null;
+                try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(wybrany))) {
+                    bierki = (ArrayList<Bierka>) in.readObject();
+                    System.out.println("Wczytano bierki z pliku: " + wybrany);
+                } catch (IOException | ClassNotFoundException e) {
+                    e.printStackTrace();
+                }
 
 
-            Kolor kolor = null;
-            try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(kolorowy))) {
-                kolor = (Kolor) in.readObject();
-                System.out.println("Wczytano kolor z pliku: " + kolorowy);
-            } catch (IOException | ClassNotFoundException e) {
-                e.printStackTrace();
-            }
-            r.getInstancja(bierki, kolor);
+                Kolor kolor = null;
+                try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(kolorowy))) {
+                    kolor = (Kolor) in.readObject();
+                    System.out.println("Wczytano kolor z pliku: " + kolorowy);
+                } catch (IOException | ClassNotFoundException e) {
+                    e.printStackTrace();
+                }
 
-            try {
-                mainApp.pokazScenaRozgrywki();
-            } catch (IOException e) {
-                e.printStackTrace();
+
+                try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(zegarowy_b))) {
+                    bialyCzas = (int) in.readObject();
+                    System.out.println("Wczytano czas z pliku: " + zegarowy_b);
+                } catch (IOException | ClassNotFoundException e) {
+                    e.printStackTrace();
+                }
+
+                try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(zegarowy_c))) {
+                    czarnyCzas = (int) in.readObject();
+                    System.out.println("Wczytano czas z pliku: " + zegarowy_c);
+                } catch (IOException | ClassNotFoundException e) {
+                    e.printStackTrace();
+                }
+
+                try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(skorkowany))) {
+                    wczytanaSkorka = (String) in.readObject();
+                    System.out.println("Wczytano skorkę z pliku: " + skorkowany);
+                } catch (IOException | ClassNotFoundException e) {
+                    e.printStackTrace();
+                }
+
+                bialyMinuty=bialyCzas/60;
+                czarnyMinuty=czarnyCzas/60;
+                bialySekundy=bialyCzas%60;
+                czarnySekundy=czarnyCzas%60;
+                zeg_bial.setMinuty(bialyMinuty);
+                zeg_bial.setSekundy(bialySekundy);
+                zeg_czar.setMinuty(czarnyMinuty);
+                zeg_czar.setSekundy(czarnySekundy);
+
+
+                r.getInstancja(bierki, kolor);
+                r.setObecnaSkorka(wczytanaSkorka);
+
+                try {
+                    mainApp.pokazScenaRozgrywki();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
+            file2=null;
+            file1=null;
+            file3=null;
+            file4=null;
+            file5=null;
+
+
+
+
+
+
         });
     }
 

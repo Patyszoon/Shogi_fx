@@ -6,6 +6,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.fxml.FXMLLoader;
 
+import java.awt.*;
 import java.io.IOException;
 
 public class Main extends Application {
@@ -33,9 +34,14 @@ public class Main extends Application {
         ScenaRozgrywkiController controllerPlanszy = loader.getController();
         controllerPlanszy.setMainApp(this);
 
-        scenaPlanszy = new Scene(root);
+        GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
+        int szerokosc = gd.getDisplayMode().getWidth();
+        int wysokosc = gd.getDisplayMode().getHeight();
+
+        scenaPlanszy = new Scene(root,szerokosc,wysokosc);
         primaryStage.setScene(scenaPlanszy);
         primaryStage.setTitle("SHOGI");
+        primaryStage.setMaximized(true);
         primaryStage.show();
     }
 
@@ -79,7 +85,7 @@ public class Main extends Application {
 
 
 
-
+    private Profile profile = new Profile();
 
     public void pokazScenaOpcje() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("ScenaOpcje.fxml"));
@@ -87,11 +93,14 @@ public class Main extends Application {
 
         ScenaOpcjeController controllerScenaOpcje = loader.getController();
         controllerScenaOpcje.setMainApp(this);
+        controllerScenaOpcje.setProfile(profile);
 
         scenaOpcje = new Scene(root);
         primaryStage.setScene(scenaOpcje);
         primaryStage.setTitle("SHOGI OPCJE");
     }
+
+
 
     public void pokazScenaStatystyki() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("ScenaStatystyki.fxml"));
@@ -99,6 +108,7 @@ public class Main extends Application {
 
         ScenaStatystykiController controllerScenaStatystyki = loader.getController();
         controllerScenaStatystyki.setMainApp(this);
+        controllerScenaStatystyki.setProfile(profile);
 
         scenaStatystyki = new Scene(root);
         primaryStage.setScene(scenaStatystyki);

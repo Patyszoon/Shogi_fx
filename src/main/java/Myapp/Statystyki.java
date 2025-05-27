@@ -1,16 +1,18 @@
-package Myapp.rozgrywka;
+package Myapp;
 
 import java.io.*;
 import java.util.Scanner;
 
 public class Statystyki {
-    private static final String PLIK_STATYSTYKI = "statystyki.txt";
-
+    private String PLIK_STATYSTYKI;
     private int wygrane;
     private int przegrane;
     private int gry;
+    private String nazwaProfilu;
 
-    public Statystyki() {
+    public Statystyki(String nazwaProfilu) {
+        this.nazwaProfilu = nazwaProfilu;
+        this.PLIK_STATYSTYKI = "statystyki_" + nazwaProfilu + ".txt";
         wczytajStatystyki();
     }
 
@@ -25,6 +27,8 @@ public class Statystyki {
     public int getLiczbaGier() {
         return gry;
     }
+
+    public String getNazwaProfilu() { return nazwaProfilu; }
 
     public void dodajWygrana() {
         wygrane++;
@@ -58,7 +62,7 @@ public class Statystyki {
         }
     }
 
-    public void zapiszStatystyki() {
+    private void zapiszStatystyki() {
         try (PrintWriter writer = new PrintWriter(new FileWriter(PLIK_STATYSTYKI))) {
             writer.println(wygrane);
             writer.println(przegrane);
@@ -66,5 +70,15 @@ public class Statystyki {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public String toString() {
+        return String.format(
+                "Statystyki profilu %s:\n" +
+                        "Rozegrane gry: %d\n" +
+                        "Wygrane: %d\n" +
+                        "Przegrane: %d",
+                nazwaProfilu, gry, wygrane, przegrane
+        );
     }
 }
