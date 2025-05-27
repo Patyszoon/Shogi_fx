@@ -2,7 +2,8 @@ package Myapp.bierki;
 
 import java.io.Serializable;
 
-public abstract class Bierka implements Serializable {
+public abstract class Bierka implements Serializable
+{
 
     //************************POLA********************************
     protected Kolor kolor;
@@ -13,7 +14,8 @@ public abstract class Bierka implements Serializable {
     //*****************************METODY**********************************
 
     //Konstruktor
-    protected Bierka(Kolor kolor, Stan stan, int kolumna, int wiersz) {
+    protected Bierka(Kolor kolor, Stan stan, int kolumna, int wiersz)
+    {
         this.kolor = kolor;
         this.stan = stan;
         this.nrWiersza = wiersz;
@@ -38,7 +40,8 @@ public abstract class Bierka implements Serializable {
     public Bierka zbity()
     {
         stan = Stan.ZBITY;
-        if(kolor == Kolor.CZARNY) kolor = Kolor.BIALY; else kolor = Kolor.CZARNY; //zmiana koloru
+        if (kolor == Kolor.CZARNY) kolor = Kolor.BIALY;
+        else kolor = Kolor.CZARNY; //zmiana koloru
 //        nrWiersza = -1;
 //        nrKolumny = -1;
         return this;
@@ -66,6 +69,7 @@ public abstract class Bierka implements Serializable {
         nrKolumny = kolumna;
         return new int[]{nrKolumny, nrWiersza};
     }
+
     public int[] ruch(int[] pozycja)
     {
         nrKolumny = pozycja[0];
@@ -78,11 +82,13 @@ public abstract class Bierka implements Serializable {
         return new int[]{nrKolumny, nrWiersza};
     }
 
-    public int getNrWiersza() {
+    public int getNrWiersza()
+    {
         return nrWiersza;
     }
 
-    public int getNrKolumny() {
+    public int getNrKolumny()
+    {
         return nrKolumny;
     }
 

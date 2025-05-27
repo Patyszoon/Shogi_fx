@@ -1,6 +1,7 @@
 package Myapp.bierki;
 
-public enum Stan {
+public enum Stan
+{
     NA_PLANSZY,
     ZBITY
 }

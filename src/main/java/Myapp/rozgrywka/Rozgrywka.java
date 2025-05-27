@@ -286,9 +286,9 @@ public class Rozgrywka
 
     private boolean czyKoniecGry()
     {
-        for(Bierka q:bierki)
+        for (Bierka q : bierki)
         {
-            if(q instanceof Krol)
+            if (q instanceof Krol)
             {
                 if (q.czyWNiewoli()) return true;
             }
@@ -520,7 +520,7 @@ public class Rozgrywka
     private boolean czyLegalnaZrzutka(Klikniecie klikniecie)
     {
         System.out.println("Witamy państwa z wnętrza funkcji czy legalna zrzutka");
-        System.out.println(klikniecie.getX()+" "+klikniecie.getY());
+        System.out.println(klikniecie.getX() + " " + klikniecie.getY());
         System.out.println(aktywna);
         if (aktywna instanceof Pion)
         {

@@ -1,6 +1,7 @@
 package Myapp.bierki;
 
-public enum Kolor {
+public enum Kolor
+{
     BIALY,
     CZARNY
 }
