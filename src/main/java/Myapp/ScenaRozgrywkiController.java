@@ -296,18 +296,18 @@ public class ScenaRozgrywkiController {
     Rozgrywka r = null;
 
     Timeline timeline = new Timeline(
-            new KeyFrame(Duration.seconds(1),
+            new KeyFrame(Duration.seconds(0.1),
                     event -> {
                         if (ZegarBialy.koniecCzasu() || ZegarCzarny.koniecCzasu()) {
                             System.out.println("Czas się skończył");
                         }
                         if(r.strona == BIALY){
-                            ZegarBialy.mijanieSekundy();
+                            ZegarBialy.mijanieCzasu();
                             zegar2.setText(ZegarBialy.getObecnyCzas());
                             tura_b.setText("BIAŁE");
                             tura_c.setText(" ");
                         } else {
-                            ZegarCzarny.mijanieSekundy();
+                            ZegarCzarny.mijanieCzasu();
                             zegar1.setText(ZegarCzarny.getObecnyCzas());
                             tura_c.setText("CZARNE");
                             tura_b.setText(" ");
@@ -460,7 +460,7 @@ public class ScenaRozgrywkiController {
                 e.printStackTrace();
             }
 
-
+            timeline.stop();
         });
 
         menu.setOnAction(event -> {
@@ -470,6 +470,8 @@ public class ScenaRozgrywkiController {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+
+            timeline.stop();
         });
 
         zapisz.setOnAction(event -> {

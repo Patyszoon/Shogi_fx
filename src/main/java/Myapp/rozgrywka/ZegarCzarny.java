@@ -1,6 +1,7 @@
 package Myapp.rozgrywka;
 
 public class ZegarCzarny {
+    private static int dziesiate = 9;
     private static int sekundy = 0;
     private static int minuty = 10;
 
@@ -30,11 +31,15 @@ public class ZegarCzarny {
         return minuty + ":" + sekundy;
     }
 
-    public static void mijanieSekundy() {
-        sekundy--;
-        if (sekundy == -1) {
-            sekundy = 59;
-            minuty--;
+    public static void mijanieCzasu() {
+        dziesiate--;
+        if (dziesiate == -1) {
+            sekundy--;
+            dziesiate = 9;
+            if (sekundy == -1) {
+                sekundy = 59;
+                minuty--;
+            }
         }
     }
 
