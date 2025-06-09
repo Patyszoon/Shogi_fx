@@ -51,12 +51,12 @@ public class ScenaOpcjeController {
         });
 
         minuty.getItems().addAll("1", "2", "3", "5", "10");
-        System.out.println("Czas dla gracza: " + ZegarCzarny.getMinuty());
+        System.out.println("Czas dla gracza: " + ZegarCzarny.getMinutyOpcja());
 
-        minuty.setValue(String.valueOf(ZegarCzarny.getMinuty()));
+        minuty.setValue(String.valueOf(ZegarCzarny.getMinutyOpcja()));
         minuty.getSelectionModel().selectedItemProperty().addListener((obs, obecnaMinuty, nowaMinuty) -> {
-            ZegarCzarny.setMinuty(Integer.parseInt(nowaMinuty));
-            ZegarBialy.setMinuty(Integer.parseInt(nowaMinuty));
+            ZegarCzarny.setMinutyOpcja(Integer.parseInt(nowaMinuty));
+            ZegarBialy.setMinutyOpcja(Integer.parseInt(nowaMinuty));
             System.out.println("Wybrano " + nowaMinuty + " minut");
         });
 

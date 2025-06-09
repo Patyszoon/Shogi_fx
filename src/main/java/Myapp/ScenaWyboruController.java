@@ -84,6 +84,10 @@ public class ScenaWyboruController {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+            ZegarCzarny.setSekundy(0);
+            ZegarCzarny.setMinuty(ZegarCzarny.getMinutyOpcja());
+            ZegarBialy.setSekundy(0);
+            ZegarBialy.setMinuty(ZegarBialy.getMinutyOpcja());
         });
 
         wczytajZapis.setOnAction(event -> {

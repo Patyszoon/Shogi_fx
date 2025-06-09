@@ -3,7 +3,9 @@ package Myapp.rozgrywka;
 public class ZegarCzarny {
     private static int dziesiate = 9;
     private static int sekundy = 0;
-    private static int minuty = 10;
+    private static int minutyOpcja = 10;
+    private static int minuty = minutyOpcja;
+
 
     public ZegarCzarny(int minuty) {
         ZegarCzarny.minuty = minuty;
@@ -23,6 +25,15 @@ public class ZegarCzarny {
     public static int getMinuty() {
         return minuty;
     }
+
+    public static int getMinutyOpcja() {
+        return minutyOpcja;
+    }
+
+    public static void setMinutyOpcja(int nowaMinutyOpcja) {
+        minutyOpcja = nowaMinutyOpcja;
+    }
+
     public static int getSekundy() {
         return sekundy;
     }
