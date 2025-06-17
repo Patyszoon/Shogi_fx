@@ -26,8 +26,9 @@ public class Profile {
     }
 
     private void wczytajWszystkieProfileZPlikow() {
-        File katalog = new File("statystyki_");
-        File[] pliki = katalog.listFiles((dir, name) -> name.startsWith("statystyki_") && name.endsWith(".txt"));
+        File katalog = new File(".");
+        File[] pliki = katalog.listFiles((dir, name) ->
+                name.startsWith("statystyki_") && name.endsWith(".txt"));
 
         if (pliki != null) {
             for (File plik : pliki) {
@@ -42,13 +43,6 @@ public class Profile {
         if (!profileStatystyki.containsKey(nazwaProfilu)) {
             Statystyki noweStatystyki = new Statystyki(nazwaProfilu);
             profileStatystyki.put(nazwaProfilu, noweStatystyki);
-        }
-    }
-
-    public void usunProfil(String nazwaProfilu) {
-        if (profileStatystyki.containsKey(nazwaProfilu) && !nazwaProfilu.equals("domyslny") && !nazwaProfilu.equals("gosc")) {
-            profileStatystyki.remove(nazwaProfilu);
-            new File("statystyki_" + nazwaProfilu + ".txt").delete();
         }
     }
 
@@ -69,5 +63,7 @@ public class Profile {
     public boolean czyProfilIstnieje(String nazwaProfilu) {
         return profileStatystyki.containsKey(nazwaProfilu);
     }
+
+
 }
 

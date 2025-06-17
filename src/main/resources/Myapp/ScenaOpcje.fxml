@@ -4,53 +4,64 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Myapp.ScenaOpcjeController">
+<AnchorPane prefHeight="600.0" prefWidth="800.0"
+            style="-fx-background-color: #ffffff;"
+            xmlns="http://javafx.com/javafx/23.0.1"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="Myapp.ScenaOpcjeController">
     <children>
-        <Button fx:id="powrotDoMenu" layoutX="243.0" layoutY="350.0" mnemonicParsing="false" text="Powrót do menu" />
 
-        <Label layoutX="230.0" layoutY="26.0" text="O P C J E">
+
+
+        <Label text="O P C J E" AnchorPane.bottomAnchor="475.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="300.0">
             <font>
-                <Font size="36.0" />
+                <Font size="50.0" />
             </font>
         </Label>
 
-        <TextFlow layoutX="130.0" layoutY="90.0" prefHeight="52.0" prefWidth="372.0">
+        <TextFlow layoutX="200.0" layoutY="150.0" prefHeight="40.0" prefWidth="600.0">
             <children>
-                <Label prefHeight="18.0" prefWidth="116.0" text="Wybór skórki">
+                <Label prefHeight="50.0" prefWidth="250.0" text="Wybór profilu:">
                     <font>
-                        <Font size="14.0" />
+                        <Font size="20.0" />
                     </font>
                 </Label>
-                <ChoiceBox fx:id="skorka" prefWidth="150.0" />
+                <ChoiceBox fx:id="profil" prefWidth="150.0" prefHeight="40.0"/>
             </children>
         </TextFlow>
 
-        <TextFlow layoutX="130.0" layoutY="120.0" prefHeight="52.0" prefWidth="372.0">
+        <TextField fx:id="nowyProfilNazwa" prefHeight="30.0"  layoutX="200.0" layoutY="210.0" prefWidth="150.0" promptText="Wpisz nowy profil" />
+
+        <Button fx:id="dodajProfilButton" prefHeight="30.0" prefWidth="150.0" layoutX="450.0" layoutY="210.0" text="Dodaj nowy profil" />
+
+        <TextFlow layoutX="200.0" layoutY="250.0" prefHeight="40.0" prefWidth="600.0">
             <children>
-                <Label prefHeight="18.0" prefWidth="116.0" text="Wybór profilu:">
+                <Label prefHeight="50.0" prefWidth="250.0" text="Wybór skórki:">
                     <font>
-                        <Font size="14.0" />
+                        <Font size="20.0" />
                     </font>
                 </Label>
-                <ChoiceBox fx:id="profil" prefWidth="150.0" />
+                <ChoiceBox fx:id="skorka" prefWidth="150.0" prefHeight="40.0"/>
             </children>
         </TextFlow>
 
-        <Label fx:id="labelWybranyProfil" layoutX="130.0" layoutY="160.0" text="Wybrany profil: " />
-
-        <TextField fx:id="nowyProfilNazwa" layoutX="130.0" layoutY="190.0" prefWidth="150.0" promptText="Nowy profil" />
-
-        <Button fx:id="dodajProfilButton" layoutX="300.0" layoutY="220.0" text="Nowy profil" />
-
-        <TextFlow layoutX="130.0" layoutY="254.0" prefHeight="52.0" prefWidth="372.0">
+        <TextFlow layoutX="200.0" layoutY="300.0" prefHeight="40.0" prefWidth="600.0">
             <children>
-                <Label prefHeight="18.0" prefWidth="116.0" text="Wybór czasu">
+                <Label prefHeight="50.0" prefWidth="250.0" text="Wybór czasu (min):">
                     <font>
-                        <Font size="14.0" />
+                        <Font size="20.0" />
                     </font>
                 </Label>
-                <ChoiceBox fx:id="minuty" prefWidth="150.0" />
+                <ChoiceBox fx:id="minuty" prefWidth="150.0" prefHeight="40.0"/>
             </children>
         </TextFlow>
+
+        <Label fx:id="labelWybranyProfil" layoutX="340.0" layoutY="430.0" text="Wybrany profil: " />
+
+        <Button fx:id="powrotDoMenu" text="Powrót do menu"
+                AnchorPane.bottomAnchor="75.0"
+                AnchorPane.leftAnchor="200.0"
+                AnchorPane.rightAnchor="200.0"
+                style="-fx-background-radius: 8px; -fx-font-size: 30px; -fx-background-color: #1a71e3; -fx-text-fill: white;"/>
     </children>
 </AnchorPane>

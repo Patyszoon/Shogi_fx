@@ -56,6 +56,9 @@ public class Main extends Application {
         scenaPowitalna = new Scene(root);
         primaryStage.setScene(scenaPowitalna);
         primaryStage.setTitle("SHOGI POWITANIE");
+
+        primaryStage.setResizable(false);
+
         primaryStage.show();
     }
 

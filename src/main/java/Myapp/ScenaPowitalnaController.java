@@ -2,7 +2,6 @@ package Myapp;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-
 import java.io.IOException;
 
 public class ScenaPowitalnaController {
@@ -22,7 +21,6 @@ public class ScenaPowitalnaController {
             }
         });
     }
-
     public void setMainApp(Main mainApp) {
         this.mainApp = mainApp;
     }
